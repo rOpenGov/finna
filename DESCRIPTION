@@ -1,5 +1,5 @@
 Package: finna
-Title: R package for Finna API (One Line, Title Case)
+Title: R package for Finna API
 Version: 0.0.1.0000
 Authors@R: c(
     person("Akewak", "Jeba", , "akjeba@utu.fi", role = c("aut", "cre"),
