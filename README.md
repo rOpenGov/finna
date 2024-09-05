@@ -47,6 +47,17 @@ To search all related in descending order
 record <- search_finna("sibelius", sort = "main_date_str des")
 head(record)
 ```
+| Title                                                                                  | Author                    | Year | Language | Formats         | Subjects      | Library         | Series   |
+|:---------------------------------------------------------------------------------------|:--------------------------|:-----|:---------|:----------------|:--------------|:----------------|:---------|
+| He selvisivät sodasta                                                                  | Kirves, Jenni, Werner Söderström | 2024 | Finnish  | Kirja (book)    | Sotilaat       | Anders Chydenius | N/A      |
+| Yli-ihmisiä ja traagisia kuolevaisia: esseitä ja kirjoituksia 1901-1945                | Frosterus, Sigurd, Sarje Maaria | 2024 | Finnish  | Kirja (book)    | Wagner, etc.   | Helka-arkisto    | N/A      |
+| Eero Järnefelt                                                                         | Järnefelt, Eero, Selkokari | 2024 | Finnish  | Kirja (book)    | Järnefelt      | Anders Chydenius | Ateneum  |
+| Eero Järnefelt                                                                         | Järnefelt, Eero, Selkokari | 2024 | Swedish  | Kirja (book)    | Järnefelt      | Helle-kirjastot  | Ateneum  |
+| Eero Järnefelt                                                                         | Järnefelt, Eero, Selkokari | 2024 | English  | Kirja (book)    | Järnefelt      | Helmet-kirjasto  | Ateneum  |
+| Solace                                                                                 | N/A                        | 2024 | No language (zxx) | Äänite (audio)  | N/A            | Anders Chydenius | N/A      |
+
+
+
 ## Code of Conduct
 Please note that the finna project is released with a
 [Contributor Code of Conduct](Link).
