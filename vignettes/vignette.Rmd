@@ -1,0 +1,81 @@
+---
+title: "Introduction to finna"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to finna}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+This vignette provides an overview of how to use the finna package...
+
+```{r}
+library(finna)
+record <- search_finna("sibelius")
+print(record)
+```
+
+## Free text search
+```{r}
+library(finna)
+result <- search_finna("Jansson Tove")
+print(result)
+```
+
+## Search phrase examples
+```{r}
+library(finna)
+phrase <- search_finna("bicycle")
+print(phrase)
+```
+
+
+```{r}
+library(finna)
+phrase <- search_finna("farm OR farming")
+print(phrase)
+```
+
+## Combining search terms
+
+### AND
+```{r}
+library(finna)
+Combination <- search_finna("nutrition AND (diet OR lifestyle)")
+print(Combination)
+```
+
+ Example 2
+```{r}
+library(finna)
+Combination_AND <- search_finna("Karisto AND Seppälä")
+print(Combination_AND)
+```
+
+### OR
+```{r}
+library(finna)
+Combination_OR <- search_finna("Eastern Orthodoxy” OR “Orthodox Church")
+print(Combination_OR)
+```
+
+
+### NOT
+```{r}
+library(finna)
+Combination_OR <- search_finna("surrealism NOT (painting OR “visual arts”)")
+print(Combination_OR)
+```
+
+## ISBN/ISSN search
+
+```{r}
+library(finna)
+ISBN <- search_finna("978-951-31-6583-3")
+print(ISBN)
+```
+
+## Fine-tuning your search
+

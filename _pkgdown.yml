@@ -1,0 +1,32 @@
+# _pkgdown.yml
+url: ~
+
+template:
+  # Use Bootstrap 5 for the site styling
+  bootstrap: 5
+
+# Optional: Specify the title and description
+title: "finna"
+description: "A data retrieval package from Finna API"
+
+# Optional: Specify the structure of your site
+navbar:
+  structure:
+    left:
+      - text: "Reference"
+        href: reference/index.html
+      - text: "Articles"
+        href: articles/index.html
+      - text: "Changelog"
+        href: news/index.html
+    right:
+      - text: "GitHub"
+        href: https://github.com/ake123/finna
+
+# Optional: Define the authors
+authors:
+  - name: "Akewak Jeba"
+    url: https://github.com/ake123/finna
+
+# Optional: Specify the output directory (if different from default)
+output_dir: docs
