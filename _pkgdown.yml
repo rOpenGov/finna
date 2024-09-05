@@ -21,12 +21,12 @@ navbar:
         href: news/index.html
     right:
       - text: "GitHub"
-        href: https://github.com/ake123/finna
+        href: https://github.com/rOpenGov/finna
 
 # Optional: Define the authors
 authors:
   - name: "Akewak Jeba"
-    url: https://github.com/ake123/finna
+    url: https://github.com/rOpenGov/finna
 
 # Optional: Specify the output directory (if different from default)
 output_dir: docs
