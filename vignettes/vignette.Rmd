@@ -77,6 +77,8 @@ ISBN <- search_finna("978-951-31-6583-3")
 print(ISBN)
 ```
 
+# Sorting 
+
 ## To search all related in descending order
 
 ```{r}
@@ -87,5 +89,19 @@ print(record)
 
 ```{r}
 record <- search_finna("sibelius", sort = "main_date_str asc")
+print(record)
+```
+
+## To search Last modified
+
+```{r}
+record <- search_finna("sibelius", sort = "last_indexed desc")
+print(record)
+```
+
+## To search Last added
+
+```{r}
+record <- search_finna("sibelius", sort = "first_indexed desc")
 print(record)
 ```
