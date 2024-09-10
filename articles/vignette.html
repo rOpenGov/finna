@@ -96,8 +96,8 @@ package…</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Lehtileikkeet : Jansso… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    fin      Muu/Mä… Jansson… PIKI-k… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Lars Jansson ja Tove J… <span style="color: #BB0000;">NA</span>     1963  <span style="color: #BB0000;">NA</span>       Kuva, … HBL; ki… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Lars Jansson ja Tove J… <span style="color: #BB0000;">NA</span>     1963  <span style="color: #BB0000;">NA</span>       Kuva, … HBL; ki… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Tove Jansson            Ørjas… 1985  nor      Kirja,… Jansson… Helka-… Gylde…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Tove Jansson            Janss… 2016  eng      Kirja,… Jansson… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Tove Jansson            Janss… 2016  eng      Kirja,… Jansson… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Tove Jansson            Ørjas… 1985  nor      Kirja,… Jansson… Helka-… Gylde…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1994  eng      Lehti/… Jansson… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1953  <span style="color: #BB0000;">NA</span>       Kuva, … seinäma… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1962  <span style="color: #BB0000;">NA</span>       Kuva, … HBL; di… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
@@ -246,6 +246,10 @@ package…</p>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">1</span> Tiesitkö tämän linnuist… Koski… 2012  fin      Kirja,… linnut;… Anders… <span style="color: #BB0000;">NA</span></span></span></code></pre>
 </div>
+</div>
+<div class="section level2">
+<h2 id="sorting">Sorting<a class="anchor" aria-label="anchor" href="#sorting"></a>
+</h2>
 <div class="section level3">
 <h3 id="to-search-all-related-in-descending-order">To search all related in descending order<a class="anchor" aria-label="anchor" href="#to-search-all-related-in-descending-order"></a>
 </h3>
@@ -286,6 +290,48 @@ package…</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Nuorten Kirja ry:n aiv… <span style="color: #BB0000;">NA</span>     0000  <span style="color: #BB0000;">NA</span>       Teksti… <span style="color: #BB0000;">NA</span>       Suomal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Malin-suvun sukupuu     <span style="color: #BB0000;">NA</span>     0000  <span style="color: #BB0000;">NA</span>       Teksti… <span style="color: #BB0000;">NA</span>       Suomal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Satujen käsikirjoituks… <span style="color: #BB0000;">NA</span>     0000  <span style="color: #BB0000;">NA</span>       Teksti… <span style="color: #BB0000;">NA</span>       Suomal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="to-search-last-modified">To search Last modified<a class="anchor" aria-label="anchor" href="#to-search-last-modified"></a>
+</h3>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"last_indexed desc"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Paavo Berglund Conduct… Sibel… 1982  fin      Äänite… <span style="color: #BB0000;">NA</span>       Fredri… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Lemminkäinen; Tapiola   Sibel… 1996  <span style="color: #BB0000;">NA</span>       Äänite… <span style="color: #BB0000;">NA</span>       Fredri… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> The complete original … Sibel… 1987  <span style="color: #BB0000;">NA</span>       Äänite… <span style="color: #BB0000;">NA</span>       Fredri… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Suuret suomalaiset      Iso-M… 2004  fin      Kirja,… AGRICOL… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Hämeenlinna n:o 11-15 … Hämee… 1961  fin      Kirja,… Sibeliu… Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Maaria taivaanlaulaja … Nikka… 2020  fin      Muu/Mä… Maaria,… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sinisiä hetkiä          <span style="color: #BB0000;">NA</span>     1997  eng      Kirja,… taidemu… Vaara-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> VirkistysVerso : musii… Tharm… 2006  fin      Muu/Mä… virkist… Louna-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Hartaisiin hetkiin hen… Hakul… 2007  fin      Nuotti  yksinla… OUTI-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Supermarsu ja jääräpää… Noron… 2015  fin      Kirja,… Emilia,… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="to-search-last-added">To search Last added<a class="anchor" aria-label="anchor" href="#to-search-last-added"></a>
+</h3>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"first_indexed desc"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> The Sibelius edition. … Sibel… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Äänite… <span style="color: #BB0000;">NA</span>       Keski-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Musiikkiharrastuksen m… Uusit… 2024  fin      Opinnä… Sosiaal… Laurea… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Kupalinka : variations… Jaakk… 2023  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> On hanget korkeat niet… Sibel… 2019  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Overture in a minor fo… Sibel… 1994  zxx      Nuotti  partitu… Sataki… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Ihmisääni ja virittäyt… Fast,… 2022  fin      Opinnä… sanaton… Aalto-… Aalto…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Kuun kultalaiva : kant… Jalka… 2023  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kansallinen elämäkerra… Bloms… 1933  fin      Kirja,… Saarine… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> AN OVERVIEW ON THE ART… De La… 2024  eng      Opinnä… harmoni… Taidey… EST-j…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Tutkimusretki Aino Sib… Lantt… 2015  fin      Opinnä… käsikir… LUT-ti… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
 </div>
