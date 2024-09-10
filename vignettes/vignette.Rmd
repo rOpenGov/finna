@@ -81,5 +81,11 @@ print(ISBN)
 
 ```{r}
 record <- search_finna("sibelius", sort = "main_date_str des")
-head(record)
+print(record)
+```
+## To search all related in ascending order
+
+```{r}
+record <- search_finna("sibelius", sort = "main_date_str asc")
+print(record)
 ```
