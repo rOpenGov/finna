@@ -2,14 +2,14 @@
 #'
 #' This function retrieves multiple Finna records based on a vector of record IDs. You can specify
 #' which fields to return, the language, and the pagination options.
-#'
+#' @name get_finna_records
 #' @param ids A vector of record IDs to retrieve.
 #' @param field A vector of fields to return. Defaults to NULL, which returns all default fields.
 #' @param prettyPrint Logical; whether to pretty-print the response. Defaults to FALSE.
 #' @param lng Language for returned translated strings. Defaults to "fi".
 #' @param page The page number to retrieve. Defaults to 1.
 #' @param limit The number of records to return per page. Defaults to 20.
-#' @return A list containing the retrieved records data.
+#' @return A tibble containing the retrieved records data with provenance information.
 #' @examples
 #' records <- get_finna_records("fikka.3405646", field = "title", prettyPrint = TRUE, lng = "en-gb")
 #' print(records)
@@ -113,6 +113,12 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
 
     # Convert the list to a tibble
     tibble_results <- tibble::as_tibble(do.call(rbind, lapply(data, function(x) unlist(x, recursive = FALSE))))
+    # Add provenance and citation information
+    tibble_results$provenance <- "Finna API (https://www.finna.fi)"
+    tibble_results$data_license <- "CC0 for metadata (https://creativecommons.org/publicdomain/zero/1.0/), images and other linked resources may have different licenses."
+
+    # Attach the citation as an attribute
+    attr(tibble_results, "citation") <- "Data retrieved from Finna API (https://www.finna.fi) - metadata licensed under CC0."
     return(tibble_results)
 
   } else {

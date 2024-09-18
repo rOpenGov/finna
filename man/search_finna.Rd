@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_finna.R
 \name{search_finna}
 \alias{search_finna}
-\title{Finna Index Search with Advanced Options}
+\title{Finna Index Search with Pagination and Advanced Options}
 \usage{
 search_finna(
   lookfor,
@@ -12,7 +12,6 @@ search_finna(
   facets = NULL,
   facetFilters = NULL,
   sort = "relevance,id asc",
-  page = 1,
   limit = 100,
   lng = "fi",
   prettyPrint = FALSE
@@ -43,19 +42,18 @@ search_finna(
 \item "title,id asc" (Title)
 }}
 
-\item{page}{An integer indicating the page number of results to retrieve. Defaults to 1.}
-
-\item{limit}{An integer specifying the number of records to return per page. Defaults to 20.}
+\item{limit}{An integer specifying the number of records to return per page. Defaults to 100 (maximum).}
 
 \item{lng}{A string for the language of returned translated strings. Options are "fi", "en-gb", "sv", "se". Defaults to "fi".}
 
 \item{prettyPrint}{A logical value indicating whether to pretty-print the JSON response. Useful for debugging. Defaults to FALSE.}
 }
 \value{
-A tibble containing the search results with relevant fields extracted. Returns NULL if the search fails or if the input is invalid.
+A tibble containing all search results with relevant fields extracted and provenance information.
 }
 \description{
 This function performs a search on the Finna index with extended options, allowing for a wide range of search types, filters, facets, and sorting methods.
+It retrieves all available data by paginating through the API results.
 }
 \examples{
 search_results <- search_finna("sibelius", sort = "main_date_str desc")

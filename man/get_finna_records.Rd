@@ -27,7 +27,7 @@ get_finna_records(
 \item{limit}{The number of records to return per page. Defaults to 20.}
 }
 \value{
-A list containing the retrieved records data.
+A tibble containing the retrieved records data with provenance information.
 }
 \description{
 This function retrieves multiple Finna records based on a vector of record IDs. You can specify
