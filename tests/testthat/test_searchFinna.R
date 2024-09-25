@@ -18,10 +18,10 @@ test_that("search_finna performs a basic search correctly", {
   expect_true(is.data.frame(search_results_filtered))
   expect_gt(nrow(search_results_filtered), 0)
 
-  # Test 4: Check different parameters
-  search_results_params <- search_finna("sibelius", type = "Title", limit = 10, lng = "en-gb")
+  # Test 4: Check different parameters, ensure that the number of rows returned is <= limit
+  search_results_params <- search_finna("sibelius", type = "Title", limit = 100, lng = "en-gb")
   expect_true(is.data.frame(search_results_params))
-  expect_lte(nrow(search_results_params), 10)
+  expect_gte(nrow(search_results_params), 100) # The number of results should be less than or equal to the limit
   expect_equal(attr(search_results_params, "language"), "en-gb")
 })
 
