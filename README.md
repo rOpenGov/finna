@@ -4,7 +4,7 @@
 [![issues](https://img.shields.io/github/issues/rOpenGov/finna)](https://github.com/rOpenGov/finna/issues)
 [![pulls](https://img.shields.io/github/issues-pr/rOpenGov/finna)](https://github.com/rOpenGov/finna/pulls)
 [![R-CMD-check](https://github.com/rOpenGov/finna/workflows/rworkflows/badge.svg)](https://github.com/rOpenGov/finna/blob/master/.github/workflows/check-standard.yml)
-[![codecov](https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/finna?branch=devel)
+[![codecov](https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/finna)
 [![codefactor](https://www.codefactor.io/repository/github/rOpenGov/finna/badge)](https://www.codefactor.io/repository/github/rOpenGov/finna)
 
 The goal of finna is to retrieve data from Finna API 
