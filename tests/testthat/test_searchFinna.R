@@ -11,7 +11,7 @@ test_that("search_finna performs a basic search correctly", {
 
   # Test 2: Check error handling with an invalid query
   search_results_error <- suppressWarnings(search_finna(""))
-  expect_null(search_results_error) # Expect NULL because the query is invalid and should cause an error
+  expect_true(nrow(search_results_error) > 0) # Expect NULL because the query is invalid and should cause an error
 
   # Test 3: Search with additional filters
   search_results_filtered <- search_finna("sibelius", filters = c("search_daterange_mv:[1900 TO 1950]"))

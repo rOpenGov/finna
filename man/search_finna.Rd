@@ -2,10 +2,10 @@
 % Please edit documentation in R/search_finna.R
 \name{search_finna}
 \alias{search_finna}
-\title{Finna Index Search with Pagination and Advanced Options}
+\title{Finna Index Search with Total Limit Option}
 \usage{
 search_finna(
-  lookfor,
+  query = NULL,
   type = "AllFields",
   fields = NULL,
   filters = NULL,
@@ -18,7 +18,7 @@ search_finna(
 )
 }
 \arguments{
-\item{lookfor}{A string containing the search terms. Boolean operators (AND, OR, NOT) can be included.}
+\item{query}{description}
 
 \item{type}{A string specifying the type of search. Options include "AllFields", "Title", "Author", "Subject". Defaults to "AllFields".}
 
@@ -42,20 +42,20 @@ search_finna(
 \item "title,id asc" (Title)
 }}
 
-\item{limit}{An integer specifying the number of records to return per page. Defaults to 100 (maximum).}
+\item{limit}{An integer specifying the total number of records to return across multiple pages.}
 
 \item{lng}{A string for the language of returned translated strings. Options are "fi", "en-gb", "sv", "se". Defaults to "fi".}
 
 \item{prettyPrint}{A logical value indicating whether to pretty-print the JSON response. Useful for debugging. Defaults to FALSE.}
 }
 \value{
-A tibble containing all search results with relevant fields extracted and provenance information.
+A tibble containing the search results with relevant fields extracted and provenance information.
 }
 \description{
-This function performs a search on the Finna index with extended options, allowing for a wide range of search types, filters, facets, and sorting methods.
-It retrieves all available data by paginating through the API results.
+This function retrieves records from the Finna index with an option to limit the total number of records returned.
+The function paginates through the results, fetching records until the specified total limit is reached.
 }
 \examples{
-search_results <- search_finna("sibelius", sort = "main_date_str desc")
+search_results <- search_finna("sibelius", sort = "main_date_str desc", limit = 100)
 print(search_results)
 }
