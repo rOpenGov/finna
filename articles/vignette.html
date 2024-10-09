@@ -33,7 +33,7 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine, analyse, integrate &amp; visualize metadata</a></li>
+<li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine, integrate and analyse Finna metadata</a></li>
     <li><a class="dropdown-item" href="../articles/vignette.html">Introduction to finna</a></li>
   </ul>
 </li>
@@ -67,7 +67,8 @@
 <p>This vignette provides an overview of how to use the finna
 package.</p>
 <p>To make a simple search use the following code. I we need a bulk
-download we use <code>search_finna("sibelius", limit = Inf)</code></p>
+download we use <code>search_finna("sibelius", limit = Inf)</code> where
+we add the term <code>limit = Inf</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
@@ -169,8 +170,8 @@ results:</p>
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Junan viemä : muusikko… Karis… 2015  fin      Lehti/… muusiko… Kansal… Missä…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… tutkiel… Humani… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tee se! : sosiaalipoli… Karis… 2000  fin      Kirja,… kirjoit… Helka-… Työra…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Tee se! : sosiaalipoli… Karis… 2000  fin      Kirja,… kirjoit… Helka-… Työra…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… tutkiel… Humani… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 4</span> [Kirja-arvostelu]       Karis… 2000  fin      Lehti/… Lehtola… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Maukas gradu / valmist… Karis… 2004  fin      Kirja,… arvoste… Vaasan… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Lahden, Kariston ja va… Hiila… 2016  fin      Kirja,… Karisto… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
@@ -187,8 +188,8 @@ results:</p>
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Junan viemä : muusikko… Karis… 2015  fin      Lehti/… muusiko… Kansal… Missä…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… tutkiel… Humani… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tee se! : sosiaalipoli… Karis… 2000  fin      Kirja,… kirjoit… Helka-… Työra…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Tee se! : sosiaalipoli… Karis… 2000  fin      Kirja,… kirjoit… Helka-… Työra…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… tutkiel… Humani… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 4</span> [Kirja-arvostelu]       Karis… 2000  fin      Lehti/… Lehtola… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Maukas gradu / valmist… Karis… 2004  fin      Kirja,… arvoste… Vaasan… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Lahden, Kariston ja va… Hiila… 2016  fin      Kirja,… Karisto… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
@@ -286,11 +287,11 @@ Finna uses the + and !- operators.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Keynes' economics : me… Lawso… 1985  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Keynes' economics : me… Lawso… 1989  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> The new economics : Ke… Harri… 1947  eng      Kirja,… Keynes.… Svensk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> The new economics : Ke… Harri… 1950  eng      Kirja,… Keynes,… Tamper… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> The New Economics : Ke… Harri… 1949  eng      Kirja,… keynesi… Edusku… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> The new economics : Ke… Harri… 1952  eng      Kirja,… Keynes,… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> The new economics : Ke… Harri… 1949  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> The new economics : Ke… Harri… 1950  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> The new economics : Ke… Harri… 1950  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> The new economics : Ke… Harri… 1950  eng      Kirja,… Keynes,… Tamper… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> The New Economics : Ke… Harri… 1949  eng      Kirja,… keynesi… Edusku… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> The new economics : Ke… Harri… 1952  eng      Kirja,… Keynes,… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> The new economics : Ke… Harri… 1949  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> The new economics : Ke… Harri… 1948  eng      Kirja,… Keynes,… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> The new economics : Ke… Harri… 1968  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Turun … <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
@@ -478,16 +479,16 @@ for both the terms woman and women, use the search term:</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Supermarsu ja jääräpää… Noron… 2015  fin      Kirja,… Emilia,… Anders… Tamme…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Kasvitarhasta puutarha… Donne… 2015  fin      Opinnä… Elfving… Aalto-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Soiva L. Onerva. III :… Onerv… 2024  fin      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Suomalainen joulu : ko… <span style="color: #BB0000;">NA</span>     2006  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Canzonetta : op62a : p… Sibel… 1938  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 15 ausgewählte Lieder … Sibel… 1966  deu      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Finlandia : op26 nro 7… Sibel… 1933  zxx      Nuotti  sovituk… Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Ars longa vita brevis … <span style="color: #BB0000;">NA</span>     2003  eng      Äänite… <span style="color: #BB0000;">NA</span>       Kuopio… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Suuri joululaulukirja   Leske… 2022  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Anders… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Pikku pianistin joulus… Heikk… 2003  fin      Nuotti  ohjelmi… Lapin … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Suomalainen joulu : ko… <span style="color: #BB0000;">NA</span>     2006  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Canzonetta : op62a : p… Sibel… 1938  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 15 ausgewählte Lieder … Sibel… 1966  deu      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Finlandia : op26 nro 7… Sibel… 1933  zxx      Nuotti  sovituk… Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sammon kuoron lauluter… Turun… 1992  fin      Äänite… Sammon … Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Easy violin pieces      <span style="color: #BB0000;">NA</span>     1976  <span style="color: #BB0000;">NA</span>       Nuotti  sovituk… Lastu-… World…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Supermarsu ja jääräpää… Noron… 2015  fin      Kirja,… Emilia,… Anders… Tamme…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kasvitarhasta puutarha… Donne… 2015  fin      Opinnä… Elfving… Aalto-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Soiva L. Onerva. III :… Onerv… 2024  fin      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Ars longa vita brevis … <span style="color: #BB0000;">NA</span>     2003  eng      Äänite… <span style="color: #BB0000;">NA</span>       Kuopio… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
 <div class="section level4">
