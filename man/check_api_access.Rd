@@ -7,13 +7,20 @@
 check_api_access()
 }
 \value{
-a logical.
+a logical indicating if the API is accessible (\code{TRUE}) or not (\code{FALSE}).
 }
 \description{
-Check if R has access to resources at https://api.finna.fi/api/v1/?openapi
+Check if R has access to resources at https://api.finna.fi/api/v1/?openapi.
+This function tests whether R can successfully connect to the Finna API by attempting to download from the API's OpenAPI specification.
 }
 \examples{
- \dontrun{
-   check_api_access()
- }
+\dontrun{
+  # Check if the API is accessible
+  access <- check_api_access()
+  if (access) {
+    message("Finna API is accessible")
+  } else {
+    message("Finna API is not accessible")
+  }
+}
 }
