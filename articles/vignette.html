@@ -10,8 +10,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Introduction to finna">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to finna">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -34,7 +33,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/vignette.html">Introduction to finna</a></li>
+<li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine, analyse, integrate &amp; visualize metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/vignette.html">Introduction to finna</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -65,7 +65,9 @@
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>This vignette provides an overview of how to use the finna
-package…</p>
+package.</p>
+<p>To make a simple search use the following code. I we need a bulk
+download we use <code>search_finna("sibelius", limit = Inf)</code></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
@@ -95,15 +97,15 @@ package…</p>
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Lehtileikkeet : Jansso… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    fin      Muu/Mä… Jansson… PIKI-k… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Tove Jansson            Ørjas… 1985  nor      Kirja,… Jansson… Helka-… Gylde…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1969  <span style="color: #BB0000;">NA</span>       Kuva, … kirjail… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Tove Jansson            Jones… 1984  eng      Kirja,… Jansson… Helka-… Twayn…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Tove Jansson            Grave… 2022  eng      Kirja,… Jansson… Eepos-… The i…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Tove Jansson            Koivu… 2005  fin      Lehti/… Jansson… Kansal… Suomi…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Tove Jansson            Janss… 2016  eng      Kirja,… Jansson… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Lars Jansson ja Tove J… <span style="color: #BB0000;">NA</span>     1963  <span style="color: #BB0000;">NA</span>       Kuva, … HBL; ki… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Lars Jansson ja Tove J… <span style="color: #BB0000;">NA</span>     1963  <span style="color: #BB0000;">NA</span>       Kuva, … HBL; ki… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1994  eng      Lehti/… Jansson… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1994  eng      Lehti/… Jansson… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1953  <span style="color: #BB0000;">NA</span>       Kuva, … seinäma… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1962  <span style="color: #BB0000;">NA</span>       Kuva, … HBL; di… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Tove Jansson            Brand… 1953  <span style="color: #BB0000;">NA</span>       Kuva, … kirjail… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Tove Jansson : [Vem oc… Tampe… 1994  fin      Kirja,… Jansson… Helka-… Tampe…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Tove Jansson            Karja… 2020  fin      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Tove Jansson            Ørjas… 1985  nor      Kirja,… Jansson… Helka-… Gylde…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Tove Jansson            <span style="color: #BB0000;">NA</span>     1969  <span style="color: #BB0000;">NA</span>       Kuva, … kirjail… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Tove Jansson            Jones… 1984  eng      Kirja,… Jansson… Helka-… Twayn…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
 <div class="section level3">
@@ -116,18 +118,115 @@ package…</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
 <span><span class="co">##    Title                 Author   Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Bicycle thieves       Sica, V… 1981  eng      Kirja,… Italia.… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Bicycle revolution    Kalima,… 2009  zxx      Äänite… 2000-20… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Bicycle revolution    <span style="color: #BB0000;">NA</span>       2009  zxx      Äänite… <span style="color: #BB0000;">NA</span>       PIKI-k… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Bicycle rider         Sciosci… 1983  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Bicycle boogie        Gaddy, … 1987  eng      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Bicycle USA           League … 1984  eng      Opinnä… Cycling… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Bicycle rider         Sciosci… 1983  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Bicycle boogie        Gaddy, … 1987  eng      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Bicycle USA           League … 1984  eng      Opinnä… Cycling… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Bicycle thieves       Sica, V… 1981  eng      Kirja,… Italia.… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Bicycle revolution    Kalima,… 2009  zxx      Äänite… 2000-20… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Bicycle revolution    <span style="color: #BB0000;">NA</span>       2009  zxx      Äänite… <span style="color: #BB0000;">NA</span>       PIKI-k… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Christopher's bicycle Middlet… 2013  eng      Kirja,… Nibble,… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Bicycle diaries       Byrne, … 2010  eng      Kirja,… Byrne, … Lastu-… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Bicycle safety        <span style="color: #BB0000;">NA</span>       1900  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Bicycle revolution    <span style="color: #BB0000;">NA</span>       2009  <span style="color: #BB0000;">NA</span>       Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="combining-search-terms">Combining search terms<a class="anchor" aria-label="anchor" href="#combining-search-terms"></a>
+</h3>
+<div class="section level4">
+<h4 id="and">AND<a class="anchor" aria-label="anchor" href="#and"></a>
+</h4>
+<p>Use the AND operator to yield search results which feature every term
+in the search field. If you write several words into the search field
+and separate them with a space, the space will function as the AND
+operator.</p>
+<p>Example 1</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">Combination</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"nutrition AND (diet OR lifestyle)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">Combination</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Lifestyle nutrition     Dwyer… 2001  eng      Kirja,… Health … Helka-… Lifes…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Diet and nutrition      Evans… 1984  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Nutrition and lifestyl… Maail… 1999  eng      Kirja,… Nutriti… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Diet, nutrition, and c… Assem… 1982  eng      Kirja,… Cancer,… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Nutrition and diet the… Willi… 1985  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Foods, diet, and nutri… Jones… 1970  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Nutrition and diet the… Willi… 1977  eng      Kirja,… ravitse… Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Nutrition and diet the… Lutz,… 2015  eng      Kirja,… Diet Th… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Nutrition, Diet and Ca… Shank… 2012  eng      Kirja,… Medicin… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Nutrition and diet the… Willi… 1973  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+<p>Example 2 For example, these two searches will yield the same
+results:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">no_Combination</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"Karisto Seppälä"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">no_Combination</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Junan viemä : muusikko… Karis… 2015  fin      Lehti/… muusiko… Kansal… Missä…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… tutkiel… Humani… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tee se! : sosiaalipoli… Karis… 2000  fin      Kirja,… kirjoit… Helka-… Työra…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> [Kirja-arvostelu]       Karis… 2000  fin      Lehti/… Lehtola… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Maukas gradu / valmist… Karis… 2004  fin      Kirja,… arvoste… Vaasan… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Lahden, Kariston ja va… Hiila… 2016  fin      Kirja,… Karisto… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… researc… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Topin talvipuuhia       Seppä… 2010  fin      Kirja,… Siru,, … Anders… Koira…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Topi karkuteillä        Seppä… 2011  fin      Kirja,… Topi,, … Anders… Koira…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Topi löytöretkillä      Seppä… 2009  fin      Kirja,… Siru,, … Anders… Koira…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">Combination_AND</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"Karisto AND Seppälä"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">Combination_AND</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Junan viemä : muusikko… Karis… 2015  fin      Lehti/… muusiko… Kansal… Missä…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… tutkiel… Humani… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tee se! : sosiaalipoli… Karis… 2000  fin      Kirja,… kirjoit… Helka-… Työra…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> [Kirja-arvostelu]       Karis… 2000  fin      Lehti/… Lehtola… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Maukas gradu / valmist… Karis… 2004  fin      Kirja,… arvoste… Vaasan… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Lahden, Kariston ja va… Hiila… 2016  fin      Kirja,… Karisto… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… researc… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Topin talvipuuhia       Seppä… 2010  fin      Kirja,… Siru,, … Anders… Koira…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Topi karkuteillä        Seppä… 2011  fin      Kirja,… Topi,, … Anders… Koira…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Topi löytöretkillä      Seppä… 2009  fin      Kirja,… Siru,, … Anders… Koira…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="or">OR<a class="anchor" aria-label="anchor" href="#or"></a>
+</h4>
+<p>The OR operator expands your search results. The results will show
+material that feature at least one of the search terms you indicated.
+For example, if you are looking for information on the Eastern Orthodox
+Church:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">Combination_OR</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"Eastern Orthodoxy” OR “Orthodox Church"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">Combination_OR</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 48 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>Eastern Orthodox Chri… Geffe… 2016  eng      Kirja,… Orthodo… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>The mystical as polit… Papan… 2012  eng      Kirja,… Christi… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>Orthodox construction… Demac… 2013  eng      Kirja,… Orthodo… Savoni… Ortho…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>Encounter between Eas… Pabst… 2009  eng      Kirja,… Philoso… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>The church's unholy w… Denys… 2023  eng      Kirja,… Orthodo… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>\"For I am wonderfull… Chern… 2017  eng      Kirja,… Orthodo… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>Fundamentalism or Tra… Apple… 2019  eng      Kirja,… Orthodo… Savoni… Ortho…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>Orthodox construction… Demac… 2013  eng      Kirja,… ortodok… Helka-… Ortho…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>Proselytism and Ortho… Witte… 2009  eng      Kirja,… Russkai︠… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>Orthodoxy and psychoa… Cazac… 2013  eng      Kirja,… Thermos… Itä-Su… Europ…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 38 more rows</span></span></span></code></pre>
+<p>Using the OR operator will return results that feature one or more of
+your search terms.This example search will find results relating to
+farms or farming:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">phrase</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"farm OR farming"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">phrase</span><span class="op">)</span></span></code></pre></div>
@@ -146,115 +245,192 @@ package…</p>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Dairy farm business ma… Slate… 1983  eng      Kirja,… Dairy f… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="combining-search-terms">Combining search terms<a class="anchor" aria-label="anchor" href="#combining-search-terms"></a>
-</h3>
-<div class="section level4">
-<h4 id="and">AND<a class="anchor" aria-label="anchor" href="#and"></a>
-</h4>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="va">Combination</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"nutrition AND (diet OR lifestyle)"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">Combination</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
-<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Lifestyle nutrition     Dwyer… 2001  eng      Kirja,… Health … Helka-… Lifes…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Diet and nutrition      Evans… 1984  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Nutrition and lifestyl… Maail… 1999  eng      Kirja,… Nutriti… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Nutrition, diet and he… Gibne… 1986  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Diet, nutrition, and c… Assem… 1982  eng      Kirja,… Cancer,… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Nutrition and diet the… Willi… 1985  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Foods, diet, and nutri… Jones… 1970  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Nutrition and diet the… Willi… 1977  eng      Kirja,… ravitse… Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Diet, nutrition, and h… Carro… 1989  eng      Kirja,… Nutriti… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Diet, nutrition, and i… Forse… 1994  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
-<p>Example 2</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="va">Combination_AND</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"Karisto AND Seppälä"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">Combination_AND</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
-<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Junan viemä : muusikko… Karis… 2015  fin      Lehti/… muusiko… Kansal… Missä…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… tutkiel… Humani… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tee se! : sosiaalipoli… Karis… 2000  fin      Kirja,… kirjoit… Helka-… Työra…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> [Kirja-arvostelu]       Karis… 2000  fin      Lehti/… Lehtola… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Lahden, Kariston ja va… Hiila… 2016  fin      Kirja,… Karisto… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Maukas gradu : valmist… Karis… 2004  fin      Kirja,… researc… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> [Kirja-arvostelu:Mauka… Ahpon… 2004  fin      Lehti/… Karisto… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Topin talvipuuhia       Seppä… 2010  fin      Kirja,… Siru,, … Anders… Koira…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> [Kirja-arvostelu:Mauka… Kuusi… 2004  fin      Lehti/… Karisto… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Topi karkuteillä        Seppä… 2011  fin      Kirja,… Topi,, … Anders… Koira…</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="or">OR<a class="anchor" aria-label="anchor" href="#or"></a>
-</h4>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="va">Combination_OR</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"Eastern Orthodoxy” OR “Orthodox Church"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">Combination_OR</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 48 × 8</span></span></span>
-<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>Eastern Orthodox Chri… Geffe… 2016  eng      Kirja,… Orthodo… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>The mystical as polit… Papan… 2012  eng      Kirja,… Christi… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>Encounter between Eas… Pabst… 2009  eng      Kirja,… Philoso… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>Orthodox construction… Demac… 2013  eng      Kirja,… Orthodo… Savoni… Ortho…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>\"For I am wonderfull… Chern… 2017  eng      Kirja,… Orthodo… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>Fundamentalism or Tra… Apple… 2019  eng      Kirja,… Orthodo… Savoni… Ortho…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>The church's unholy w… Denys… 2023  eng      Kirja,… Orthodo… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>Orthodox construction… Demac… 2013  eng      Kirja,… ortodok… Helka-… Ortho…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>Proselytism and Ortho… Witte… 2009  eng      Kirja,… Russkai︠… Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>Orthodoxy and psychoa… Cazac… 2013  eng      Kirja,… Thermos… Itä-Su… Europ…</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 38 more rows</span></span></span></code></pre>
-</div>
 <div class="section level4">
 <h4 id="not">NOT<a class="anchor" aria-label="anchor" href="#not"></a>
 </h4>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">Combination_OR</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"surrealism NOT (painting OR “visual arts”)"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">Combination_OR</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
 <span><span class="co">##    Title      Author              Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Surrealism <span style="color: #949494;">"</span>Caws, Mary Ann<span style="color: #949494;">"</span>    2004  eng      Kirja,… kuvatai… Aalto-… Theme…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Surrealism <span style="color: #949494;">"</span>Schneede, Uwe M.<span style="color: #949494;">"</span>  1973  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Jyväsk… The l…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Surrealism <span style="color: #949494;">"</span>Chénieux-Gendron,… 1990  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Helka-… Europ…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Surrealism <span style="color: #949494;">"</span>Gualdoni, Flamini… 2008  eng      Kirja,… 1900-lu… Helmet… Skira…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Surrealism <span style="color: #949494;">"</span>Dempsey, Amy<span style="color: #949494;">"</span>      2019  eng      Kirja,… taidehi… Eepos-… Art e…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Surrealism <span style="color: #949494;">"</span>Read, Herbert, Br… 1971  eng      Kirja,… surreal… Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Surrealism <span style="color: #949494;">"</span>Waldberg, Patrick… 1968  eng      Kirja,… surreal… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Surrealism <span style="color: #949494;">"</span>Waldberg, Patrick<span style="color: #949494;">"</span> 1978  eng      Kirja,… surreal… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Surrealism <span style="color: #949494;">"</span>edited by Mary An… 2004  eng      Kirja,… surreal… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Surrealism <span style="color: #949494;">"</span>Klingsöhr-Leroy, … 2009  eng      Kirja,… surreal… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Surrealism Klingsöhr-Leroy, C… 2009  eng      Kirja,… surreal… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Surrealism Brodskai͡a, N. V.    2018  eng      Kirja,… Surreal… Jyväsk… Art o…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Surrealism Lusty, Natalya      2021  eng      Kirja,… surreal… Kansal… Cambr…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Surrealism Duplessis, Yves, Y… 1978  eng      Kirja,… surreal… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Surrealism Pierre, José        1979  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Surrealism Waldberg, Patrick   1978  eng      Kirja,… surreal… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Surrealism edited by Mary Ann… 2004  eng      Kirja,… surreal… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Surrealism Caws, Mary Ann      2004  eng      Kirja,… kuvatai… Aalto-… Theme…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Surrealism Schneede, Uwe M.    1973  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Jyväsk… The l…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Surrealism Chénieux-Gendron, … 1990  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Helka-… Europ…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="search-operators-and--">Search operators + and !-<a class="anchor" aria-label="anchor" href="#search-operators-and--"></a>
+</h4>
+<p>In addition to the most common Boolean operators (AND, OR, NOT),
+Finna uses the + and !- operators.</p>
+</div>
+<div class="section level4">
+<h4 id="section">+<a class="anchor" aria-label="anchor" href="#section"></a>
+</h4>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">search_oper</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"+economics Keynes”)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">search_oper</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Keynes' economics : me… Lawso… 1985  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Keynes' economics : me… Lawso… 1989  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> The new economics : Ke… Harri… 1947  eng      Kirja,… Keynes.… Svensk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> The new economics : Ke… Harri… 1950  eng      Kirja,… Keynes,… Tamper… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> The New Economics : Ke… Harri… 1949  eng      Kirja,… keynesi… Edusku… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> The new economics : Ke… Harri… 1952  eng      Kirja,… Keynes,… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> The new economics : Ke… Harri… 1949  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> The new economics : Ke… Harri… 1950  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> The new economics : Ke… Harri… 1948  eng      Kirja,… Keynes,… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> The new economics : Ke… Harri… 1968  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Turun … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="section-1">!-<a class="anchor" aria-label="anchor" href="#section-1"></a>
+</h4>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">search_oper</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"economics !-Keynes”)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">search_oper</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title     Author               Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Economics Sloman, John, Wride… 2012  eng      Kirja,… Economi… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Economics Parkin, Michael, Po… 2008  eng      Kirja,… kansant… Sataku… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Economics Krugman, Paul R., W… 2008  eng      Kirja,… Economi… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Economics Begg, David, FISCHE… 1991  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Joki-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Economics Samuelson, Paul A.,… 1992  eng      Kirja,… taloust… OUTI-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Economics Lipsey, Richard G.,… 2007  eng      Kirja,… kansant… Aalto-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Economics Mankiw, N. Gregory,… 2010  eng      Kirja,… 2007-20… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Economics Hubbard, R. Glenn, … 2008  eng      Kirja,… Economi… HAMK, … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Economics Fischer, Stanley, D… 1983  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Economics Parkin, Michael      2010  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Aalto-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+<div class="section level5">
+<h5 id="nb-the---operator-cannot-be-used-in-single-word-searches-">NB! The !- operator cannot be used in single-word searches.<a class="anchor" aria-label="anchor" href="#nb-the---operator-cannot-be-used-in-single-word-searches-"></a>
+</h5>
+<p>For example, the following search will yield no results:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">search_oper</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"!-economics”)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">search_oper</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Päihdetilastollinen vu… <span style="color: #BB0000;">NA</span>     2013  fin      Kirja,… alkohol… 3AMK-k… Suome…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sosiaali- ja terveysal… <span style="color: #BB0000;">NA</span>     2019  fin      Kirja,… tilasto… 3AMK-k… Suome…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Päihdetilastollinen vu… <span style="color: #BB0000;">NA</span>     2018  fin      Kirja,… alkohol… 3AMK-k… Suome…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Kyberturvallisuuden sa… Olin,… 2018  fin      Kirja,… kybertu… 3AMK-k… Sanas…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Teknologian arviointej… Markk… 2003  fin      Kirja,… teknolo… 3AMK-k… Edusk…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Työsuojelusanasto = Ar… Sanas… 2006  fin      Kirja,… Diction… 3AMK-k… TSK   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Hyvä tieteellinen käyt… Tutki… 2002  fin      Kirja,… tutkimu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Nuorten terveystapatut… Rimpe… 2007  fin      Kirja,… altistu… 3AMK-k… Sosia…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Mahdollisuuksien ikkun… Holma… 2008  fin      Kirja,… Turun a… 3AMK-k… Turun…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Mini-intervention jalk… Seppä… 2008  fin      Kirja,… Communi… 3AMK-k… Sosia…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
 </div>
-<div class="section level3">
-<h3 id="isbnissn-search">ISBN/ISSN search<a class="anchor" aria-label="anchor" href="#isbnissn-search"></a>
-</h3>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="section level4">
+<h4 id="the-use-of-wildcards-in-search-terms">The use of wildcards in search terms<a class="anchor" aria-label="anchor" href="#the-use-of-wildcards-in-search-terms"></a>
+</h4>
+</div>
+<div class="section level4">
+<h4 id="use-of-wildcards">Use of wildcards<a class="anchor" aria-label="anchor" href="#use-of-wildcards"></a>
+</h4>
+<p>NB! The wildcard symbols (* and ?) cannot be the first character of a
+search term</p>
+</div>
+<div class="section level4">
+<h4 id="asterisk">* (Asterisk)<a class="anchor" aria-label="anchor" href="#asterisk"></a>
+</h4>
+<p>The search term may be truncated at the end with an asterisk. For
+example, to find search results for the terms competition, competitions,
+competitor and competitiveness, use the search term:</p>
+<p>Example 1</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">search_Asterisk</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"competit*”)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">search_Asterisk</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 13 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> De jure vitae et necis… Nägel… 1826  lat      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Hugonis Grotii Mare li… Groti… 1632  lat      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Mare Liberum sive de I… Groti… 1609  lat      Kirja,… <span style="color: #BB0000;">NA</span>       Edusku… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Commentatio de norma r… Lengn… 1722  lat      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> De controversiis Sveco… Mitho… 1656  lat      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Georgii Ludovici Boehm… Böhme… 1755  lat      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Yhteissidos =  Samling… <span style="color: #BB0000;">NA</span>     2019  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Turun … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Advances in competitiv… Ameri… 1993  eng      Opinnä… Competi… Kajaan… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Yhteissidos = Samlings… <span style="color: #BB0000;">NA</span>     1679  fra      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Hugonis de Grotii De j… Groti… 1720  lat      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">11</span> Constructing boundarie… Berns… 2000  eng      Kirja,… Labor m… Jyväsk… SUNY …</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">12</span> Yhteissidos = Samlings… <span style="color: #BB0000;">NA</span>     1739  deu      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">13</span> Operation mode strateg… Lahti… 2016  fin      Opinnä… liiketo… Tamper… <span style="color: #BB0000;">NA</span></span></span></code></pre>
+<p>The asterisk may also be used in the middle of a search term to
+replace one or more characters. For example, to search for both the
+terms color and colour, use the search term:</p>
+<p>Example 2</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">search_Asterisk</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"colo*r”)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">search_Asterisk</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> MCS '07 : ninth Intern… Lee, … 2007  eng      Kirja,… Image p… <span style="color: #949494;">"</span>Itä-S… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Exploring Realpolitik … Cusac… 1990  eng      Kirja,… kansain… <span style="color: #949494;">"</span>Edusk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Economics and cultures  Wick,… 1996  eng      Kirja,… <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>Åbo A… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> The complete book of U… Senic… 1988  eng      Kirja,… <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>Maanp… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Frontiers for freedom   Hoxie… 1952  eng      Kirja,… <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>Maanp… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Soviet air power        Whiti… 1986  eng      Kirja,… <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>Maanp… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Change in the internat… Holst… 1980  eng      Kirja,… kansain… <span style="color: #949494;">"</span>Edusk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> The German assault rif… Senic… 1987  eng      Kirja,… Assault… <span style="color: #949494;">"</span>Maanp… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> The Stroessner era : a… Miran… 1990  eng      Kirja,… Stroess… <span style="color: #949494;">"</span>Itä-S… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Revolution, armies, an… Adelm… 1985  eng      Kirja,… <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>Maanp… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="question-mark">? (Question Mark)<a class="anchor" aria-label="anchor" href="#question-mark"></a>
+</h4>
+<p>The question mark symbol replaces one character in the search term,
+enabling the use of different word forms. For example, to find results
+for both the terms woman and women, use the search term:</p>
+</div>
+<div class="section level4">
+<h4 id="isbnissn-search">ISBN/ISSN search<a class="anchor" aria-label="anchor" href="#isbnissn-search"></a>
+</h4>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">ISBN</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"978-951-31-6583-3"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">ISBN</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 8</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 5 × 8</span></span></span>
 <span><span class="co">##   Title                    Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> Tiesitkö tämän linnuist… Koski… 2012  fin      Kirja,… linnut;… Anders… <span style="color: #BB0000;">NA</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> Tiesitkö tämän linnuist… Koski… 2012  fin      Kirja,… linnut;… Vaasan… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> Tiesitkö tämän linnuist… Koski… 2012  fin      Kirja,… linnut;… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> Parasta on laulaa laulu… Lampi… 2009  fin      Nuotti  hengell… Vaasan… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> Säestäjän selkolaulukir… Herne… 2002  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Vaasan… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> Suuri toivelaulukirja /… Leske… 2020  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Vaasan… <span style="color: #BB0000;">NA</span></span></span></code></pre>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sorting">Sorting<a class="anchor" aria-label="anchor" href="#sorting"></a>
-</h2>
 <div class="section level3">
-<h3 id="to-search-all-related-in-descending-order">To search all related in descending order<a class="anchor" aria-label="anchor" href="#to-search-all-related-in-descending-order"></a>
+<h3 id="sorting">Sorting<a class="anchor" aria-label="anchor" href="#sorting"></a>
 </h3>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="section level4">
+<h4 id="to-search-all-related-in-descending-order">To search all related in descending order<a class="anchor" aria-label="anchor" href="#to-search-all-related-in-descending-order"></a>
+</h4>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"main_date_str des"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
@@ -272,10 +448,10 @@ package…</p>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius, Prokofiev 1,… Janse… 2024  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="to-search-all-related-in-ascending-order">To search all related in ascending order<a class="anchor" aria-label="anchor" href="#to-search-all-related-in-ascending-order"></a>
-</h3>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="section level4">
+<h4 id="to-search-all-related-in-ascending-order">To search all related in ascending order<a class="anchor" aria-label="anchor" href="#to-search-all-related-in-ascending-order"></a>
+</h4>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"main_date_str asc"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
@@ -293,47 +469,288 @@ package…</p>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Satujen käsikirjoituks… <span style="color: #BB0000;">NA</span>     0000  <span style="color: #BB0000;">NA</span>       Teksti… <span style="color: #BB0000;">NA</span>       Suomal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="to-search-last-modified">To search Last modified<a class="anchor" aria-label="anchor" href="#to-search-last-modified"></a>
-</h3>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="section level4">
+<h4 id="to-search-last-modified">To search Last modified<a class="anchor" aria-label="anchor" href="#to-search-last-modified"></a>
+</h4>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"last_indexed desc"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Songs                   Sibel… 2001  swe      Äänite… 2000-20… Eepos-… Nordi…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Vedenhaltia : kunniano… Martt… 2010  zxx      Äänite… Marttin… Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Three early pieces for… Sibel… 2004  fin      Nuotti  kamarim… Helle-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Yksinlauluja            Sibel… 1998  swe      Äänite… 1890-lu… Helmet… Suomi…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Yhdessä                 <span style="color: #BB0000;">NA</span>     2006  <span style="color: #BB0000;">NA</span>       Äänite… Sibeliu… Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Tulikulkku : musiikkia… <span style="color: #BB0000;">NA</span>     1993  fin      Äänite… sovituk… Vanamo… Sibel…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Scandinavian rhapsody … <span style="color: #BB0000;">NA</span>     1994  eng      Äänite… <span style="color: #BB0000;">NA</span>       Kainet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Songs                   Sibel… 1994  swe      Äänite… yksinla… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Maa on niin kaunis : H… Tilli… 1997  fin      Äänite… 1800-lu… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Symphony no. 7 in C op… Sibel… 1996  zxx      Äänite… <span style="color: #BB0000;">NA</span>       PIKI-k… The c…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Ars longa vita brevis … <span style="color: #BB0000;">NA</span>     2003  eng      Äänite… <span style="color: #BB0000;">NA</span>       Kuopio… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Suuri joululaulukirja   Leske… 2022  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Pikku pianistin joulus… Heikk… 2003  fin      Nuotti  ohjelmi… Lapin … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Suomalainen joulu : ko… <span style="color: #BB0000;">NA</span>     2006  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Canzonetta : op62a : p… Sibel… 1938  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 15 ausgewählte Lieder … Sibel… 1966  deu      Nuotti  <span style="color: #BB0000;">NA</span>       Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Finlandia : op26 nro 7… Sibel… 1933  zxx      Nuotti  sovituk… Vanamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Works for piano =  : K… Sibel… 2008  zxx      Nuotti  piano, … OUTI-k… Compl…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Lapsenpiika             Musto… 2014  fin      Kirja,… Eriksso… Anders… Seven </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Soiva L. Onerva. III :… Onerv… 2024  fin      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="to-search-last-added">To search Last added<a class="anchor" aria-label="anchor" href="#to-search-last-added"></a>
-</h3>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="section level4">
+<h4 id="to-search-last-added">To search Last added<a class="anchor" aria-label="anchor" href="#to-search-last-added"></a>
+</h4>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"first_indexed desc"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>Näyttelijän luovuuden… Heisk… 2023  fin      Opinnä… luovuus… Taidey… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>Sanasi, kiveen uponne… Tarki… 2016  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>Sibeliuksen puisto pe… Vyhti… 2024  <span style="color: #BB0000;">NA</span>       Kuva, … puistot… Helsin… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>Jean Sibelius (relief… Aalto… 1932  <span style="color: #BB0000;">NA</span>       Esine   reliefi… Sibeli… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>Jean Sibelius 1865-19… Aalto… 1945  <span style="color: #BB0000;">NA</span>       Esine   reliefi… Sibeli… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>Jean Sibelius (relief… Aalto… 1945  <span style="color: #BB0000;">NA</span>       Esine   reliefi… Sibeli… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>Taiteilija turvapaika… Kartt… 2017  fin      Kirja,… taiteil… Tekijä… ArtsE…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>Katsaus Ferruccio Bus… Holms… 2023  fin      Opinnä… <span style="color: #BB0000;">NA</span>       Kansal… EST-j…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>Contemporary Finnish … <span style="color: #BB0000;">NA</span>     1994  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Maailm… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>Suomalaisia pienoisku… <span style="color: #BB0000;">NA</span>     1997  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Hämyn lapsi             Merik… 2024  fin      Äänite… <span style="color: #BB0000;">NA</span>       Taidey… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Nuottikirja : hengelli… <span style="color: #BB0000;">NA</span>     2014  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Onneni saari = Min lyc… Melar… 1961  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Turisteja Sibelius-mon… Sipil… 2024  <span style="color: #BB0000;">NA</span>       Kuva, … matkail… Helsin… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Turisteja Sibelius-mon… Sipil… 2024  <span style="color: #BB0000;">NA</span>       Kuva, … matkail… Helsin… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Turisteja Sibelius-mon… Sipil… 2024  <span style="color: #BB0000;">NA</span>       Kuva, … matkail… Helsin… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Jean Sibelius           Järne… 1906  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Nordic Influences in V… Silén… 2024  fin      Lehti/… <span style="color: #BB0000;">NA</span>       Journa… Artik…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> The Musical Anthropolo… Abram… 2024  eng      Opinnä… ethnogr… Taidey… EST-j…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Kortistot ja kokoelmal… Kansa… 2024  mul      Muu/Mä… kokoelm… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="fine-tuning-your-search">Fine-tuning your search<a class="anchor" aria-label="anchor" href="#fine-tuning-your-search"></a>
+</h4>
+<div class="section level5">
+<h5 id="fuzzy-search">Fuzzy search<a class="anchor" aria-label="anchor" href="#fuzzy-search"></a>
+</h5>
+<p>Fuzzy search will also yield results that feature words which are
+similar to your search term.</p>
+<p>The search operator ~ will perform a fuzzy search when it is used as
+the final character of a single-word search.</p>
+<p>For example, a fuzzy search with the word roam will also return
+results with the words foam and roams.</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fuzzy_search</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"roam~"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## No encoding supplied: defaulting to UTF-8.</span></span></code></pre>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">fuzzy_search</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## NULL</span></span></code></pre>
+</div>
+<div class="section level5">
+<h5 id="proximity-search">Proximity search<a class="anchor" aria-label="anchor" href="#proximity-search"></a>
+</h5>
+<p>Proximity searches look for material in which the search terms are
+within a specified distance, but not necessarily one after the
+other.</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fuzzy_search</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"economics Keynes~10"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">fuzzy_search</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Keynes and modern econ… Kurok… 2013  eng      Kirja,… Keynesi… Jyväsk… Routl…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Keynes' economics : me… Lawso… 1985  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Itä-Su… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Keynes' economics : me… Lawso… 1989  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Keynes's impact on mon… Gilbe… 1982  eng      Kirja,… Keynesi… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> KEYNESIAN ECONOMICS     CODDI… 1983  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> On Keynesian economics… Leijo… 1968  eng      Kirja,… Keynes,… Edusku… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> The shadow of Keynes :… Johns… 1978  eng      Kirja,… Keynes,… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> The shadow of Keynes :… Johns… 1978  eng      Kirja,… Keynes,… Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> John Maynard Keynes     David… 2007  eng      Kirja,… Keynes,… Aalto-… Great…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> J.M.Keynes ja sodanjäl… Stolp… 1932  fin      Lehti/… Keynes,… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="advanced-search-to-see-available-online">Advanced search: to see available online<a class="anchor" aria-label="anchor" href="#advanced-search-to-see-available-online"></a>
+</h3>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"free_online_boolean:1"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Sibelius                Tappe… 1967  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Favén… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… kaljuus… Lahden… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Evelina Sibelius, Jean… <span style="color: #BB0000;">NA</span>     1875  <span style="color: #BB0000;">NA</span>       Kuva, … <span style="color: #BB0000;">NA</span>       Sibeli… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Aino Sibelius           Järne… 1895  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Jean Sibelius           Eero … 1908  <span style="color: #BB0000;">NA</span>       Taidet… maalaus… Järven… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Aino Sibelius           Järne… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> SIBELIUS-MONUMENTTI     <span style="color: #BB0000;">NA</span>     1961  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Valkea… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Jean Sibelius           <span style="color: #BB0000;">NA</span>     1904  <span style="color: #BB0000;">NA</span>       Kuva, … postiko… Loviis… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Jean Sibelius           Linsé… 1880  <span style="color: #BB0000;">NA</span>       Kuva, … henkilö… Loviis… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Pehr Sibelius           <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Kuva, … muotoku… Loviis… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+<div class="section level4">
+<h4 id="search-image">search image<a class="anchor" aria-label="anchor" href="#search-image"></a>
+</h4>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'~media_type_str_mv:"0/image/"'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Sibelius                Tappe… 1967  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Favén… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… kaljuus… Lahden… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Sugan… 1967  <span style="color: #BB0000;">NA</span>       Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius.               Tawas… 1968  <span style="color: #BB0000;">NA</span>       Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius.               Picke… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Sibelius.               Schou… 1949  <span style="color: #BB0000;">NA</span>       Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius.               Ottaw… 1968  <span style="color: #BB0000;">NA</span>       Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Sibelius.               Ringb… 1948  <span style="color: #BB0000;">NA</span>       Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Evelina Sibelius, Jean… <span style="color: #BB0000;">NA</span>     1875  <span style="color: #BB0000;">NA</span>       Kuva, … <span style="color: #BB0000;">NA</span>       Sibeli… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Aino Sibelius           Järne… 1895  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="audio-book">Audio book<a class="anchor" aria-label="anchor" href="#audio-book"></a>
+</h4>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'~format:"1/Book/AudioBook/"'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Aino Sibelius           Kontt… 2020  fin      Kirja,… Sibeliu… Lastu-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Aino Sibelius           Kontt… 2019  fin      Kirja,… Sibeliu… Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Aino Sibelius           Kontt… 2019  fin      Kirja,… <span style="color: #BB0000;">NA</span>       Ratamo… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Aino Sibelius           Kontt… 2019  fin      Kirja,… Sibeliu… Siilin… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Aino Sibelius           Kontt… 2019  fin      Kirja,… Sibeliu… Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Sibelius Songs (cd)     Matti… 1995  <span style="color: #BB0000;">NA</span>       Kirja,… Illalle… Lapin … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> The Sibelius collection Sibel… 1994  zxx      Kirja,… <span style="color: #BB0000;">NA</span>       Joki-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Aino Sibelius : Ihmeel… Kirve… 2020  fin      Kirja,… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Aino Sibelius : ihmeel… Kirve… 2016  fin      Kirja,… Sibeliu… Lastu-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Aino Sibelius : ihmeel… Kirve… 2015  fin      Kirja,… Sibeliu… Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="year-of-manufacture">Year of manufacture<a class="anchor" aria-label="anchor" href="#year-of-manufacture"></a>
+</h4>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'search_daterange_mv:"overlap|[-5000 TO 5000]"'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Sibelius favourites : … Sibel… 2001  <span style="color: #BB0000;">NA</span>       Äänite… orkeste… Lapin … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Tappe… 1967  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius                Ringb… 1948  fin      Kirja,… Sibeliu… Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> SIBELIUS                TÖRNE… 1945  fin      Kirja,… SIBELIU… Helle-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Sibelius                Lampi… 1995  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius                Lampi… 2005  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… Heili-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="search-using-geofilter-syntax-geographical-region">Search using Geofilter syntax (Geographical region)<a class="anchor" aria-label="anchor" href="#search-using-geofilter-syntax-geographical-region"></a>
+</h4>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"trump"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=212.53603751769646}'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> naamio; Donald Trump -… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Esine   naamiai… Suomen… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Helsinki 2018 -tapaami… Hoppa… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … kansain… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … kansain… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="geofilter-ouside-of-finland">geofilter ouside of finland<a class="anchor" aria-label="anchor" href="#geofilter-ouside-of-finland"></a>
+</h4>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"trump"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'{!geofilt sfield=location_geo pt=39.3130504637139,-76.33021295070648 d=281.83790818401854}'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 8 × 8</span></span></span>
+<span><span class="co">##   Title                    Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> Kulutusjuhlan vuokraisä… <span style="color: #BB0000;">NA</span>     1988  fin      Lehti/… Trump, … Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> A fool's errand : creat… Bunch… 2019  eng      Kirja,… Nationa… PIKI-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> Oath and honor : a memo… Chene… 2023  eng      Kirja,… Cheney,… Vaski-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> Melania and me : the ri… Wolko… 2020  eng      Kirja,… Wolkoff… Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> The January 6 report : … The J… 2022  eng      Kirja,… Trump, … Tamper… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> Gotham unbound : the ec… Stein… 2014  eng      Kirja,… Yhdysva… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">7</span> The freaks came out to … Roman… 2024  eng      Kirja,… Village… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">8</span> Sweet Manhattan : kohta… Simol… 2018  fin      Kirja,… Simola,… Anders… <span style="color: #BB0000;">NA</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="narrowing-the-search">Narrowing the search<a class="anchor" aria-label="anchor" href="#narrowing-the-search"></a>
+</h4>
+<p>When narrowing search do not use codes as a combination as
+follows</p>
+<p><code>search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=212.53603751769646}',author_facet:"Häkkinen, Hannu"'))</code>
+or</p>
+<p><code>search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=100}'), facetFilters = c('author_facet:"Häkkinen, Hannu"'))</code>
+rather use specific search as follows</p>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"trump"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'~author_facet:"Häkkinen, Hannu"'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … kansain… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … kansain… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Helsinki 2018 - tapaam… Häkki… 2018  <span style="color: #BB0000;">NA</span>       Kuva, … Helsink… Museov… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
+<div class="section level4">
+<h4 id="specific-search">specific search<a class="anchor" aria-label="anchor" href="#specific-search"></a>
+</h4>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"era:'2010-luku'"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'building:"0/3AMK/"'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="search-without-removing-duplication">search without removing duplication<a class="anchor" aria-label="anchor" href="#search-without-removing-duplication"></a>
+</h4>
+<p>In order to search data without removing duplication <a href="https://www.finna.fi/Search/Results?filter%5B%5D=finna.deduplication%3A%220%22&amp;dfApplied=1&amp;lookfor=era%3A%222010-luku%22&amp;type=AllFields" class="external-link">example</a></p>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"era:'2010-luku'"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'finna.deduplication:"0"'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> MS Najaden (Fin), törm… Onnet… 2012  fin      Kirja,… Najaden… Åbo Ak… Tutki…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> MS Najaden (Fin), törm… Onnet… 2012  fin      Kirja,… Najaden… Turun … Tutki…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tilastoja Suomen ilmas… Jokin… 2021  fin      Kirja,… 1990-lu… Jyväsk… Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Tilastoja Suomen ilmas… Jokin… 2021  fin      Kirja,… 1990-lu… Oulun … Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Tilastoja Suomen ilmas… Jokin… 2021  fin      Kirja,… 1990-lu… Åbo Ak… Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Tilastoja Suomen ilmas… Jokin… 2021  fin      Kirja,… 1990-lu… Turun … Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Tilastoja Suomen ilmas… Jokin… 2021  fin      Kirja,… 1990-lu… Kansal… Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Activating dissonance … Nauha… 2021  fin      Kirja,… Taideyl… Kansal… Episo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Pohjois-Eurooppa Venäj… Lavik… 2022  fin      Kirja,… 2010-lu… Åbo Ak… Valti…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Pohjois-Eurooppa Venäj… Lavik… 2022  fin      Kirja,… 2010-20… Oulun … Valti…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+<p>removing duplication can be done as follows</p>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"era:'2010-luku'"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'finna.deduplication:"1"'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
+<span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> MS Najaden (Fin), törm… Onnet… 2012  fin      Kirja,… <span style="color: #BB0000;">NA</span>       Oulun … Tutki…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Brilliant! : koru - va… Aro, … 2015  fin      Kirja,… korut.;… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Tilastoja Suomen ilmas… Jokin… 2021  fin      Kirja,… 1990-lu… Jyväsk… Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Tilastoja Suomen ilmas… Aalto… 2012  fin      Kirja,… ilmasto… Helka-… Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Finns abroad : new for… Heikk… 2011  eng      Kirja,… 2000-20… 3AMK-k… Migra…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Activating dissonance … Nauha… 2021  fin      Kirja,… Taideyl… Kansal… Episo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Toimeentulotuki 2010-l… Kuiva… 2013  fin      Kirja,… 2010-lu… 3AMK-k… Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Maaliskuu               Tavi,… 2012  fin      Kirja,… runot, … Eepos-… Poesia</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Tammikuu                Tavi,… 2012  fin      Kirja,… <span style="color: #BB0000;">NA</span>       Helka-… Poesia</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Suomen kaivostoiminnan… Rissa… 2013  fin      Kirja,… 2010-lu… Itä-Su… Kemi-…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

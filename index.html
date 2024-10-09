@@ -10,8 +10,7 @@
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="R package for Finna API">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="R package for Finna API">
 <meta name="description" content="R package to retrieve data from Finna API (one paragraph).">
 <meta property="og:description" content="R package to retrieve data from Finna API (one paragraph).">
 </head>
@@ -36,7 +35,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/vignette.html">Introduction to finna</a></li>
+<li><a class="dropdown-item" href="articles/refinemetadata.html">Refine, analyse, integrate &amp; visualize metadata</a></li>
+    <li><a class="dropdown-item" href="articles/vignette.html">Introduction to finna</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -51,12 +51,12 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="finna">finna<a class="anchor" aria-label="anchor" href="#finna"></a>
 </h1></div>
-<p><a href="https://ropengov.org/" class="external-link"><img src="https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg" alt="rOG-badge"></a> <a href="https://github.com/rOpenGov/finna/issues" class="external-link"><img src="https://img.shields.io/github/issues/rOpenGov/finna" alt="issues"></a> <a href="https://github.com/rOpenGov/finna/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/rOpenGov/finna" alt="pulls"></a> <a href="https://github.com/rOpenGov/finna/blob/master/.github/workflows/check-standard.yml" class="external-link"><img src="https://github.com/rOpenGov/finna/workflows/rworkflows/badge.svg" alt="R-CMD-check"></a> <a href="https://app.codecov.io/gh/rOpenGov/finna" class="external-link"><img src="https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg" alt="codecov"></a> <a href="https://www.codefactor.io/repository/github/rOpenGov/finna" class="external-link"><img src="https://www.codefactor.io/repository/github/rOpenGov/finna/badge" alt="codefactor"></a></p>
+<p><a href="https://ropengov.org/" class="external-link"><img src="https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg" alt="rOG-badge"></a> <a href="https://github.com/rOpenGov/finna/issues" class="external-link"><img src="https://img.shields.io/github/issues/rOpenGov/finna" alt="issues"></a> <a href="https://github.com/rOpenGov/finna/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/rOpenGov/finna" alt="pulls"></a> <a href="https://github.com/rOpenGov/finna/actions" class="external-link"><img src="https://github.com/rOpenGov/finna/workflows/rworkflows/badge.svg" alt="R-CMD-check"></a> <a href="https://app.codecov.io/gh/rOpenGov/finna" class="external-link"><img src="https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg" alt="codecov"></a> <a href="https://www.codefactor.io/repository/github/rOpenGov/finna" class="external-link"><img src="https://www.codefactor.io/repository/github/rOpenGov/finna/badge" alt="codefactor"></a></p>
 <p>The goal of finna is to retrieve data from Finna API</p>
 <div class="section level2">
 <h2 id="installation-instructions">Installation instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h2>
-<p>The devel version of FinnnaR can be installed from GitHub as follows:</p>
+<p>The devel version of finna can be installed from GitHub as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install finna if not already installed</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"finna"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
