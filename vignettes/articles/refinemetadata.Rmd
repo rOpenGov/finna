@@ -24,7 +24,7 @@ print(refined_data)
 
 
 ```{r}
-sibelius_data <- search_finna("sibelius")
+finna_data <- search_finna("sibelius")
 other_data <- tibble::tibble(
   Title = c("Sibelius Symphony No. 5", "Finlandia", "Valse Triste"),
   Rating = c(5, 4, 3)
