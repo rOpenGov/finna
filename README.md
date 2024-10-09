@@ -3,7 +3,7 @@
 [![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](https://ropengov.org/)
 [![issues](https://img.shields.io/github/issues/rOpenGov/finna)](https://github.com/rOpenGov/finna/issues)
 [![pulls](https://img.shields.io/github/issues-pr/rOpenGov/finna)](https://github.com/rOpenGov/finna/pulls)
-[![R-CMD-check](https://github.com/rOpenGov/finna/workflows/rworkflows/badge.svg)](https://github.com/rOpenGov/finna/actions/workflows/check-standard.yml)
+[![R-CMD-check](https://github.com/rOpenGov/finna/workflows/rworkflows/badge.svg)](https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml)
 [![codecov](https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/finna)
 [![codefactor](https://www.codefactor.io/repository/github/rOpenGov/finna/badge)](https://www.codefactor.io/repository/github/rOpenGov/finna)
 
