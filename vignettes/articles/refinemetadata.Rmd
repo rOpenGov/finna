@@ -1,5 +1,5 @@
 ---
-title: "Refine, analyse, integrate & visualize metadata"
+title: "Refine, integrate and analyse Finna metadata"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to finna}
@@ -11,12 +11,30 @@ vignette: >
 
 This vignette provides an overview of how to use the finna package.
 
+### **Refine using ` refine_metadata()` function**
+
 ```{r}
 library(finna)
 sibelius_data <- search_finna("sibelius")
 refined_data <- refine_metadata(sibelius_data)
 print(refined_data)
 ```
+
+### **integrate using ` integrate_metadata()` Function**
+
+
+```{r}
+sibelius_data <- search_finna("sibelius")
+other_data <- tibble::tibble(
+  Title = c("Sibelius Symphony No. 5", "Finlandia", "Valse Triste"),
+  Rating = c(5, 4, 3)
+)
+integrated_data <- integrate_metadata(finna_data, other_data, key = "Title")
+print(integrated_data)
+```
+
+
+### **Analyze using ` analyze_metadata()` Function**
 
 ```{r}
 sibelius_data <- search_finna("sibelius")
@@ -25,6 +43,7 @@ analysis_results <- analyze_metadata(refined_data)
 print(analysis_results)
 ```
 
+### 1. **Applying the `visualize_year_distribution()` Function**
 
 ```{r}
 sibelius_data <- search_finna("sibelius")
@@ -34,7 +53,7 @@ visualize_year_distribution(analysis_results$year_distribution)
 ```
 
 
-### 1. **Applying the `visualize_top_20_titles()` Function**
+### 2. **Applying the `visualize_top_20_titles()` Function**
 
 This function will visualize the top 20 titles from your dataset.
 
@@ -46,7 +65,7 @@ top_20_titles_plot <- visualize_top_20_titles(refined_data)
 print(top_20_titles_plot)
 ```
 
-### 2. **Applying the `visualize_format_distribution()` Function**
+### 3. **Applying the `visualize_format_distribution()` Function**
 
 This function visualizes the distribution of the records by format.
 
@@ -58,7 +77,7 @@ format_distribution_plot <- visualize_format_distribution(refined_data)
 print(format_distribution_plot)
 ```
 
-### 3. **Applying the `visualize_library_distribution()` Function**
+### 4. **Applying the `visualize_library_distribution()` Function**
 
 This function shows the distribution of the records by library.
 
@@ -70,7 +89,7 @@ library_distribution_plot <- visualize_library_distribution(refined_data)
 print(library_distribution_plot)
 ```
 
-### 4. **Applying the `visualize_author_distribution()` Function**
+### 5. **Applying the `visualize_author_distribution()` Function**
 
 This function visualizes the distribution of the records by author.
 
@@ -82,7 +101,7 @@ author_distribution_plot <- visualize_author_distribution(refined_data)
 print(author_distribution_plot)
 ```
 
-### 5. **Applying the `visualize_subject_distribution()` Function**
+### 6. **Applying the `visualize_subject_distribution()` Function**
 
 This function visualizes the distribution of the records by subject.
 

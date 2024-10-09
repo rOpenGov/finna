@@ -12,7 +12,7 @@ vignette: >
 This vignette provides an overview of how to use the finna package.
 
 To make a simple search use the following code. I we need a bulk download we use
-`search_finna("sibelius", limit = Inf)`
+`search_finna("sibelius", limit = Inf)` where we add the term `limit = Inf`.
 
 ```{r}
 library(finna)
