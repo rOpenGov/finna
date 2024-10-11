@@ -188,9 +188,10 @@ Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visua
 <span><span class="va">analysis_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/analyze_metadata.html">analyze_metadata</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/visualize_year_distribution.html">visualize_year_distribution</a></span><span class="op">(</span><span class="va">analysis_results</span><span class="op">$</span><span class="va">year_distribution</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
-<div class="section level5">
-<h5 id="line-plot-of-yearly-distribution">1.1 Line plot of yearly distribution<a class="anchor" aria-label="anchor" href="#line-plot-of-yearly-distribution"></a>
-</h5>
+</div>
+<div class="section level4">
+<h4 id="line-plot-of-yearly-distribution">1.1 Line plot of yearly distribution<a class="anchor" aria-label="anchor" href="#line-plot-of-yearly-distribution"></a>
+</h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
@@ -201,7 +202,6 @@ Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visua
 <span><span class="co">## Caused by warning:</span></span>
 <span><span class="co">## <span style="color: #BBBB00;">!</span> NAs introduced by coercion</span></span></code></pre>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
-</div>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_top_20_titles-function">2. <strong>Applying the <code>visualize_top_20_titles()</code>
@@ -215,16 +215,16 @@ Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visua
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">top_20_titles_plot</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
-<div class="section level5">
-<h5 id="visualize-heatmap-of-titles-by-year">2.1 Visualize Heatmap of Titles by Year<a class="anchor" aria-label="anchor" href="#visualize-heatmap-of-titles-by-year"></a>
-</h5>
+</div>
+<div class="section level4">
+<h4 id="visualize-heatmap-of-titles-by-year">2.1 Visualize Heatmap of Titles by Year<a class="anchor" aria-label="anchor" href="#visualize-heatmap-of-titles-by-year"></a>
+</h4>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/visualize_title_year_heatmap.html">visualize_title_year_heatmap</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
-</div>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_format_distribution-function">3. <strong>Applying the <code>visualize_format_distribution()</code>
@@ -239,7 +239,7 @@ format.</p>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">format_distribution_plot</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-8-1.png" width="700">
-#### 3.1 Visualize Format Distribution as Pie Chart</p>
+### 3.1 Visualize Format Distribution as Pie Chart</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
@@ -259,7 +259,7 @@ format.</p>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">library_distribution_plot</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-10-1.png" width="700">
-#### 4.1 <strong>Visualize Correlation Between Formats and
+### 4.1 <strong>Visualize Correlation Between Formats and
 Libraries</strong></p>
 <p>This function shows the distribution of the records by library.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
@@ -296,7 +296,7 @@ subject.</p>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">subject_distribution_plot</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-13-1.png" width="700">
-#### 6.1 <strong>Visualize Word Cloud of Titles or Subjects</strong></p>
+### 6.1 <strong>Visualize Word Cloud of Titles or Subjects</strong></p>
 <p>This function visualizes the distribution of the records by
 subject.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
