@@ -52,7 +52,7 @@ analysis_results <- analyze_metadata(refined_data)
 visualize_year_distribution(analysis_results$year_distribution)
 ```
 
-#### 1.1 Line plot of yearly distribution
+### 1.1 Line plot of yearly distribution
 ```{r}
 library(finna)
 sibelius_data <- search_finna("sibelius")
@@ -72,7 +72,7 @@ top_20_titles_plot <- visualize_top_20_titles(refined_data)
 print(top_20_titles_plot)
 ```
 
-#### 2.1 Visualize Heatmap of Titles by Year
+### 2.1 Visualize Heatmap of Titles by Year
 ```{r warning=FALSE}
 library(finna)
 sibelius_data <- search_finna("sibelius")
@@ -91,7 +91,7 @@ format_distribution_plot <- visualize_format_distribution(refined_data)
 # To display the plot
 print(format_distribution_plot)
 ```
-#### 3.1 Visualize Format Distribution as Pie Chart
+### 3.1 Visualize Format Distribution as Pie Chart
 ```{r}
 library(finna)
 sibelius_data <- search_finna("sibelius")
@@ -110,7 +110,7 @@ library_distribution_plot <- visualize_library_distribution(refined_data)
 # To display the plot
 print(library_distribution_plot)
 ```
-#### 4.1 **Visualize Correlation Between Formats and Libraries**
+### 4.1 **Visualize Correlation Between Formats and Libraries**
 
 This function shows the distribution of the records by library.
 
@@ -145,7 +145,7 @@ subject_distribution_plot <- visualize_subject_distribution(refined_data)
 # To display the plot
 print(subject_distribution_plot)
 ```
-#### 6.1 **Visualize Word Cloud of Titles or Subjects**
+### 6.1 **Visualize Word Cloud of Titles or Subjects**
 
 This function visualizes the distribution of the records by subject.
 
