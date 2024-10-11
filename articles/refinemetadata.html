@@ -33,7 +33,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine, integrate and analyse Finna metadata</a></li>
+<li><a class="dropdown-item" href="../articles/Fennica.html">Fennica in Finna</a></li>
+    <li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine, integrate and analyse Finna metadata</a></li>
     <li><a class="dropdown-item" href="../articles/vignette.html">Introduction to finna</a></li>
   </ul>
 </li>
@@ -48,8 +49,9 @@
 
 
 
-
-<div class="row">
+<link href="refinemetadata_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="refinemetadata_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="refinemetadata_files/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="refinemetadata_files/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="refinemetadata_files/wordcloud2-0.0.1/hover.js"></script><script src="refinemetadata_files/wordcloud2-binding-0.2.1/wordcloud2.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Refine, integrate and analyse Finna metadata</h1>
@@ -72,7 +74,7 @@ package.</p>
 function</strong><a class="anchor" aria-label="anchor" href="#refine-using-refine_metadata-function"></a>
 </h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rOpenGov/finna" class="external-link">finna</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
@@ -131,50 +133,50 @@ Function</strong><a class="anchor" aria-label="anchor" href="#analyze-using-anal
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">analysis_results</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $format_distribution</span></span>
 <span><span class="co">## <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
-<span><span class="co">##    Formats                        n</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Kirja, Kirja                  55</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Lehti/Artikkeli, Artikkeli    18</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Äänite, CD                    12</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Äänite, Äänilevy               6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Video, DVD                     3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Video, Elokuva, lyhyt          2</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Taideteos, Taideteos           1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Taideteos, Veistos             1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Video, Elokuva, pitkä          1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Äänite, Musiikkitallenne       1</span></span>
+<span><span class="co">##    Formats                            n</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Kirja, Kirja                      66</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Lehti/Artikkeli, Artikkeli        15</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Äänite, CD                         7</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Video, DVD                         4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Video, Elokuva, lyhyt              2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Äänite, Äänilevy                   2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Arkisto/Kokoelma, Arkistosarja     1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Taideteos, Taideteos               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Taideteos, Veistos                 1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Äänite, Musiikkitallenne           1</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $year_distribution</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 39 × 2</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 38 × 2</span></span></span>
 <span><span class="co">##    Year      n</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 1948     10</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 1945      8</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 1945      9</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 1997      8</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 1998      6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 1968      5</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 1999      5</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 1996      4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 2003      4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 1968      6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 1999      6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 2003      6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 1984      4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 1998      4</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 2015      4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 1949      3</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 29 more rows</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 1931      3</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 28 more rows</span></span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $author_distribution</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 54 × 2</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 56 × 2</span></span></span>
 <span><span class="co">##    Author                                          n</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Häyrynen, Antti                                13</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius, Jean                                 12</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Downes, Olin, Sjöblom, Paul, Jalas, Jussi       4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Lampila, Hannu-Ilari                            4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Ringbom, Nils-Eric                              4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Pickenhayn, Jorge Oscar                         3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Tawaststjerna, Erik                             3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Tawaststjerna, Erik, Tawaststjerna, Erik T.     3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Barnett, Andrew                                 2</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Gray, Cecil                                     2</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 44 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Häyrynen, Antti                                10</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Layton, Robert                                  7</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius, Jean                                  6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Ringbom, Nils-Eric                              5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Downes, Olin, Sjöblom, Paul, Jalas, Jussi       4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Gray, Cecil                                     4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Lampila, Hannu-Ilari                            4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Tawaststjerna, Erik                             4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Tawaststjerna, Erik, Tawaststjerna, Erik T.     4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Haapaniemi, Jaakko                              2</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 46 more rows</span></span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_year_distribution-function">1. <strong>Applying the <code>visualize_year_distribution()</code>
@@ -186,19 +188,43 @@ Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visua
 <span><span class="va">analysis_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/analyze_metadata.html">analyze_metadata</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/visualize_year_distribution.html">visualize_year_distribution</a></span><span class="op">(</span><span class="va">analysis_results</span><span class="op">$</span><span class="va">year_distribution</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<div class="section level5">
+<h5 id="line-plot-of-yearly-distribution">1.1 Line plot of yearly distribution<a class="anchor" aria-label="anchor" href="#line-plot-of-yearly-distribution"></a>
+</h5>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
+<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/visualize_year_distribution_line.html">visualize_year_distribution_line</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Warning: There was 1 warning in `mutate()`.</span></span>
+<span><span class="co">## <span style="color: #00BBBB;">ℹ</span> In argument: `Year = as.numeric(Year)`.</span></span>
+<span><span class="co">## Caused by warning:</span></span>
+<span><span class="co">## <span style="color: #BBBB00;">!</span> NAs introduced by coercion</span></span></code></pre>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+</div>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_top_20_titles-function">2. <strong>Applying the <code>visualize_top_20_titles()</code>
 Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visualize_top_20_titles-function"></a>
 </h4>
 <p>This function will visualize the top 20 titles from your dataset.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Assuming you have a tibble with Finna metadata called `refined_data`</span></span>
 <span><span class="va">top_20_titles_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_top_20_titles.html">visualize_top_20_titles</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">top_20_titles_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<div class="section level5">
+<h5 id="visualize-heatmap-of-titles-by-year">2.1 Visualize Heatmap of Titles by Year<a class="anchor" aria-label="anchor" href="#visualize-heatmap-of-titles-by-year"></a>
+</h5>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
+<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/visualize_title_year_heatmap.html">visualize_title_year_heatmap</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+</div>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_format_distribution-function">3. <strong>Applying the <code>visualize_format_distribution()</code>
@@ -206,26 +232,42 @@ Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visua
 </h4>
 <p>This function visualizes the distribution of the records by
 format.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot the format distribution</span></span>
 <span><span class="va">format_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_format_distribution.html">visualize_format_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">format_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-8-1.png" width="700">
+#### 3.1 Visualize Format Distribution as Pie Chart</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
+<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/visualize_format_distribution_pie.html">visualize_format_distribution_pie</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_library_distribution-function">4. <strong>Applying the
 <code>visualize_library_distribution()</code> Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visualize_library_distribution-function"></a>
 </h4>
 <p>This function shows the distribution of the records by library.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot the library distribution</span></span>
 <span><span class="va">library_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_library_distribution.html">visualize_library_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">library_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-10-1.png" width="700">
+#### 4.1 <strong>Visualize Correlation Between Formats and
+Libraries</strong></p>
+<p>This function shows the distribution of the records by library.</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
+<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/visualize_format_library_correlation.html">visualize_format_library_correlation</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_author_distribution-function">5. <strong>Applying the <code>visualize_author_distribution()</code>
@@ -233,13 +275,13 @@ Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visua
 </h4>
 <p>This function visualizes the distribution of the records by
 author.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot the author distribution</span></span>
 <span><span class="va">author_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_author_distribution.html">visualize_author_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">author_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_subject_distribution-function">6. <strong>Applying the
@@ -247,13 +289,22 @@ author.</p>
 </h4>
 <p>This function visualizes the distribution of the records by
 subject.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot the subject distribution</span></span>
 <span><span class="va">subject_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_subject_distribution.html">visualize_subject_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># To display the plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">subject_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<p><img src="refinemetadata_files/figure-html/unnamed-chunk-13-1.png" width="700">
+#### 6.1 <strong>Visualize Word Cloud of Titles or Subjects</strong></p>
+<p>This function visualizes the distribution of the records by
+subject.</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">music_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"music"</span><span class="op">)</span></span>
+<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">music_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/visualize_word_cloud.html">visualize_word_cloud</a></span><span class="op">(</span><span class="va">refined_data</span>, <span class="st">"Title"</span><span class="op">)</span></span></code></pre></div>
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"word":["music","the","roxy","siren","avalon","music!","for","pleasure","your","of","music,","album","best","from","stranded","and","country","fifth","greatest","hits","life","live","zoran","1997","april","décembre","galerie","galerija","janvier","moderna","music.","north","paris,","to","viva!","welcome","world","(cd)","(gruusia)","(part.","1)","1719","1723","18","1970","1971","1983","1984","25","25.","30","31","31.","446","[nuottijulkaisu]","[äänite]","afrikan","age","all","art,","attachment","bar","be","bernard,","blood","blues","boki","brain","brazil.","build","carrion","castratos","champ","children's","claude","collections","complete","cost","de","dear","derniers","development","drawn","ed","emotional,","emporium","esperanto","expressions","fire","flame","flesh","folk","france,","free","galerije","georgia","ikiaikainen","impossible","in","international","it","iz","jolly","kinshasa","kotorskoj","la","last","les","ljubljana,","lp","maj","may","mitigate","modern","moderne","museum","natures","ne","new","not","nous","nurturing","on","one","pas","plant","plumb","power","projects","recordings","remastered","renaissance","road","romanizmi","severo-zapadnoj","shaken","sociocultural,","sommes","squared","studio","suppliers","thrill","transmission","two","viva","voiedma","volatility","we","west","will","works","zbirk"],"freq":[38,22,19,13,12,12,11,11,11,9,6,5,4,4,4,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":4.736842105263158,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
