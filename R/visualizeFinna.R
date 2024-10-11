@@ -23,6 +23,41 @@ visualize_year_distribution <- function(year_data) {
     )
 }
 
+#' Visualize Year Distribution (Line Plot)
+#'
+#' Creates a line plot showing the distribution of records by year.
+#'
+#' @param metadata A tibble containing refined Finna metadata, with a "Year" column.
+#' @return A ggplot2 object representing the line plot.
+#' @import ggplot2
+#' @import dplyr
+#' @export
+#' @examples
+#' library(finna)
+#' sibelius_data <- search_finna("sibelius")
+#' refined_data <- refine_metadata(sibelius_data)
+#' visualize_year_distribution_line(refined_data)
+visualize_year_distribution_line <- function(metadata) {
+  # Convert the Year to numeric
+  metadata <- metadata %>%
+    mutate(Year = as.numeric(Year)) %>%
+    filter(!is.na(Year))
+
+  # Count the number of records by year
+  year_distribution <- metadata %>%
+    count(Year, sort = TRUE)
+
+  # Plot the year distribution as a line plot
+  ggplot(year_distribution, aes(x = Year, y = n)) +
+    geom_line(color = "steelblue", size = 1) +
+    theme_minimal() +
+    labs(
+      title = "Yearly Distribution of Records",
+      x = "Year",
+      y = "Number of Records"
+    )
+}
+
 #' Visualize Top-20 Titles by Count
 #'
 #' Creates a bar plot showing the top-20 most frequent titles and their counts.
@@ -31,6 +66,7 @@ visualize_year_distribution <- function(year_data) {
 #' @return A ggplot2 object showing the bar plot of the top-20 titles.
 #' @import ggplot2
 #' @import dplyr
+#' @import stringr
 #' @export
 #' @examples
 #' library(finna)
@@ -38,9 +74,12 @@ visualize_year_distribution <- function(year_data) {
 #' refined_data <- refine_metadata(sibelius_data)
 #' visualize_top_20_titles(refined_data)
 visualize_top_20_titles <- function(metadata) {
-  # Convert titles to lowercase for case-insensitive comparison
+  # Clean the titles: Convert to lowercase, remove punctuation, and trim whitespace
   metadata <- metadata %>%
-    mutate(Title = tolower(Title))
+    mutate(Title = tolower(Title),  # Convert to lowercase
+           Title = stringr::str_trim(Title),  # Trim leading and trailing whitespace
+           Title = stringr::str_squish(Title),  # Remove extra spaces between words
+           Title = stringr::str_replace_all(Title, "[[:punct:]]", ""))  # Remove punctuation
 
   # Calculate the top-20 titles
   top_titles <- metadata %>%
@@ -56,6 +95,52 @@ visualize_top_20_titles <- function(metadata) {
       title = "Top 20 Titles by Count",
       x = "Title",
       y = "Count"
+    )
+}
+
+#' Visualize Heatmap of Titles by Year
+#'
+#' Creates a heatmap showing the most frequent titles and their occurrence over time.
+#'
+#' @param metadata A tibble containing refined Finna metadata, with "Title" and "Year" columns.
+#' @return A ggplot2 object showing the heatmap of title frequency by year.
+#' @import ggplot2
+#' @import dplyr
+#' @export
+#' @examples
+#' library(finna)
+#' sibelius_data <- search_finna("sibelius")
+#' refined_data <- refine_metadata(sibelius_data)
+#' visualize_title_year_heatmap(refined_data)
+visualize_title_year_heatmap <- function(metadata) {
+  # Clean the data
+  metadata <- metadata %>%
+    mutate(Title = tolower(Title),  # Convert to lowercase
+           Title = stringr::str_trim(Title),  # Trim leading/trailing whitespace
+           Year = as.numeric(Year)) %>% # Convert year to numeric
+    filter(!is.na(Year), !is.na(Title)) %>%
+    count(Title, Year)
+
+  # Filter top 20 titles by total count
+  top_titles <- metadata %>%
+    group_by(Title) %>%
+    summarise(total = sum(n)) %>%
+    top_n(20, total) %>%
+    pull(Title)
+
+  # Filter metadata to include only top titles
+  metadata_filtered <- metadata %>% filter(Title %in% top_titles)
+
+  # Plot the heatmap
+  ggplot(metadata_filtered, aes(x = Year, y = reorder(Title, n), fill = n)) +
+    geom_tile() +
+    scale_fill_gradient(low = "white", high = "steelblue") +
+    theme_minimal() +
+    labs(
+      title = "Heatmap of Top 20 Titles by Year",
+      x = "Year",
+      y = "Title",
+      fill = "Count"
     )
 }
 
@@ -95,6 +180,41 @@ visualize_format_distribution <- function(metadata) {
     )
 }
 
+#' Visualize Correlation Between Formats and Libraries
+#'
+#' Creates a heatmap showing the correlation between formats and libraries.
+#'
+#' @param metadata A tibble containing refined Finna metadata, with "Formats" and "Library" columns.
+#' @return A ggplot2 object showing the heatmap of format-library correlation.
+#' @import ggplot2
+#' @import dplyr
+#' @export
+#' @examples
+#' library(finna)
+#' sibelius_data <- search_finna("sibelius")
+#' refined_data <- refine_metadata(sibelius_data)
+#' visualize_format_library_correlation(refined_data)
+visualize_format_library_correlation <- function(metadata) {
+  # Clean and count format-library combinations
+  format_library_dist <- metadata %>%
+    mutate(Formats = tolower(Formats),
+           Library = tolower(Library)) %>%
+    count(Formats, Library) %>%
+    filter(!is.na(Formats), !is.na(Library))
+
+  # Plot the heatmap
+  ggplot(format_library_dist, aes(x = Formats, y = Library, fill = n)) +
+    geom_tile() +
+    scale_fill_gradient(low = "white", high = "darkorange") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels
+    labs(
+      title = "Correlation Between Formats and Libraries",
+      x = "Format",
+      y = "Library",
+      fill = "Count"
+    )
+}
 
 #' Visualize Distribution by Libraries
 #'
@@ -233,6 +353,73 @@ visualize_subject_distribution <- function(metadata) {
       y = "Count"
     )
 }
+
+#' Visualize Word Cloud of Titles or Subjects
+#'
+#' Creates a word cloud showing the frequency of words in titles or subjects.
+#'
+#' @param metadata A tibble containing refined Finna metadata, with "Title" or "Subjects" column.
+#' @param column The column to visualize as a word cloud (e.g., "Title" or "Subjects").
+#' @return A word cloud plot of the most frequent words.
+#' @import wordcloud2
+#' @import dplyr
+#' @import tidyr
+#' @import rlang
+#' @export
+#' @examples
+#' library(finna)
+#' music_data <- search_finna("music")
+#' refined_data <- refine_metadata(music_data)
+#' visualize_word_cloud(refined_data, "Title")
+visualize_word_cloud <- function(metadata, column = "Title") {
+  # Convert the column name to symbol
+  column <- rlang::ensym(column)
+
+  # Clean and split words
+  words <- metadata %>%
+    select(!!column) %>%
+    mutate(!!column := tolower(!!column)) %>%
+    tidyr::separate_rows(!!column, sep = " ") %>%
+    count(!!column, sort = TRUE) %>%
+    filter(!is.na(!!column), nchar(!!column) > 1)  # Remove NA and short words
+
+  # Create word cloud
+  wordcloud2::wordcloud2(data = words)
+}
+
+
+
+#' Visualize Format Distribution as Pie Chart
+#'
+#' Creates a pie chart showing the distribution of records by formats.
+#'
+#' @param metadata A tibble containing refined Finna metadata, with a "Formats" column.
+#' @return A ggplot2 object showing the pie chart of format distribution.
+#' @import ggplot2
+#' @import dplyr
+#' @export
+#' @examples
+#' library(finna)
+#' sibelius_data <- search_finna("sibelius")
+#' refined_data <- refine_metadata(sibelius_data)
+#' visualize_format_distribution_pie(refined_data)
+visualize_format_distribution_pie <- function(metadata) {
+  # Clean and count the format distribution
+  format_distribution <- metadata %>%
+    mutate(Formats = tolower(Formats)) %>%
+    count(Formats, sort = TRUE)
+
+  # Plot the pie chart
+  ggplot(format_distribution, aes(x = "", y = n, fill = Formats)) +
+    geom_bar(stat = "identity", width = 1) +
+    coord_polar("y") +
+    theme_void() +  # Remove background and axis
+    labs(
+      title = "Distribution of Formats",
+      fill = "Formats"
+    )
+}
+
 
 
 

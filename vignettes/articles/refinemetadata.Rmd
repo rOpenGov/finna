@@ -2,7 +2,7 @@
 title: "Refine, integrate and analyse Finna metadata"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to finna}
+  %\VignetteIndexEntry{Refine, integrate and analyse Finna metadata}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -52,6 +52,13 @@ analysis_results <- analyze_metadata(refined_data)
 visualize_year_distribution(analysis_results$year_distribution)
 ```
 
+#### 1.1 Line plot of yearly distribution
+```{r}
+library(finna)
+sibelius_data <- search_finna("sibelius")
+refined_data <- refine_metadata(sibelius_data)
+visualize_year_distribution_line(refined_data)
+```
 
 ### 2. **Applying the `visualize_top_20_titles()` Function**
 
@@ -65,6 +72,14 @@ top_20_titles_plot <- visualize_top_20_titles(refined_data)
 print(top_20_titles_plot)
 ```
 
+#### 2.1 Visualize Heatmap of Titles by Year
+```{r warning=FALSE}
+library(finna)
+sibelius_data <- search_finna("sibelius")
+refined_data <- refine_metadata(sibelius_data)
+visualize_title_year_heatmap(refined_data)
+```
+
 ### 3. **Applying the `visualize_format_distribution()` Function**
 
 This function visualizes the distribution of the records by format.
@@ -75,6 +90,13 @@ format_distribution_plot <- visualize_format_distribution(refined_data)
 
 # To display the plot
 print(format_distribution_plot)
+```
+#### 3.1 Visualize Format Distribution as Pie Chart
+```{r}
+library(finna)
+sibelius_data <- search_finna("sibelius")
+refined_data <- refine_metadata(sibelius_data)
+visualize_format_distribution_pie(refined_data)
 ```
 
 ### 4. **Applying the `visualize_library_distribution()` Function**
@@ -88,6 +110,17 @@ library_distribution_plot <- visualize_library_distribution(refined_data)
 # To display the plot
 print(library_distribution_plot)
 ```
+#### 4.1 **Visualize Correlation Between Formats and Libraries**
+
+This function shows the distribution of the records by library.
+
+```{r}
+library(finna)
+sibelius_data <- search_finna("sibelius")
+refined_data <- refine_metadata(sibelius_data)
+visualize_format_library_correlation(refined_data)
+```
+
 
 ### 5. **Applying the `visualize_author_distribution()` Function**
 
@@ -112,4 +145,12 @@ subject_distribution_plot <- visualize_subject_distribution(refined_data)
 # To display the plot
 print(subject_distribution_plot)
 ```
+#### 6.1 **Visualize Word Cloud of Titles or Subjects**
 
+This function visualizes the distribution of the records by subject.
+
+```{r}
+music_data <- search_finna("music")
+refined_data <- refine_metadata(music_data)
+visualize_word_cloud(refined_data, "Title")
+```

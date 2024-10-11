@@ -57,6 +57,9 @@ search_finna <- function(query = NULL,#lookfor
   page <- 1
   records_per_page <- 100  # Fetch 100 records per page for efficiency
 
+  # Initialize resultCount
+  result_count <- 0
+
   while (total_fetched < limit) {
     # Calculate the remaining number of records to fetch
     remaining_to_fetch <- min(records_per_page, limit - total_fetched)
@@ -66,7 +69,7 @@ search_finna <- function(query = NULL,#lookfor
       lookfor = query,
       type = type,
       `field[]` = fields,
-      `filter[]` = filters,
+      # `filter[]` = filters,
       `facet[]` = facets,
       `facetFilter[]` = facetFilters,
       sort = sort,
@@ -75,6 +78,13 @@ search_finna <- function(query = NULL,#lookfor
       lng = lng,
       prettyPrint = prettyPrint
     )
+
+    # Add filters to the query parameters (handle each filter as filter[])
+    if (!is.null(filters)) {
+      for (i in seq_along(filters)) {
+        query_params[[paste0('filter[', i, ']')]] <- filters[i]
+      }
+    }
 
     # Execute the GET request and handle potential errors
     response <- tryCatch(
@@ -89,6 +99,11 @@ search_finna <- function(query = NULL,#lookfor
     if (httr::status_code(response) == 200) {
       # Parse the JSON content of the response
       search_results <- httr::content(response, "parsed")
+
+      # Extract resultCount only from the first page
+      if (page == 1) {
+        result_count <- search_results$resultCount
+      }
 
       # Extract and structure relevant data from the search results
       records <- search_results$records
@@ -163,5 +178,8 @@ search_finna <- function(query = NULL,#lookfor
   # Attach the language attribute to the tibble
   attr(tibble_results, "language") <- lng
   #cat("Data retrieved from Finna API (https://www.finna.fi) - metadata licensed under CC0.\n")
+  #return(tibble_results)
+  attr(tibble_results, "result_count") <- result_count
   return(tibble_results)
+
 }

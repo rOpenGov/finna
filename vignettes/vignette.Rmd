@@ -11,14 +11,18 @@ vignette: >
 
 This vignette provides an overview of how to use the finna package.
 
-To make a simple search use the following code. I we need a bulk download we use
-`search_finna("sibelius", limit = Inf)` where we add the term `limit = Inf`.
+To make a simple search use the following code.
 
 ```{r}
 library(finna)
 record <- search_finna("sibelius")
 print(record)
 ```
+ 
+## Bulk search 
+ 
+ I we need a bulk download we use
+`search_finna("sibelius", limit = Inf)` where we add the term `limit = Inf`.
 
 ## Free text search
 ```{r}
@@ -257,20 +261,14 @@ print(record)
 
 ### Narrowing the search 
 
-When narrowing search do not use codes as a combination as follows
-
-`search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=212.53603751769646}',author_facet:"Häkkinen, Hannu"')) 
-` 
-or
-
-`search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=100}'), facetFilters = c('author_facet:"Häkkinen, Hannu"'))
-`
-rather use specific search as follows 
+When narrowing search you can  use codes as a combination as follows
 
 ```{r}
-record <- search_finna("trump", filters = c('~author_facet:"Häkkinen, Hannu"'))
+record <- search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=212.53603751769646},author_facet:"Häkkinen,Hannu"'))
 print(record)
 ```
+
+
 ### specific search 
 
 ```{r}
@@ -281,14 +279,32 @@ record <- search_finna("era:'2010-luku'", filters = c('building:"0/3AMK/"'))
 ### search without removing duplication
 
 In order to search data without removing duplication
-[example](https://www.finna.fi/Search/Results?filter%5B%5D=finna.deduplication%3A%220%22&dfApplied=1&lookfor=era%3A%222010-luku%22&type=AllFields)
+[example](https://www.finna.fi/Search/Results?dfApplied=1&lookfor=era%3A%222010-luku%22&type=AllFields&filter[]=~building%3A%220%2F3AMK%2F%22&filter[]=finna.deduplication:%220%22)
+
 ```{r}
-record <- search_finna("era:'2010-luku'", filters = c('finna.deduplication:"0"'))
+record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"1"'))
 print(record)
 ```
-removing duplication can be done as follows
+We can confirm this as follows by checking the count
+
 ```{r}
-record <- search_finna("era:'2010-luku'", filters = c('finna.deduplication:"1"'))
+record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"1"'))
+result_count <- attr(record, "result_count")
+print(result_count)
+```
+
+Removing duplication can be done as follows
+
+```{r}
+record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"0"'))
 print(record)
+```
+
+To confirm this we can check the count 
+
+```{r}
+record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"0"'))
+result_count <- attr(record, "result_count")
+print(result_count)
 ```
 

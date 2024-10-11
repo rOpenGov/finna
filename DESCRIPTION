@@ -17,12 +17,16 @@ Imports:
     ggplot2,
     purrr,
     tibble,
-    curl
+    curl,
+    rlang,
+    stringr,
+    tidyr,
+    wordcloud2
 Suggests: 
     testthat (>= 3.0.0),
     rmarkdown,
     knitr
-URL: https://github.com/rOpenGov/finna
+URL: https://ropengov.github.io/finna/
 BugReports: https://github.com/rOpenGov/finna/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

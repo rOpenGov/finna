@@ -1,0 +1,59 @@
+---
+title: "Fennica in Finna"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Fennica in Finna}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Fennica 
+
+To search Fennica data in Finna
+
+```{r}
+library(finna)
+fennica <- search_finna("*",filters=c('collection:"FEN"'))
+print(fennica)
+```
+
+## Bulk data
+
+In order to download the whole data we can add the parameter `limit = Inf`
+as `search_finna("*",filters=c('collection:"FEN"'), limit = Inf)`
+
+## Checking the total counts
+
+search the whole data and it total search of counts in the the interval between 
+some years for example between the years 1809-1917 as follows:
+
+```{r}
+library(finna)
+fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
+print(fennica)
+```
+
+we can check the whole data count
+
+```{r}
+library(finna)
+fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
+result_count <- attr(fennica, "result_count")
+print(result_count)
+```
+
+## Visualization for fennica
+
+We can use any of the functions provided to visualize the data 
+```{r}
+library(finna)
+fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
+refined_data <- refine_metadata(fennica)
+visualize_author_distribution(refined_data)
+```
+
+```{r}
+fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
+refined_data <- refine_metadata(fennica)
+visualize_word_cloud(refined_data, "Title")
+```
