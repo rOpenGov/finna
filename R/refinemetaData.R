@@ -3,7 +3,7 @@
 #' Refines the Finna metadata tibble by keeping relevant fields and cleaning up missing values.
 #'
 #' @param data A tibble containing raw Finna metadata.
-#' @return A tibble with selected, cleaned metadata fields.
+#' @return A tibble with selected, cleaned metadata fields, or NULL if required fields are missing.
 #' @import dplyr
 #' @export
 #' @examples
@@ -12,6 +12,17 @@
 #' refine_metadata(sibelius_data)
 #'
 refine_metadata <- function(data) {
+  required_columns <- c("Title", "Author", "Year", "Language", "Formats", "Subjects", "Library", "Series")
+
+  # Check if the required columns exist in the data
+  missing_columns <- setdiff(required_columns, names(data))
+
+  if (length(missing_columns) > 0) {
+    warning(paste("The following required columns are missing:", paste(missing_columns, collapse = ", ")))
+    return(NULL)  # Return NULL if any required columns are missing
+  }
+
+  # Proceed with refining the metadata if all required columns are present
   refined <- data %>%
     mutate(
       Title = if_else(is.na(Title), "Unknown Title", Title),

@@ -99,6 +99,7 @@ search_finna <- function(query = NULL,#lookfor
     if (httr::status_code(response) == 200) {
       # Parse the JSON content of the response
       search_results <- httr::content(response, "parsed")
+      #print(search_results)
 
       # Extract resultCount only from the first page
       if (page == 1) {
@@ -107,6 +108,7 @@ search_finna <- function(query = NULL,#lookfor
 
       # Extract and structure relevant data from the search results
       records <- search_results$records
+      #print(records[[1]]$id)
       if (is.null(records) || length(records) == 0) {
         break  # No more records, stop fetching
       }
@@ -114,6 +116,7 @@ search_finna <- function(query = NULL,#lookfor
       # Add the records to the all_data list
       data <- lapply(records, function(record) {
         list(
+          id = record$id %||% NA,
           Title = record$title %||% NA,
           Author = if (!is.null(record$nonPresenterAuthors) && length(record$nonPresenterAuthors) > 0) {
             paste(sapply(record$nonPresenterAuthors, function(author) author$name), collapse = ", ")
@@ -179,7 +182,7 @@ search_finna <- function(query = NULL,#lookfor
   attr(tibble_results, "language") <- lng
   #cat("Data retrieved from Finna API (https://www.finna.fi) - metadata licensed under CC0.\n")
   #return(tibble_results)
-  attr(tibble_results, "result_count") <- result_count
+  #attr(tibble_results, "result_count") <- result_count
   return(tibble_results)
 
 }

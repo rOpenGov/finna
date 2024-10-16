@@ -10,7 +10,7 @@ refine_metadata(data)
 \item{data}{A tibble containing raw Finna metadata.}
 }
 \value{
-A tibble with selected, cleaned metadata fields.
+A tibble with selected, cleaned metadata fields, or NULL if required fields are missing.
 }
 \description{
 Refines the Finna metadata tibble by keeping relevant fields and cleaning up missing values.

@@ -11,7 +11,7 @@
 #' @param limit The number of records to return per page. Defaults to 20.
 #' @return A tibble containing the retrieved records data with provenance information.
 #' @examples
-#' records <- get_finna_records("fikka.3405646", field = "title", prettyPrint = TRUE, lng = "en-gb")
+#' records <- get_finna_records("helmet.2584794")
 #' print(records)
 #' @export
 #' @importFrom httr GET status_code content
@@ -48,6 +48,7 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
       stop("Failed to make the request: ", e$message)
     }
   )
+  #print(response)
 
   # Check the response status
   if (status_code(response) == 200) {
@@ -55,11 +56,14 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
     if (is.null(record_data$records) || length(record_data$records) == 0) {
       stop("No records found for the provided IDs.")
     }
+    #print(record_data)
+
 
     # Extract the data
     data <- lapply(record_data$records, function(record) {
       if (is.list(record)) {
         list(
+          id = if (!is.null(record$id)) record$id else NA,
           Title = if (!is.null(record$title)) record$title else NA,
           Author = if (!is.null(record$nonPresenterAuthors)) {
             paste(sapply(record$nonPresenterAuthors, function(author) {
@@ -69,27 +73,32 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
             NA
           },
           Year = if (!is.null(record$year)) record$year else NA,
-          Language = if (!is.null(record$languages)) record$languages[[1]] else NA,
-          Formats = if (!is.null(record$formats)) {
+          Language = if (!is.null(record$languages) && length(record$languages) > 0) {
+            record$languages[[1]]
+          } else {
+            NA
+          },
+          Publisher = if(!is.null(record$publisher)) record$publisher else NA,
+          Formats = if (!is.null(record$formats) && length(record$formats) > 0) {
             paste(sapply(record$formats, function(format) {
-              if (is.list(format) && !is.null(format$translated)) paste(format$translated, collapse = ", ") else format
+              if (is.list(format) && !is.null(format$translated)) format$translated else NA
             }), collapse = ", ")
           } else {
             NA
           },
-          Subjects = if (!is.null(record$subjects)) {
+          Subjects = if (!is.null(record$subjects) && length(record$subjects) > 0) {
             paste(unlist(record$subjects), collapse = "; ")
           } else {
             NA
           },
-          Library = if (!is.null(record$buildings)) {
+          Library = if (!is.null(record$buildings) && length(record$buildings) > 0) {
             paste(sapply(record$buildings, function(building) {
-              if (is.list(building) && !is.null(building$translated)) paste(building$translated, collapse = ", ") else building
+              if (is.list(building) && !is.null(building$translated)) building$translated else NA
             }), collapse = "; ")
           } else {
             NA
           },
-          Series = if (!is.null(record$series)) {
+          Series = if (!is.null(record$series) && length(record$series) > 0) {
             paste(sapply(record$series, function(series) {
               if (!is.null(series$name)) series$name else NA
             }), collapse = ", ")
@@ -99,10 +108,12 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
         )
       } else {
         list(
+          id = NA,
           Title = NA,
           Author = NA,
           Year = NA,
           Language = NA,
+          Publisher = NA,
           Formats = NA,
           Subjects = NA,
           Library = NA,
@@ -115,10 +126,11 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
     tibble_results <- tibble::as_tibble(do.call(rbind, lapply(data, function(x) unlist(x, recursive = FALSE))))
     # Add provenance and citation information
     tibble_results$provenance <- "Finna API (https://www.finna.fi)"
-    tibble_results$data_license <- "CC0 for metadata (https://creativecommons.org/publicdomain/zero/1.0/), images and other linked resources may have different licenses."
+    #tibble_results$data_license <- "CC0 for metadata (https://creativecommons.org/publicdomain/zero/1.0/), images and other linked resources may have different licenses."
 
     # Attach the citation as an attribute
     attr(tibble_results, "citation") <- "Data retrieved from Finna API (https://www.finna.fi) - metadata licensed under CC0."
+
     return(tibble_results)
 
   } else {
@@ -126,6 +138,7 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
          "- Response:", content(response, "text"))
   }
 }
+
 
 
 # Example usage:

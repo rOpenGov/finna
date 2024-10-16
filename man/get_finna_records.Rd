@@ -34,6 +34,6 @@ This function retrieves multiple Finna records based on a vector of record IDs. 
 which fields to return, the language, and the pagination options.
 }
 \examples{
-records <- get_finna_records("fikka.3405646", field = "title", prettyPrint = TRUE, lng = "en-gb")
+records <- get_finna_records("helmet.2584794")
 print(records)
 }

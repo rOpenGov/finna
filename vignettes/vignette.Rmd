@@ -18,7 +18,14 @@ library(finna)
 record <- search_finna("sibelius")
 print(record)
 ```
- 
+
+## Searching as subject
+
+```{r}
+library(finna)
+record <- search_finna(query = '"orkesterimusiikki"', type = "Subject", lng = "en-gb")
+print(record)
+```
 ## Bulk search 
  
  I we need a bulk download we use
@@ -308,3 +315,29 @@ result_count <- attr(record, "result_count")
 print(result_count)
 ```
 
+# Search Finna with multiple filters 
+To find scholarly journals and digital repository materials regarding music 
+
+```{r}
+results <- search_finna(
+  query = "musiikki OR taide OR tanssi OR teatteri",
+  filters = c(
+    '~hierarchy_parent_title:"Institutional Repository"',
+    '~format_ext_str_mv:"1/Thesis/Gradu/"',
+    '~format_ext_str_mv:"1/Thesis/Masters/"',
+    '~format_ext_str_mv:"1/Thesis/MastersPolytechnic/"',
+    '~format_ext_str_mv:"1/Thesis/Thesis/"',
+    '~format_ext_str_mv:"1/Thesis/Licentiate/"',
+    '~format_ext_str_mv:"0/OtherText/"',
+    '~format_ext_str_mv:"0/Journal/"',
+    '~format_ext_str_mv:"0/Book/"',
+    'free_online_boolean:"1"'
+  ),
+  type = "AllFields",
+  lng = "en-gb",
+  prettyPrint = TRUE
+)
+
+# Print the results
+print(results)
+```
