@@ -82,15 +82,15 @@ function</strong><a class="anchor" aria-label="anchor" href="#refine-using-refin
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Sibelius favourites : … Sibel… 2001  Unknown… Äänite… orkeste… Lapin … Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Tappe… 1967  Unknown… Taidet… Unknown… Jyväsk… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Favén… Unkn… Unknown… Taidet… kaljuus… Lahden… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Anders… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius                Ringb… 1948  fin      Kirja,… Sibeliu… Eepos-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> SIBELIUS                TÖRNE… 1945  fin      Kirja,… SIBELIU… Helle-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius                Lampi… 1995  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Sibelius                Lampi… 2005  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Eepos-… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… OUTI-k… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius                Ringb… 1948  fin      Kirja,… Sibeliu… Vaasan… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Sibelius                Ringb… 1948  swe      Kirja,… Sibeliu… Helmet… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius                Tawas… 1968  swe      Kirja,… Sibeliu… Anders… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> SIBELIUS                RINGB… 1948  swe      Kirja,… SIBELIU… Helle-… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> SIBELIUS                TAWAS… 1968  swe      Kirja,… SIBELIU… Helle-… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius                Picke… 1960  spa      Kirja,… Sibeliu… Jyväsk… Unkno…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 </div>
 <div class="section level4">
@@ -106,19 +106,19 @@ Function</strong><a class="anchor" aria-label="anchor" href="#integrate-using-in
 <span><span class="op">)</span></span>
 <span><span class="va">integrated_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/integrate_metadata.html">integrate_metadata</a></span><span class="op">(</span><span class="va">finna_data</span>, <span class="va">other_data</span>, key <span class="op">=</span> <span class="st">"Title"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">integrated_data</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 103 × 9</span></span></span>
-<span><span class="co">##    Title            Author Year  Language Formats Subjects Library Series Rating</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Sibelius favour… Sibel… 2001  <span style="color: #BB0000;">NA</span>       Äänite… orkeste… Lapin … <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius         Tappe… 1967  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius         Favén… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… kaljuus… Lahden… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius         Tawas… 2003  fin      Kirja,… Sibeliu… Anders… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius         Ringb… 1948  fin      Kirja,… Sibeliu… Eepos-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> SIBELIUS         TÖRNE… 1945  fin      Kirja,… SIBELIU… Helle-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius         Lampi… 1995  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Sibelius         Lampi… 2005  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Sibelius         Lampi… 1984  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius         Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 103 × 10</span></span></span>
+<span><span class="co">##    id         Title Author Year  Language Formats Subjects Library Series Rating</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> lapinkirj… Sibe… Sibel… 2001  <span style="color: #BB0000;">NA</span>       Äänite… orkeste… Lapin … <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> eepos.197… Sibe… Tawas… 1997  fin      Kirja,… Sibeliu… Eepos-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> arto.0053… Sibe… Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> outi.1591… Sibe… Downe… 1945  fin      Kirja,… Sibeliu… OUTI-k… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> vaasa.2dd… Sibe… Ringb… 1948  fin      Kirja,… Sibeliu… Vaasan… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> helmet.14… Sibe… Ringb… 1948  swe      Kirja,… Sibeliu… Helmet… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> anders.13… Sibe… Tawas… 1968  swe      Kirja,… Sibeliu… Anders… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> helle.136… SIBE… RINGB… 1948  swe      Kirja,… SIBELIU… Helle-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> helle.136… SIBE… TAWAS… 1968  swe      Kirja,… SIBELIU… Helle-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> jykdok.20… Sibe… Picke… 1960  spa      Kirja,… Sibeliu… Jyväsk… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 93 more rows</span></span></span></code></pre>
 </div>
 <div class="section level4">
@@ -135,48 +135,48 @@ Function</strong><a class="anchor" aria-label="anchor" href="#analyze-using-anal
 <span><span class="co">## <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
 <span><span class="co">##    Formats                            n</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Kirja, Kirja                      66</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Lehti/Artikkeli, Artikkeli        15</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Äänite, CD                         7</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Video, DVD                         4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Video, Elokuva, lyhyt              2</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Äänite, Äänilevy                   2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Kirja, Kirja                      51</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Lehti/Artikkeli, Artikkeli        20</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Äänite, CD                        10</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Video, DVD                         6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Äänite, Äänilevy                   6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Video, Elokuva, lyhyt              3</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Arkisto/Kokoelma, Arkistosarja     1</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Taideteos, Taideteos               1</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Taideteos, Veistos                 1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Äänite, Musiikkitallenne           1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Video, Elokuva, pitkä              1</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $year_distribution</span></span>
 <span><span class="co">## <span style="color: #949494;"># A tibble: 38 × 2</span></span></span>
-<span><span class="co">##    Year      n</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 1948     10</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 1945      9</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 1997      8</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 1968      6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 1999      6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 2003      6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 1984      4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 1998      4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 2015      4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 1931      3</span></span>
+<span><span class="co">##    Year             n</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 1997             8</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 1999             8</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 2003             8</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 1948             7</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 1945             5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 1968             5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 1998             5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 1949             4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 1996             4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Unknown Year     4</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 28 more rows</span></span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $author_distribution</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 56 × 2</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 50 × 2</span></span></span>
 <span><span class="co">##    Author                                          n</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Häyrynen, Antti                                10</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Layton, Robert                                  7</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius, Jean                                  6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Ringbom, Nils-Eric                              5</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Downes, Olin, Sjöblom, Paul, Jalas, Jussi       4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Gray, Cecil                                     4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Lampila, Hannu-Ilari                            4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Tawaststjerna, Erik                             4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Tawaststjerna, Erik, Tawaststjerna, Erik T.     4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Haapaniemi, Jaakko                              2</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 46 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Häyrynen, Antti                                13</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius, Jean                                  9</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Layton, Robert                                  7</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Gray, Cecil                                     4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Lampila, Hannu-Ilari                            4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Ringbom, Nils-Eric                              4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Haapaniemi, Jaakko                              3</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Schouwman, Hans                                 3</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Tawaststjerna, Erik                             3</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Tawaststjerna, Erik, Tawaststjerna, Erik T.     3</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 40 more rows</span></span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_year_distribution-function">1. <strong>Applying the <code>visualize_year_distribution()</code>
@@ -304,7 +304,7 @@ subject.</p>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">music_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/visualize_word_cloud.html">visualize_word_cloud</a></span><span class="op">(</span><span class="va">refined_data</span>, <span class="st">"Title"</span><span class="op">)</span></span></code></pre></div>
 <div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"word":["music","the","roxy","siren","avalon","music!","for","pleasure","your","of","music,","album","best","from","stranded","and","country","fifth","greatest","hits","life","live","zoran","1997","april","décembre","galerie","galerija","janvier","moderna","music.","north","paris,","to","viva!","welcome","world","(cd)","(gruusia)","(part.","1)","1719","1723","18","1970","1971","1983","1984","25","25.","30","31","31.","446","[nuottijulkaisu]","[äänite]","afrikan","age","all","art,","attachment","bar","be","bernard,","blood","blues","boki","brain","brazil.","build","carrion","castratos","champ","children's","claude","collections","complete","cost","de","dear","derniers","development","drawn","ed","emotional,","emporium","esperanto","expressions","fire","flame","flesh","folk","france,","free","galerije","georgia","ikiaikainen","impossible","in","international","it","iz","jolly","kinshasa","kotorskoj","la","last","les","ljubljana,","lp","maj","may","mitigate","modern","moderne","museum","natures","ne","new","not","nous","nurturing","on","one","pas","plant","plumb","power","projects","recordings","remastered","renaissance","road","romanizmi","severo-zapadnoj","shaken","sociocultural,","sommes","squared","studio","suppliers","thrill","transmission","two","viva","voiedma","volatility","we","west","will","works","zbirk"],"freq":[38,22,19,13,12,12,11,11,11,9,6,5,4,4,4,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":4.736842105263158,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"word":["music","the","roxy","music!","of","avalon","for","pleasure","your","music,","siren","album","best","country","life","stranded","to","from","galerie","heart","live","music.","north","paris,","road","viva!","welcome","world","zoran","(cd)","(gruusia)","(part.","(sars-cov-2)","...","01/06/2021","1)","1719","1723","1964","1983","1984","2001","25","29","446","[nuottijulkaisu]","afrikan","age","all","and","antigens","av","avril","bar","be","beating","bernard,","bhajans","bien","blood","boki","brazil.","buddha","build","candidate","carrion","castratos","champ","chaplin","charlie","claude","complete","coronavirus","cost","create","d'art","de","dear","decoration","donació","donación","décembre","early","en","ensamhet","ernesto","essential","expressions","field","fifth","flesh","flesh+blood","folk","france,","free","för","gasmotor","georgia","greatest","guitar","here,","high","hits","ikiaikainen","impossible","in","institut","international","it","it's","ivam","janvier","jolly","kotorskoj","land","language","lecuona","legacy","limits","lp","lähettiläiden","mantras","mars","medicine","min","mitigate","modern,","monsieur","mouth","new","norovirus-like","not","och","on","opening","particles","planering","plant","potential","power","projects","recordings","renaissance","return","romanizmi","set","severo-zapadnoj","shaken","shorelife","sol","sommar","squared","still","studio","suppliers","testkörningscell","thrill","time","tones","town","transmission","tribe","vaccine","valencià","volatility","vous...","we","west","when","will","with","years","you","ääni"],"freq":[34,18,14,12,11,10,10,10,10,7,6,4,4,4,4,4,4,3,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":5.294117647058823,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
