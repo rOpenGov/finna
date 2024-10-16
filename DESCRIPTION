@@ -8,7 +8,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5537-637X"))
   )
 Description: R package to retrieve data from Finna API (one paragraph).
-License: LICENSE
+License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Imports: 
     dplyr,
