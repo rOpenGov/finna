@@ -10,6 +10,7 @@
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
 <url><loc>/reference/analyze_metadata.html</loc></url>
+<url><loc>/reference/analyze_trends_over_time_binned.html</loc></url>
 <url><loc>/reference/check_api_access.html</loc></url>
 <url><loc>/reference/finna_as_json.html</loc></url>
 <url><loc>/reference/finna_cite.html</loc></url>
@@ -17,8 +18,12 @@
 <url><loc>/reference/get_finna_records.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/integrate_metadata.html</loc></url>
+<url><loc>/reference/load_offline_data.html</loc></url>
 <url><loc>/reference/refine_metadata.html</loc></url>
+<url><loc>/reference/save_for_offline.html</loc></url>
 <url><loc>/reference/search_finna.html</loc></url>
+<url><loc>/reference/search_finna_from_file.html</loc></url>
+<url><loc>/reference/search_publisher.html</loc></url>
 <url><loc>/reference/visualize_author_distribution.html</loc></url>
 <url><loc>/reference/visualize_format_distribution.html</loc></url>
 <url><loc>/reference/visualize_format_distribution_pie.html</loc></url>
