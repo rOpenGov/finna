@@ -2,7 +2,7 @@
 % Please edit documentation in R/visualizeFinna.R
 \name{visualize_word_cloud}
 \alias{visualize_word_cloud}
-\title{Visualize Word Cloud of Titles or Subjects}
+\title{Visualize Word Cloud of Titles or Subjects with Stop Words Removal}
 \usage{
 visualize_word_cloud(metadata, column = "Title")
 }
@@ -15,7 +15,8 @@ visualize_word_cloud(metadata, column = "Title")
 A word cloud plot of the most frequent words.
 }
 \description{
-Creates a word cloud showing the frequency of words in titles or subjects.
+Creates a word cloud showing the frequency of words in titles or subjects,
+removing common Finnish, Swedish, and English stop words.
 }
 \examples{
 library(finna)

@@ -15,7 +15,6 @@ Imports:
     httr,
     jsonlite,
     ggplot2,
-    purrr,
     tibble,
     curl,
     rlang,
@@ -23,6 +22,8 @@ Imports:
     tidyr,
     RefManageR,
     lubridate,
+    tm,
+    stopwords,
     wordcloud2
 Suggests: 
     testthat (>= 3.0.0),

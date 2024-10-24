@@ -354,9 +354,10 @@ visualize_subject_distribution <- function(metadata) {
     )
 }
 
-#' Visualize Word Cloud of Titles or Subjects
+#' Visualize Word Cloud of Titles or Subjects with Stop Words Removal
 #'
-#' Creates a word cloud showing the frequency of words in titles or subjects.
+#' Creates a word cloud showing the frequency of words in titles or subjects,
+#' removing common Finnish, Swedish, and English stop words.
 #'
 #' @param metadata A tibble containing refined Finna metadata, with "Title" or "Subjects" column.
 #' @param column The column to visualize as a word cloud (e.g., "Title" or "Subjects").
@@ -365,6 +366,7 @@ visualize_subject_distribution <- function(metadata) {
 #' @import dplyr
 #' @import tidyr
 #' @import rlang
+#' @import tm
 #' @export
 #' @examples
 #' library(finna)
@@ -372,19 +374,46 @@ visualize_subject_distribution <- function(metadata) {
 #' refined_data <- refine_metadata(music_data)
 #' visualize_word_cloud(refined_data, "Title")
 visualize_word_cloud <- function(metadata, column = "Title") {
+
   # Convert the column name to symbol
   column <- rlang::ensym(column)
 
-  # Clean and split words
-  words <- metadata %>%
+  # Extract the text data from the specified column
+  text_data <- metadata %>%
     select(!!column) %>%
-    mutate(!!column := tolower(!!column)) %>%
-    tidyr::separate_rows(!!column, sep = " ") %>%
-    count(!!column, sort = TRUE) %>%
-    filter(!is.na(!!column), nchar(!!column) > 1)  # Remove NA and short words
+    pull(!!column)
 
-  # Create word cloud
-  wordcloud2::wordcloud2(data = words)
+  # Create a text corpus
+  corpus <- Corpus(VectorSource(text_data))
+
+  # List of common Finnish, Swedish, and English stop words
+  finnish_stopwords <- stopwords::stopwords("fi")
+  swedish_stopwords <- stopwords::stopwords("sv")
+  english_stopwords <- stopwords::stopwords("en")
+
+  # Clean the text: lowercase, remove punctuation, numbers, extra whitespace, and stopwords
+  corpus <- tm_map(corpus, content_transformer(tolower))             # Convert to lowercase
+  corpus <- tm_map(corpus, removePunctuation)                        # Remove punctuation
+  corpus <- tm_map(corpus, removeNumbers)                            # Remove numbers
+  corpus <- tm_map(corpus, stripWhitespace)                          # Remove extra whitespace
+  corpus <- tm_map(corpus, removeWords, c(finnish_stopwords,         # Remove stop words (Finnish, Swedish, English)
+                                          swedish_stopwords,
+                                          english_stopwords))
+
+  # Create a term-document matrix
+  tdm <- TermDocumentMatrix(corpus)
+
+  # Convert the term-document matrix to a matrix
+  tdm_matrix <- as.matrix(tdm)
+
+  # Sum the word frequencies
+  word_freq <- sort(rowSums(tdm_matrix), decreasing = TRUE)
+
+  # Convert to a data frame
+  word_freq_df <- data.frame(word = names(word_freq), freq = word_freq)
+
+  # Generate word cloud using wordcloud2
+  wordcloud2::wordcloud2(data = word_freq_df)
 }
 
 

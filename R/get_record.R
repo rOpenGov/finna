@@ -11,7 +11,7 @@
 #' @param limit The number of records to return per page. Defaults to 20.
 #' @return A tibble containing the retrieved records data with provenance information.
 #' @examples
-#' records <- get_finna_records("helmet.2584794")
+#' records <- get_finna_records("fikka.3405646", field = "title", prettyPrint = TRUE, lng = "en-gb")
 #' print(records)
 #' @export
 #' @importFrom httr GET status_code content
@@ -56,7 +56,7 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
     if (is.null(record_data$records) || length(record_data$records) == 0) {
       stop("No records found for the provided IDs.")
     }
-    #print(record_data)
+    print(record_data)
 
 
     # Extract the data
@@ -125,7 +125,7 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
     # Convert the list to a tibble
     tibble_results <- tibble::as_tibble(do.call(rbind, lapply(data, function(x) unlist(x, recursive = FALSE))))
     # Add provenance and citation information
-    tibble_results$provenance <- "Finna API (https://www.finna.fi)"
+    #tibble_results$provenance <- "Finna API (https://www.finna.fi)"
     #tibble_results$data_license <- "CC0 for metadata (https://creativecommons.org/publicdomain/zero/1.0/), images and other linked resources may have different licenses."
 
     # Attach the citation as an attribute

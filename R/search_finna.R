@@ -69,7 +69,7 @@ search_finna <- function(query = NULL,#lookfor
       lookfor = query,
       type = type,
       `field[]` = fields,
-      # `filter[]` = filters,
+      #`filter[]` = filters,
       `facet[]` = facets,
       `facetFilter[]` = facetFilters,
       sort = sort,
@@ -94,6 +94,11 @@ search_finna <- function(query = NULL,#lookfor
         return(NULL)
       }
     )
+    #print(response)
+    #result <- content(response, as = "text", encoding = "UTF-8")
+    #print(result)
+    #json_result <- fromJSON(result)
+    #print(json_result)
 
     # Process the response based on the status code
     if (httr::status_code(response) == 200) {
@@ -108,7 +113,7 @@ search_finna <- function(query = NULL,#lookfor
 
       # Extract and structure relevant data from the search results
       records <- search_results$records
-      #print(records[[1]]$id)
+      #print(records)
       if (is.null(records) || length(records) == 0) {
         break  # No more records, stop fetching
       }
@@ -123,7 +128,13 @@ search_finna <- function(query = NULL,#lookfor
           } else {
             NA
           },
+          # Publisher = if (!is.null(record$publishers) && length(record$publishers) > 0) {
+          #   paste(record$publishers, collapse = ", ")
+          # } else {
+          #   NA
+          # },
           Year = record$year %||% NA,
+          #urls = record$urls %||% NA,
           Language = if (!is.null(record$languages) && length(record$languages) > 0) record$languages[[1]] else NA,
           Formats = if (!is.null(record$formats) && length(record$formats) > 0) {
             paste(sapply(record$formats, function(format) format$translated), collapse = ", ")
@@ -135,6 +146,12 @@ search_finna <- function(query = NULL,#lookfor
           } else {
             NA
           },
+          #Genres = record$genres %||% NA,
+          # CallNumber = if (!is.null(record$callNumbers) && length(record$callNumbers) > 0) {
+          #   paste(record$callNumbers, collapse = ", ")
+          # } else {
+          #   NA
+          # },
           Library = if (!is.null(record$buildings) && length(record$buildings) > 0) {
             paste(sapply(record$buildings, function(building) building$translated), collapse = ", ")
           } else {
@@ -182,7 +199,7 @@ search_finna <- function(query = NULL,#lookfor
   attr(tibble_results, "language") <- lng
   #cat("Data retrieved from Finna API (https://www.finna.fi) - metadata licensed under CC0.\n")
   #return(tibble_results)
-  #attr(tibble_results, "result_count") <- result_count
+  attr(tibble_results, "result_count") <- result_count
   return(tibble_results)
 
 }
