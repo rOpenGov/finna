@@ -3,6 +3,7 @@
 export(analyze_metadata)
 export(analyze_trends_over_time_binned)
 export(check_api_access)
+export(enrich_author_name)
 export(finna_cite)
 export(finna_interactive)
 export(get_finna_records)

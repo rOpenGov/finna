@@ -15,6 +15,7 @@ Imports:
     httr,
     jsonlite,
     ggplot2,
+    readr,
     tibble,
     curl,
     rlang,
@@ -22,6 +23,7 @@ Imports:
     tidyr,
     RefManageR,
     lubridate,
+    purrr,
     tm,
     stopwords,
     wordcloud2
