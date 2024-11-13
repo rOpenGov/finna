@@ -66,13 +66,21 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This vignette provides an overview of how to use the finna
-package.</p>
-<div class="section level4">
-<h4 id="refine-using-refine_metadata-function">
-<strong>Refine using <code>refine_metadata()</code>
-function</strong><a class="anchor" aria-label="anchor" href="#refine-using-refine_metadata-function"></a>
-</h4>
+<p>The purpose of the <code><a href="../reference/refine_metadata.html">refine_metadata()</a></code> function is to:</p>
+<ul>
+<li>
+<strong>Ensure completeness</strong> by filling in missing values
+with placeholder text.</li>
+<li>
+<strong>Standardize key metadata fields</strong> for easier
+analysis.</li>
+<li>
+<strong>Select only the most relevant fields</strong>, simplifying
+the dataset.</li>
+</ul>
+<p>This refinement process makes the metadata more consistent and
+user-friendly, reducing potential issues in subsequent analysis or
+reporting.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
@@ -82,44 +90,49 @@ function</strong><a class="anchor" aria-label="anchor" href="#refine-using-refin
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Sibelius favourites : … Sibel… 2001  Unknown… Äänite… orkeste… Lapin … Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Tappe… 1967  Unknown… Taidet… Unknown… Jyväsk… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Favén… Unkn… Unknown… Taidet… kaljuus… Lahden… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Anders… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius                Ringb… 1948  fin      Kirja,… Sibeliu… Eepos-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> SIBELIUS                TÖRNE… 1945  fin      Kirja,… SIBELIU… Helle-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius                Lampi… 1995  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Sibelius                Lampi… 2005  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> SIBELIUS                TAWAS… 1997  fin      Kirja,… SIBELIUS Anders… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Anders… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Helka-… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Sibelius                Ringb… 1948  fin      Kirja,… Sibeliu… Kirkes… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… OUTI-k… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> SIBELIUS                Lampi… 1995  fin      Kirja,… Sibeliu… Vaasan… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Vaasan… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius                Tawas… 1968  swe      Kirja,… Sibeliu… Helle-… Unkno…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
-</div>
 <div class="section level4">
-<h4 id="integrate-using-integrate_metadata-function">
-<strong>integrate using <code>integrate_metadata()</code>
-Function</strong><a class="anchor" aria-label="anchor" href="#integrate-using-integrate_metadata-function"></a>
+<h4 id="integrate-to-other-metadata">
+<strong>integrate to other metadata </strong><a class="anchor" aria-label="anchor" href="#integrate-to-other-metadata"></a>
 </h4>
+<p>To integrate two datasets using full_join() from dplyr, you can write
+the code directly like this:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">finna_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Example Finna metadata (metadata1)</span></span>
+<span><span class="va">finna_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>,limit <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Example other dataset to merge with (metadata2)</span></span>
 <span><span class="va">other_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  Title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sibelius Symphony No. 5"</span>, <span class="st">"Finlandia"</span>, <span class="st">"Valse Triste"</span><span class="op">)</span>,</span>
 <span>  Rating <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">integrated_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/integrate_metadata.html">integrate_metadata</a></span><span class="op">(</span><span class="va">finna_data</span>, <span class="va">other_data</span>, key <span class="op">=</span> <span class="st">"Title"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Integrate the two datasets using full_join by the "Title" column</span></span>
+<span><span class="va">integrated_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">finna_data</span>, <span class="va">other_data</span>, by <span class="op">=</span> <span class="st">"Title"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the integrated dataset</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">integrated_data</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 103 × 10</span></span></span>
-<span><span class="co">##    id         Title Author Year  Language Formats Subjects Library Series Rating</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> lapinkirj… Sibe… Sibel… 2001  <span style="color: #BB0000;">NA</span>       Äänite… orkeste… Lapin … <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> jtm.15877… Sibe… Tappe… 1967  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> lahdenmus… Sibe… Favén… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… kaljuus… Lahden… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> anders.19… Sibe… Tawas… 2003  fin      Kirja,… Sibeliu… Anders… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> eepos.136… Sibe… Ringb… 1948  fin      Kirja,… Sibeliu… Eepos-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> helle.110… SIBE… TÖRNE… 1945  fin      Kirja,… SIBELIU… Helle-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> arto.0008… Sibe… Lampi… 1995  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> arto.0009… Sibe… Lampi… 2005  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> arto.0052… Sibe… Lampi… 1984  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> arto.0053… Sibe… Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 93 more rows</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 7 × 10</span></span></span>
+<span><span class="co">##   id          Title Author Year  Language Formats Subjects Library Series Rating</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> lapinkirja… Sibe… Sibel… 2001  <span style="color: #BB0000;">NA</span>       Äänite… orkeste… Lapin … <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> anders.429… SIBE… TAWAS… 1997  fin      Kirja,… SIBELIUS Anders… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> anders.149… Sibe… Tawas… 1997  fin      Kirja,… Sibeliu… Anders… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> helka.9916… Sibe… Lampi… 1984  fin      Kirja,… Sibeliu… Helka-… <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> <span style="color: #BB0000;">NA</span>          Sibe… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>          5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> <span style="color: #BB0000;">NA</span>          Finl… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>          4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">7</span> <span style="color: #BB0000;">NA</span>          Vals… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>          3</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="analyze-using-analyze_metadata-function">
@@ -315,7 +328,7 @@ subject.</p>
 <pre><code><span><span class="co">## Warning in tm_map.SimpleCorpus(corpus, removeWords, c(finnish_stopwords, :</span></span>
 <span><span class="co">## transformation drops documents</span></span></code></pre>
 <div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"word":["music","roxy","avalon","pleasure","siren","best","stranded","live","country","life","album","viva","zoran","north","welcome","world","greatest","hits","april","galerija","moderna","décembre","galerie","janvier","paris","expressions","georgia","gruusia","age","castratos","renaissance","free","part","impossible","transmission","build","cost","international","mitigate","new","plant","power","projects","suppliers","volatility","bar","jolly","carrion","squared","champ","dear","blood","flesh","shaken","brazil","afrikan","west","fifth","folk","nuottijulkaisu","road","attachment","brain","childrens","development","emotional","natures","nurturing","sociocultural","art","collections","drawn","galerije","ljubljana","maj","may","modern","moderne","museum","works","zbirk","derniers","france","les","nous","pas","sommes","bernard","claude","boki","kotorskoj","romanizmi","severozapadnoj","plumb","kinshasa","one","two","voiedma","emporium","remastered","fire","flame","blues","last","esperanto","complete","recordings","studio","ikiaikainen","legacy","lähettiläiden","tribe","ääni","field","shorelife","beating","heart","still","early","years","language","limits","land","return","time","tones","town","thrill"],"freq":[57,17,11,10,8,4,4,4,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":3.157894736842105,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"word":["music","roxy","avalon","pleasure","best","siren","country","life","stranded","album","north","welcome","world","live","viva","road","galerie","zoran","field","years","expressions","age","castratos","renaissance","georgia","gruusia","free","part","impossible","transmission","build","cost","international","mitigate","new","plant","power","projects","suppliers","volatility","bar","jolly","carrion","squared","champ","dear","blood","flesh","shaken","brazil","afrikan","west","fifth","folk","greatest","hits","nuottijulkaisu","bernard","claude","décembre","janvier","paris","boki","kotorskoj","romanizmi","severozapadnoj","complete","recordings","studio","ikiaikainen","legacy","lähettiläiden","tribe","ääni","shorelife","beating","heart","still","early","language","limits","land","return","time","tones","town","thrill","ensamhet","sol","sommar","high","fleshblood","bien","chaplin","charlie","monsieur","vous","ernesto","guitar","lecuona","kellokortilla","michael","niiku","genève","jan","krugier","novembre","octobre","oeuvres","papier","peintures","sur","atlantic","modi","plumb","parts","tower"],"freq":[53,15,11,10,5,5,4,4,4,3,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":3.39622641509434,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
