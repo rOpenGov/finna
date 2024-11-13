@@ -9,9 +9,14 @@ vignette: >
 
 # Introduction
 
-This vignette provides an overview of how to use the finna package.
+The purpose of the ` refine_metadata()` function is to:
 
-### **Refine using ` refine_metadata()` function**
+- **Ensure completeness** by filling in missing values with placeholder text.
+- **Standardize key metadata fields** for easier analysis.
+- **Select only the most relevant fields**, simplifying the dataset.
+
+This refinement process makes the metadata more consistent and user-friendly, reducing potential issues in subsequent analysis or reporting.
+
 
 ```{r}
 library(finna)
@@ -20,17 +25,27 @@ refined_data <- refine_metadata(sibelius_data)
 print(refined_data)
 ```
 
-### **integrate using ` integrate_metadata()` Function**
+### **integrate to other metadata **
+To integrate two datasets using full_join() from dplyr, you can write the code directly like this:
 
+```{r message = FALSE, warning = FALSE}
+library(dplyr)
 
-```{r}
-finna_data <- search_finna("sibelius")
+# Example Finna metadata (metadata1)
+finna_data <- search_finna("sibelius",limit = 4)
+
+# Example other dataset to merge with (metadata2)
 other_data <- tibble::tibble(
   Title = c("Sibelius Symphony No. 5", "Finlandia", "Valse Triste"),
   Rating = c(5, 4, 3)
 )
-integrated_data <- integrate_metadata(finna_data, other_data, key = "Title")
+
+# Integrate the two datasets using full_join by the "Title" column
+integrated_data <- full_join(finna_data, other_data, by = "Title")
+
+# Print the integrated dataset
 print(integrated_data)
+
 ```
 
 
