@@ -67,6 +67,8 @@
 <h2 id="fennica">Fennica<a class="anchor" aria-label="anchor" href="#fennica"></a>
 </h2>
 <p>To search Fennica data in Finna</p>
+<p><strong>N.B</strong> In the search_finna() default limit of 100
+records is being used. Specify ‘limit’ argument for more records.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span><span class="op">)</span><span class="op">)</span></span>
@@ -123,7 +125,7 @@ follows:</p>
 <span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">result_count</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">fennica</span>, <span class="st">"result_count"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result_count</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 56346</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 56344</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="visualization-for-fennica">Visualization for fennica<a class="anchor" aria-label="anchor" href="#visualization-for-fennica"></a>
@@ -139,16 +141,6 @@ follows:</p>
 <code class="sourceCode R"><span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">fennica</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/visualize_word_cloud.html">visualize_word_cloud</a></span><span class="op">(</span><span class="va">refined_data</span>, <span class="st">"Title"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning in tm_map.SimpleCorpus(corpus, content_transformer(tolower)):</span></span>
-<span><span class="co">## transformation drops documents</span></span></code></pre>
-<pre><code><span><span class="co">## Warning in tm_map.SimpleCorpus(corpus, removePunctuation): transformation drops</span></span>
-<span><span class="co">## documents</span></span></code></pre>
-<pre><code><span><span class="co">## Warning in tm_map.SimpleCorpus(corpus, removeNumbers): transformation drops</span></span>
-<span><span class="co">## documents</span></span></code></pre>
-<pre><code><span><span class="co">## Warning in tm_map.SimpleCorpus(corpus, stripWhitespace): transformation drops</span></span>
-<span><span class="co">## documents</span></span></code></pre>
-<pre><code><span><span class="co">## Warning in tm_map.SimpleCorpus(corpus, removeWords, c(finnish_stopwords, :</span></span>
-<span><span class="co">## transformation drops documents</span></span></code></pre>
 <div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
 <script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"word":["suomen","kihlakunnan","sanakirja","karjalan","muinaisjäännöksiä","aikakauskirja","muinaismuistoyhdistyksen","suomessa","uudenkaupungin","suomalaisenglantilainen","kertomuksia","finland","förteckning","luettelo","öfver","ajoilta","tammikuun","fänrik","ståls","sägner","päivänä","kansan","venäjän","osissa","osa","tarinoita","muinaismuistoja","kihlakunnassa","historiallinen","finska","muistoja","elli","dictionary","englantilaissuomalainen","ynnä","sosialismi","käsikirja","helsingin","käsityö","kuvia","tarpeeksi","kansakoulun","vallankumous","vastaan","lähteiden","jakso","välskärin","maan","runoelmia","jälkeen","muun","bilder","finlande","kuvissa","pittoresque","suomi","fallhöjd","finlands","forsar","jämte","koskien","längd","niiden","pituudet","putouskorkeudet","sisältävä","tärkeimpien","vattenkraft","vattenmängd","vesimäärät","vesivoimat","viktigare","alalta","käkisalmen","löytöjen","rautakaudesta","saatujen","seuraavilta","sitä","tietoja","finsk","förhandlingarna","jan","keskustelemukset","kokouksessa","möte","naisyhdistyksen","qvinnoförenings","biblio","bound","dbead","parent","record","kaksitoista","kuvausta","stoolin","tarinoista","teckningar","tolf","vänrikki","jak","juteinin","kirjoista","lauseita","dra","februari","haltia","helmikuun","tomten","entisyydestä","hajanaisia","karjalassa","kesämatkoja","kuvauksia","nykyisyydestä","angränsande","delar","enumeration","fennoscandia","fröväxter","förvildade","kasvavat","merien","metsistyneinä","nascentium","orientali","ormbunkar","plantarum","rajoittamissa","ryssland","saniaisista","siemenkasveista","sponte","subsponte","venäjää","vildtväxande","villeinä","hollolan","kertomus","muinaisjäännöksistä","jälkimmäinen","karstulan","kihlakunnasta","kivijärven","laukaan","pitäjät","alisatakunnan","muutamia","taikajuttuja","tuomiokirjoista","osasta","pietarsaaren","suomalaisesta","kristinuskon","saatosta","suomeen","ikalisten","ilamantsin","itäisissä","kemin","eteläisestä","kuortaneen","puolesta","aikana","itsenäisyytensä","itämeren","suomalaiset","tutkimus","efämerider","eurén","suomalaisruotsalainen","muinaisuudesta","pohjoisen","asialuettelo","finskt","innehåll","museo","museum","sakregister","sisällys","hywästijättö","lähtölaulu","wäinämöiselle","försök","grammatik","språkets","utredande","englishfinnish","finnishenglish","lauseoppi","english","finnish","englantilaissuomal","taskusanakirja","sarö","shera","visit","yögurs","epäluottamuslause","lankeemus","perustuslaillisten","senaatille","sosialistien","book","cook","dishes","family","finnishamerican","perhekokkikirja","preparation","ruokalajin","suomalaisamerikalainen","valmistamiseen","alkuvalmistelut","kapinaliikkeen","kehitys","leviäminen","päivään","sen","keskuuteen","levisi","maalaisväestön","mietteitä","mistä","syystä","järjestyskaartilaisen","työväen","kalisuolojen","käyttämiseen","maanviljelyksessä","osotus","puutarhanhoidossa","entisiltä","uudenkirkon","esitys","matrikkeli","tehdasolojen","tehdasyhdistyksen","toiminnasta","viime","vuosisadalla","ominpäinopiskelu","sivistys","clarence","darrowin","haywoodjutussa","idahossa","lakimies","päättäjäispuhe","syytön","johdatuksen","maanopas","maatietoon","sunnuntaikouluin","yhteiseen","eläinsuojeluopas","agricolan","kielestä","mikael","hiilto","puun","erfurtin","ohjelma","periaatteellinen","puoli","alkamista","ennen","hamppulan","janakkalassa","kansanopetuksen","kunnalliselämän","vaiheista","vuotisjuhlaan","haussa","hämäläisen","leivän","mökinpojan","seikkailun","tarina","valtiopetos","helsingissä","maanviljelijäkokous","hirmuvallan","jaloissa","punaisen","karkumatkani","kokemuksia","punakaartia","valkokaarti","ajamista","asettamista","kuskeille","lyhyitä","neuvoja","silain","valjastamista","varten","totuuksia","albumi","armeijan","asevelvollisen","muistoksi","sanoja","sotaväen","keräämiseen","kotimaisten","lääkekasvien","ohjeita","amerikan","historiasta","pääpiirteitä","raittiustyön","rauhankokous","suomalaisten","vaikuttimina","vallankumouksen","verot","nainen","materialismi","ulkomaalaisten","historiankäsitys","koe","materialistinen","siveysoppi","yhteiskunnallinen","edustajien","elämäkerrat","kuvat","punaset","sosialidemokratisten","valittujen","vuonna","kymmenvuotismuisto","naisliiton","sosialidemokratisen","ulapalla","sosialistinen","yhteiskuntajärjestelmä","miehille","nuorukaisille","kasvitarhakirja","kalastus","kalat","pomologiian","katkismus","mukailu","työmiehen","ulkomaisten","kapinassa","linna","mainiemen","noitaakka","omaa","onneaan","erämaiden","kevät","porvarikuningas","lisiä","lounaissuomen","rautatiekysymys","rautatietarpeen","valaisemiseksi","ojitus","peltomaan","harjoitusoppi","kansakoulujen","woimistelun","mansikoita","mustikoita","dzierzonin","erittäin","kokemuksesta","mehiläishoidon","omasta","opetus","tavan","uudentapasen","päällä","waellus","wiisauden","kirjoitelmia","taistelun","vapautuksen","sata","sivistyselämää","vuotta","kaarlo","kramsun","aili","kuudessa","kuvaelmassa","näytelmä","näytöksessä","viidessä","maalikuvilla","meripedot","selitetyt","erhetyksen","lapsen","murha","waikutus","kuinka","parannettava","tervapoltosta","abcn","eläinten","hewoisten","irujamen","itikkain","johdatuksesta","jossa","karjan","kirjaan","kotihuusaukset","lammasten","lehmäin","lääkityxet","löytään","numeroin","osotuksesta","parannuxet","pienen","rahwaan","registerin","sowitetun","taudit","tautikirja","vapautussodan","kuwaelmia","sodasta","wuoden","sosialidemokratia","yleislakko","elämä","mehiläisten","läänin","palauttaminen","viipurin","yhteyteen","julkaisu","kuparialueen","raittiusliiton","yhteistyössä","luokkavastakohdat","ranskan","vallankumousajan"],"freq":[16,5,5,4,4,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":11.25,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script><p>To search for specific fields like author information, publication
 details, and call numbers using <code>search_finna</code>, you can use
@@ -163,7 +155,7 @@ parameter or adding filters. Here’s how you can modify the
 <li>You can use the <code>type = "Author"</code> option to specifically
 search for records by author.</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">record</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, type <span class="op">=</span> <span class="st">"Author"</span><span class="op">)</span></span>
 <span><span class="va">record</span></span></code></pre></div>
@@ -171,19 +163,19 @@ search for records by author.</li>
 <span><span class="co">##    id                Title Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> kainet.265818     Viol… JEAN … 1983  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kainet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> jykdok.1840263    Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> fikka.5193247     Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> fikka.5193247     Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> jykdok.1840263    Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 4</span> vaarakirjastot.1… Stri… Jean … 1985  <span style="color: #BB0000;">NA</span>       Äänite… kvartet… Vaara-… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 5</span> eepos.101243      Laul… Sibel… 1986  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 6</span> eepos.135507      Humo… Sibel… 1981  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> eepos.100775      Stri… Sibel… 1985  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> eepos.133968      Musi… Sibel… 1989  mul      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> eepos.178446      Cano… Sibel… 1997  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> anders.107493     PENS… SIBEL… 1989  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> anders.144771     WATE… SIBEL… 1997  <span style="color: #BB0000;">NA</span>       Nuotti  1870-LU… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> tiekko.370787     Baga… Sibel… 1985  fin      Nuotti  <span style="color: #BB0000;">NA</span>       Joki-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> eepos.100775      Stri… Sibel… 1985  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> eepos.133968      Musi… Sibel… 1989  mul      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 <p>Alternatively, you can apply filters to search for authors using the
 <code>filters</code> parameter:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'author:"Jean Sibelius"'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">record</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 11 × 9</span></span></span>
@@ -200,87 +192,6 @@ search for records by author.</li>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> lapinkirjasto.15… Stri… Bergm… 1985  fin      Äänite… kvartet… Lapin … <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> tiekko.902020     Stri… Rauta… 1998  zxx      Kirja,… <span style="color: #BB0000;">NA</span>       Joki-k… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">11</span> helmet.2175636    Musi… Turun… 1941  fin      Kirja,… Kuula, … Helmet… <span style="color: #BB0000;">NA</span></span></span></code></pre>
-</div>
-<div class="section level3">
-<h3 id="search-for-publication-information">2. <strong>Search for Publication Information:</strong><a class="anchor" aria-label="anchor" href="#search-for-publication-information"></a>
-</h3>
-<p>If you want to search for publication information such as the
-publication date or publisher, you can use <code>type = "Title"</code>
-or <code>type = "AllFields"</code> and then apply filters:</p>
-<ul>
-<li>
-<p>For specific years, you can use the
-<code>search_daterange_mv</code> filter:</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</li>
-<li>
-<p>To search by publisher, you can add a filter for the publisher
-name:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'publisher:"Ondine"'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="search-by-call-numbers">3. <strong>Search by Call Numbers:</strong><a class="anchor" aria-label="anchor" href="#search-by-call-numbers"></a>
-</h3>
-<p>Call numbers are used to classify items in libraries. To search by
-call number, you can add a filter for <code>callnumber-search</code> or
-<code>callnumber</code>:</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>This will return results where the call number is <code>78.54</code>
-(which is typically used for orchestral music).</p>
-</div>
-<div class="section level3">
-<h3 id="example-using-multiple-filters">Example Using Multiple Filters:<a class="anchor" aria-label="anchor" href="#example-using-multiple-filters"></a>
-</h3>
-<p>You can combine these search types and filters to make more complex
-queries. For instance, to search for works by <strong>Jean
-Sibelius</strong> published between <strong>2000 and 2020</strong> with
-the call number <strong>78.54</strong>:</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span></span>
-<span>  query <span class="op">=</span> <span class="st">"Sibelius"</span>,</span>
-<span>  filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'author:"Jean Sibelius"'</span>, <span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span>, <span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="code-overview">Code Overview:<a class="anchor" aria-label="anchor" href="#code-overview"></a>
-</h3>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Author search example</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, type <span class="op">=</span> <span class="st">"Author"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Search for works by author with publication date range</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Search for works by call number</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Combine author, publication date, and call number filters</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span></span>
-<span>  query <span class="op">=</span> <span class="st">"Sibelius"</span>,</span>
-<span>  filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'author:"Jean Sibelius"'</span>, <span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span>, <span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="notes">Notes:<a class="anchor" aria-label="anchor" href="#notes"></a>
-</h3>
-<ul>
-<li>
-<strong>Filters</strong>: The filters need to match the exact field
-names used in Finna’s API. You can find these field names in the API
-documentation or by looking at the response from the API.</li>
-<li>
-<strong>Call Number Search</strong>: Ensure that the call numbers
-are correctly formatted according to the library’s classification system
-(e.g., YKL in Finland).</li>
-</ul>
-<p>This way, you can extract specific metadata like authors, publication
-years, and call numbers using the <code>search_finna</code>
-function.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
