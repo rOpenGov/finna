@@ -13,7 +13,10 @@ This vignette provides an overview of how to use the finna package.
 
 To make a simple search use the following code.
 
-```{r}
+**N.B** In the search_finna() default limit of 100 records is being used. Specify 'limit' argument for more records.
+
+
+```{r message = FALSE, warning = FALSE}
 library(finna)
 record <- search_finna("sibelius")
 print(record)
@@ -21,7 +24,7 @@ print(record)
 
 ## Searching as subject
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 record <- search_finna(query = '"orkesterimusiikki"', type = "Subject", lng = "en-gb")
 print(record)
@@ -32,14 +35,14 @@ print(record)
 `search_finna("sibelius", limit = Inf)` where we add the term `limit = Inf`.
 
 ## Free text search
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 result <- search_finna("Jansson Tove")
 print(result)
 ```
 
 ## Search phrase examples
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 phrase <- search_finna("bicycle")
 print(phrase)
@@ -53,7 +56,7 @@ search field. If you write several words into the search field and separate
 them with a space, the space will function as the AND operator.
 
 Example 1
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 Combination <- search_finna("nutrition AND (diet OR lifestyle)")
 print(Combination)
@@ -62,13 +65,13 @@ print(Combination)
 Example 2
 For example, these two searches will yield the same results:
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 no_Combination <- search_finna("Karisto Seppälä")
 print(no_Combination)
 ```
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 Combination_AND <- search_finna("Karisto AND Seppälä")
 print(Combination_AND)
@@ -79,7 +82,8 @@ print(Combination_AND)
 The OR operator expands your search results. The results will show material that
 feature at least one of the search terms you indicated. For example, if you are
 looking for information on the Eastern Orthodox Church:
-```{r}
+
+```{r message = FALSE, warning = FALSE}
 library(finna)
 Combination_OR <- search_finna("Eastern Orthodoxy” OR “Orthodox Church")
 print(Combination_OR)
@@ -88,14 +92,15 @@ print(Combination_OR)
 Using the OR operator will return results that feature one or more of your 
 search terms.This example search will find results relating to farms or farming:
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 phrase <- search_finna("farm OR farming")
 print(phrase)
 ```
 
 ### NOT
-```{r}
+
+```{r message = FALSE, warning = FALSE}
 library(finna)
 Combination_OR <- search_finna("surrealism NOT (painting OR “visual arts”)")
 print(Combination_OR)
@@ -106,13 +111,15 @@ In addition to the most common Boolean operators (AND, OR, NOT), Finna uses the 
 
 ### +
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 search_oper <- search_finna("+economics Keynes”)")
 print(search_oper)
 ```
+
 ### !-
-```{r}
+
+```{r message = FALSE, warning = FALSE}
 library(finna)
 search_oper <- search_finna("economics !-Keynes”)")
 print(search_oper)
@@ -122,7 +129,7 @@ print(search_oper)
 
 For example, the following search will yield no results:
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 search_oper <- search_finna("!-economics”)")
 print(search_oper)
@@ -139,7 +146,8 @@ find search results for the terms competition, competitions, competitor and
 competitiveness, use the search term:
 
 Example 1
-```{r}
+
+```{r message = FALSE, warning = FALSE}
 library(finna)
 search_Asterisk <- search_finna("competit*”)")
 print(search_Asterisk)
@@ -150,7 +158,8 @@ more characters. For example, to search for both the terms color and colour,
 use the search term:
 
 Example 2
-```{r}
+
+```{r message = FALSE, warning = FALSE}
 library(finna)
 search_Asterisk <- search_finna("colo*r”)")
 print(search_Asterisk)
@@ -163,7 +172,7 @@ For example, to find results for both the terms woman and women, use the search 
 
 ### ISBN/ISSN search
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(finna)
 ISBN <- search_finna("978-951-31-6583-3")
 print(ISBN)
@@ -173,27 +182,27 @@ print(ISBN)
 
 ### To search all related in descending order
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", sort = "main_date_str des")
 print(record)
 ```
 ### To search all related in ascending order
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", sort = "main_date_str asc")
 print(record)
 ```
 
 ### To search Last modified
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", sort = "last_indexed desc")
 print(record)
 ```
 
 ### To search Last added
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", sort = "first_indexed desc")
 print(record)
 ```
@@ -208,7 +217,7 @@ The search operator ~ will perform a fuzzy search when it is used as the final c
 
 For example, a fuzzy search with the word roam will also return results with the words foam and roams.
 
-```{r warning = FALSE}
+```{r message = FALSE, warning = FALSE}
 fuzzy_search <- search_finna("roam~")
 print(fuzzy_search)
 ```
@@ -217,7 +226,8 @@ print(fuzzy_search)
 
 Proximity searches look for material in which the search terms are within a 
 specified distance, but not necessarily one after the other.
-```{r}
+
+```{r message = FALSE, warning = FALSE}
 fuzzy_search <- search_finna("economics Keynes~10")
 print(fuzzy_search)
 ```
@@ -225,35 +235,35 @@ print(fuzzy_search)
 ## Advanced search: to see available online
 
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", filters = c("free_online_boolean:1"))
 print(record)
 ```
 
 ### search image
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", filters = c('~media_type_str_mv:"0/image/"'))
 print(record)
 ```
 
 ### Audio book
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", filters = c('~format:"1/Book/AudioBook/"'))
 print(record)
 ```
 
 ### Year of manufacture
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", filters = c('search_daterange_mv:"overlap|[-5000 TO 5000]"'))
 print(record)
 ```
 
 ### Search using Geofilter syntax (Geographical region)
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=212.53603751769646}'))
 print(record)
 ```
@@ -261,7 +271,7 @@ print(record)
 ### geofilter ouside of finland
 
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=39.3130504637139,-76.33021295070648 d=281.83790818401854}'))
 print(record)
 ```
@@ -270,7 +280,7 @@ print(record)
 
 When narrowing search you can  use codes as a combination as follows
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("trump", filters = c('{!geofilt sfield=location_geo pt=61.663987171517796,24.17263895273209 d=212.53603751769646},author_facet:"Häkkinen,Hannu"'))
 print(record)
 ```
@@ -278,7 +288,7 @@ print(record)
 
 ### specific search 
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna("era:'2010-luku'", filters = c('building:"0/3AMK/"'))
 
 ```
@@ -288,13 +298,13 @@ record <- search_finna("era:'2010-luku'", filters = c('building:"0/3AMK/"'))
 In order to search data without removing duplication
 [example](https://www.finna.fi/Search/Results?dfApplied=1&lookfor=era%3A%222010-luku%22&type=AllFields&filter[]=~building%3A%220%2F3AMK%2F%22&filter[]=finna.deduplication:%220%22)
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"1"'))
 print(record)
 ```
 We can confirm this as follows by checking the count
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"1"'))
 result_count <- attr(record, "result_count")
 print(result_count)
@@ -302,14 +312,14 @@ print(result_count)
 
 Removing duplication can be done as follows
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"0"'))
 print(record)
 ```
 
 To confirm this we can check the count 
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"0"'))
 result_count <- attr(record, "result_count")
 print(result_count)
@@ -318,7 +328,7 @@ print(result_count)
 # Search Finna with multiple filters 
 To find scholarly journals and digital repository materials regarding music 
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 results <- search_finna(
   query = "musiikki OR taide OR tanssi OR teatteri",
   filters = c(

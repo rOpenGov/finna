@@ -40,11 +40,12 @@ search_finna <- function(query = NULL,#lookfor
                          lng = "fi",
                          prettyPrint = FALSE) {
 
-  # Handle empty search queries
-  # if (query == "" || is.null(query)) {
-  #   warning("Error: Empty search query provided.")
-  #   return(NULL)
-  # }
+  # Warn the user if the default limit is used
+  if (missing(limit) || limit == 100) {
+    warning("Default limit of 100 records is being used. Specify 'limit' argument for more records.")
+  }
+  # Start the timer
+  start_time <- Sys.time()
 
   # Define the base URL for the search API
   base_url <- "https://api.finna.fi/v1/search"
@@ -94,11 +95,13 @@ search_finna <- function(query = NULL,#lookfor
         return(NULL)
       }
     )
-    #print(response)
-    #result <- content(response, as = "text", encoding = "UTF-8")
-    #print(result)
-    #json_result <- fromJSON(result)
-    #print(json_result)
+    if (!is.null(response) && httr::status_code(response) == 429) {
+      # Handle rate limit (429 Too Many Requests)
+      warning(sprintf("Rate limit hit (429). Retrying in %d seconds...", retry_delay))
+      Sys.sleep(retry_delay)
+      response <- NULL
+      attempt <- attempt + 1
+    }
 
     # Process the response based on the status code
     if (httr::status_code(response) == 200) {
@@ -191,6 +194,9 @@ search_finna <- function(query = NULL,#lookfor
       return(NULL)
     }
   }
+  # End the timer
+  end_time <- Sys.time()
+  time_taken <- as.numeric(difftime(end_time, start_time, units = "secs"))
 
   # Convert the list of extracted data into a tibble for easy analysis
   tibble_results <- tibble::as_tibble(do.call(rbind, lapply(all_data, function(x) unlist(x, recursive = FALSE))))
@@ -200,6 +206,11 @@ search_finna <- function(query = NULL,#lookfor
   #cat("Data retrieved from Finna API (https://www.finna.fi) - metadata licensed under CC0.\n")
   #return(tibble_results)
   attr(tibble_results, "result_count") <- result_count
+  attr(tibble_results, "time_taken_seconds") <- time_taken
+
+  message(sprintf("Total results found: %d", result_count))
+  message(sprintf("Data fetching completed in %.2f seconds.", time_taken))
+
   return(tibble_results)
 
 }

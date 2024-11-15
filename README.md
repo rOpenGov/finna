@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/finna)
 [![codefactor](https://www.codefactor.io/repository/github/rOpenGov/finna/badge)](https://www.codefactor.io/repository/github/rOpenGov/finna)
 
-The goal of finna is to retrieve data from Finna API 
+The goal of finna is to retrieve metadata from Finna API 
 
 ## Installation instructions
 The devel version of finna can be installed from GitHub as follows:
@@ -25,6 +25,8 @@ remotes::install_github("rOpenGov/finna")
 
 ## Example
 The basic functionality of finna can be explored as follows:
+
+**N.B** In the search_finna() default limit of 100 records is being used. Specify 'limit' argument for more records.
 
 ``` r
 # Load the package
@@ -90,9 +92,9 @@ This package was developed using the following resources:
 
 This package is in no way officially related to or endorsed by Finna.
 
-When using data retrieved from Finna database in your work, please
-indicate that the data source is Finna. If your re-use involves some
+When using metadata retrieved from Finna database in your work, please
+indicate that the metadata source is Finna. If your re-use involves some
 kind of modification to data or text, please state this clearly to the
 end user. See Finna policy on [copyright and free re-use of
-data](https://www.finna.fi/Content/terms?lng=en-gb) for more
+metadata](https://www.finna.fi/Content/terms?lng=en-gb) for more
 detailed information and certain exceptions.
