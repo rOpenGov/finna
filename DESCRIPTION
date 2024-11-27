@@ -13,6 +13,7 @@ Encoding: UTF-8
 Imports: 
     dplyr,
     httr,
+    xml2,
     jsonlite,
     ggplot2,
     readr,

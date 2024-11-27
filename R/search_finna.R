@@ -60,6 +60,12 @@ search_finna <- function(query = NULL,#lookfor
 
   # Initialize resultCount
   result_count <- 0
+  retry_delay <- 10
+  max_records <- 100000
+
+  # Initialize last_indexed filter for pagination beyond 100,000 records
+  last_indexed_filter <- NULL
+  last_id <- NULL
 
   while (total_fetched < limit) {
     # Calculate the remaining number of records to fetch
@@ -85,6 +91,12 @@ search_finna <- function(query = NULL,#lookfor
       for (i in seq_along(filters)) {
         query_params[[paste0('filter[', i, ']')]] <- filters[i]
       }
+    }
+    # Add last_indexed filter if available
+    if (!is.null(last_indexed_filter)) {
+      query_params[["filter[last_indexed]"]] <- last_indexed_filter
+    } else if (!is.null(last_id)) {
+      query_params[["filter[id]"]] <- paste0("[", last_id, " TO *]")
     }
 
     # Execute the GET request and handle potential errors
@@ -176,7 +188,8 @@ search_finna <- function(query = NULL,#lookfor
             } else {
               NA
             }
-          }, error = function(e) NA)
+          }, error = function(e) NA),
+          last_indexed = record$last_indexed %||% NA
         )
       })
 
@@ -185,6 +198,20 @@ search_finna <- function(query = NULL,#lookfor
       # Update the total number of fetched records
       total_fetched <- total_fetched + length(records)
       page <- page + 1
+
+      # Update last_indexed filter after fetching 100,000 records
+      if (total_fetched %% max_records == 0) {
+        last_indexed <- records[[length(records)]]$last_indexed
+        if (!is.null(last_indexed)) {
+          last_indexed_filter <- paste0("[", last_indexed, " TO *]")
+          message(sprintf("Reached 100,000 records. Continuing with last_indexed filter: %s", last_indexed_filter))
+        } else {
+          warning("Could not update last_indexed filter. Stopping to prevent infinite loop.")
+          break
+        }
+        Sys.sleep(10)  # Wait for 5 minutes before continuing
+        page <- 1  # Reset page counter
+      }
 
     } else {
       # Handle API errors with detailed messages
