@@ -7,6 +7,8 @@
 #' @param metadata_prefix A string. The metadata format to request (e.g., "oai_dc", "marc21").
 #' @param set A string. Optional. A set specifier to limit the harvested records (e.g., "non_dedup").
 #' @param verbose A logical. Whether to display progress messages. Default is `TRUE`.
+#' @param record_limit limits the number of records that the user wants to fetch
+#' @param output_file output file to be saved as a csv file.
 #' @param user_agent A string. A custom User-Agent string to identify the service. Default is "FinnaHarvester/1.0".
 #' @return A tibble with the harvested records containing selected metadata fields.
 #' @import httr

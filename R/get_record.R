@@ -56,7 +56,7 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
     if (is.null(record_data$records) || length(record_data$records) == 0) {
       stop("No records found for the provided IDs.")
     }
-    print(record_data)
+    #print(record_data)
 
 
     # Extract the data

@@ -24,6 +24,10 @@ harvest_oai_pmh(
 \item{verbose}{A logical. Whether to display progress messages. Default is \code{TRUE}.}
 
 \item{user_agent}{A string. A custom User-Agent string to identify the service. Default is "FinnaHarvester/1.0".}
+
+\item{output_file}{output file to be saved as a csv file.}
+
+\item{record_limit}{limits the number of records that the user wants to fetch}
 }
 \value{
 A tibble with the harvested records containing selected metadata fields.
