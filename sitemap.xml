@@ -3,6 +3,7 @@
 <url><loc>/LICENSE-text.html</loc></url>
 <url><loc>/LICENSE.html</loc></url>
 <url><loc>/articles/Fennica.html</loc></url>
+<url><loc>/articles/finna_collections.html</loc></url>
 <url><loc>/articles/index.html</loc></url>
 <url><loc>/articles/refinemetadata.html</loc></url>
 <url><loc>/articles/vignette.html</loc></url>
@@ -13,10 +14,13 @@
 <url><loc>/reference/analyze_trends_over_time_binned.html</loc></url>
 <url><loc>/reference/check_api_access.html</loc></url>
 <url><loc>/reference/enrich_author_name.html</loc></url>
+<url><loc>/reference/fetch_all_records.html</loc></url>
+<url><loc>/reference/fetch_finna_collection.html</loc></url>
 <url><loc>/reference/finna_as_json.html</loc></url>
 <url><loc>/reference/finna_cite.html</loc></url>
 <url><loc>/reference/finna_interactive.html</loc></url>
 <url><loc>/reference/get_finna_records.html</loc></url>
+<url><loc>/reference/harvest_oai_pmh.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/load_offline_data.html</loc></url>
 <url><loc>/reference/refine_metadata.html</loc></url>

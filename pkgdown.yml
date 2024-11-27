@@ -3,6 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   articles/Fennica: Fennica.html
+  articles/finna_collections: finna_collections.html
   articles/refinemetadata: refinemetadata.html
   vignette: vignette.html
-last_built: 2024-11-15T09:58Z
+last_built: 2024-11-27T10:08Z
