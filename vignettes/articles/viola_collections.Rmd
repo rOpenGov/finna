@@ -1,0 +1,81 @@
+---
+title: "Viola in Finna"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Viola in Finna}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+This R Markdown document provides a comprehensive guide to querying and analyzing Viola collection data using the Finna API and the `fetch_viola_records` function.
+
+## Viola Collection in Finna
+
+The `fetch_viola_records` function allows batch processing of data from the Viola collection in Finna, across multiple year ranges, and handles records without date information.
+
+### Example Usage
+
+#### Fetch Data Across Year Ranges
+
+The following example fetches data from the Viola collection for the year ranges: 0–1699, 1700–1799, and 1800–1899. 
+
+```{r message = FALSE, warning = FALSE}
+library(finna)
+
+# Fetch records
+results <- fetch_viola_records(
+  base_query = "*",
+  base_filters = c('collection:"VIO"'), # Filters for the Viola collection
+  year_ranges = list(c(1700,1705)),           # Year ranges to query
+  include_na = TRUE,                   # Include records with missing dates
+  limit_per_query = 100000,              # Maximum records per query
+  total_limit = Inf,                 # Overall record limit
+  delay_after_query = 3                # Delay between API calls
+  )
+
+# View the number of records fetched
+print(nrow(results))
+head(results)
+```
+
+#### Fetch Records Without Dates
+
+You can also fetch records missing the `main_date_str` field:
+
+```{r message = FALSE, warning = FALSE}
+# Fetch undated records
+undated_records <- search_finna(
+  query = "*",
+  filters = c('collection:"VIO"', '-main_date_str:*'),
+  limit = Inf
+)
+
+# View undated records
+print(undated_records)
+```
+
+---
+
+## Data Visualization
+
+The Viola collection data can be visualized using metadata refinement and plotting functions.
+
+#### Author Distribution
+
+```{r message = FALSE, warning = FALSE}
+library(finna)
+
+# Refine metadata and visualize author distribution
+refined_data <- refine_metadata(results)
+visualize_author_distribution(refined_data)
+```
+
+#### Word Cloud for Titles
+
+```{r message = FALSE, warning = FALSE}
+# Create a word cloud of titles
+visualize_word_cloud(refined_data, "Title")
+```
+
+
+
+

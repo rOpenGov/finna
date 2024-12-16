@@ -24,14 +24,14 @@ print(fennica)
 In order to download the whole data we can add the parameter `limit = Inf`
 as `search_finna("*",filters=c('collection:"FEN"'), limit = Inf)`
 
-## Checking the total counts
+## 19th century fennica data
 
 search the whole data and it total search of counts in the the interval between 
 some years for example between the years 1809-1917 as follows:
 
 ```{r message = FALSE, warning = FALSE}
 library(finna)
-fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
+fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1808 TO 1918]"'))
 print(fennica)
 ```
 
