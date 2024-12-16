@@ -18,8 +18,7 @@ fetch_viola_records <- function(base_query = "*",
                                           limit_per_query = 100000,
                                           total_limit = Inf,
                                           delay_after_query = 5) {
-  library(dplyr)
-  library(purrr)
+
 
   # Input validation
   if (!all(sapply(year_ranges, function(x) length(x) == 2 && is.numeric(x) && x[1] <= x[2]))) {
