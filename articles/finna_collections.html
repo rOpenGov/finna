@@ -110,13 +110,13 @@ from the Finna API with various queries and parameters.</p>
 <span><span class="co">##   value              translated                              count href         </span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">1</span> 0/hka/             Helsingin kaupunginarkisto             <span style="text-decoration: underline;">310</span>233 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> 0/NLF/             Kansalliskirjasto                       <span style="text-decoration: underline;">21</span>083 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> 0/NLF/             Kansalliskirjasto                       <span style="text-decoration: underline;">21</span>159 ?lookfor=rec…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">3</span> 0/merkki/          Median museo ja arkisto Merkki          <span style="text-decoration: underline;">10</span>774 ?lookfor=rec…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">4</span> 0/pta/             Porvarillisen Työn Arkisto              <span style="text-decoration: underline;">19</span>082 ?lookfor=rec…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">5</span> 0/FINLIT/          Suomalaisen Kirjallisuuden Seura        <span style="text-decoration: underline;">12</span>240 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 0/elka/            Suomen Elinkeinoelämän Keskusarkisto   <span style="text-decoration: underline;">442</span>482 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">7</span> 0/SLS/             Svenska litteratursällskapet i Finland  <span style="text-decoration: underline;">65</span>467 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">8</span> 0/tyovaen_arkisto/ Työväen Arkisto                        <span style="text-decoration: underline;">254</span>098 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 0/elka/            Suomen Elinkeinoelämän Keskusarkisto   <span style="text-decoration: underline;">442</span>486 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">7</span> 0/SLS/             Svenska litteratursällskapet i Finland  <span style="text-decoration: underline;">65</span>566 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">8</span> 0/tyovaen_arkisto/ Työväen Arkisto                        <span style="text-decoration: underline;">254</span>133 ?lookfor=rec…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">9</span> 0/fsd/             Yhteiskuntatieteellinen tietoarkisto     <span style="text-decoration: underline;">2</span>193 ?lookfor=rec…</span></span></code></pre>
 </div>
 <div class="section level2">
@@ -132,20 +132,20 @@ from the Finna API with various queries and parameters.</p>
 <span>  prettyPrint <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 119 × 4</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 120 × 4</span></span></span>
 <span><span class="co">##    value                          translated                         count href </span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/AALTOARKISTO/                Aalto-yliopiston arkisto           <span style="text-decoration: underline;">64</span>408 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/ALVARAALTO/                  Alvar Aalto -museo                   329 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/MFA/                         Arkkitehtuurimuseo                  <span style="text-decoration: underline;">5</span>798 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/Asikkalan kulttuuripalvelut/ Asikkalan kulttuuripalvelut         <span style="text-decoration: underline;">2</span>716 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/casahaartman/                Casa Haartman                        109 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/designmuseo/                 Designmuseo                         <span style="text-decoration: underline;">1</span>534 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/EMMA/                        EMMA – Espoon modernin taiteen mu…  <span style="text-decoration: underline;">1</span>879 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/etthem/                      Ett Hem                              748 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/FORSSANMUSEO/                Forssan museo                      <span style="text-decoration: underline;">29</span>530 ?loo…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/Forum Marinum/               Forum Marinum                      <span style="text-decoration: underline;">10</span>251 ?loo…</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 109 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/A. Ahlström Osakeyhtiö/      A. Ahlström Osakeyhtiö                 8 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/AALTOARKISTO/                Aalto-yliopiston arkisto           <span style="text-decoration: underline;">64</span>408 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/ALVARAALTO/                  Alvar Aalto -museo                   329 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/MFA/                         Arkkitehtuurimuseo                  <span style="text-decoration: underline;">5</span>800 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/Asikkalan kulttuuripalvelut/ Asikkalan kulttuuripalvelut         <span style="text-decoration: underline;">2</span>716 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/casahaartman/                Casa Haartman                        109 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/designmuseo/                 Designmuseo                         <span style="text-decoration: underline;">1</span>534 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/EMMA/                        EMMA – Espoon modernin taiteen mu…  <span style="text-decoration: underline;">1</span>879 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/etthem/                      Ett Hem                              750 ?loo…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/FORSSANMUSEO/                Forssan museo                      <span style="text-decoration: underline;">29</span>530 ?loo…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 110 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="example-4-fetching-marc-records">Example 4: Fetching MARC Records<a class="anchor" aria-label="anchor" href="#example-4-fetching-marc-records"></a>
@@ -163,16 +163,16 @@ from the Finna API with various queries and parameters.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 76 × 4</span></span></span>
 <span><span class="co">##    value                 translated                             count href      </span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/               3AMK-kirjastot                         <span style="text-decoration: underline;">43</span>887 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/AALTO/              Aalto-yliopisto                        <span style="text-decoration: underline;">29</span>612 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/Anders/             Anders-kirjastot                       <span style="text-decoration: underline;">33</span>220 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/               3AMK-kirjastot                         <span style="text-decoration: underline;">43</span>885 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/AALTO/              Aalto-yliopisto                        <span style="text-decoration: underline;">29</span>611 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/Anders/             Anders-kirjastot                       <span style="text-decoration: underline;">33</span>201 ?lookfor=…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/ARCADA/             Arcadan kirjasto                        <span style="text-decoration: underline;">8</span>438 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/MFA/                Arkkitehtuurimuseo                     <span style="text-decoration: underline;">18</span>125 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/Blanka/             Blanka-kirjastot                       <span style="text-decoration: underline;">17</span>079 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/MFA/                Arkkitehtuurimuseo                     <span style="text-decoration: underline;">18</span>124 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/Blanka/             Blanka-kirjastot                       <span style="text-decoration: underline;">17</span>083 ?lookfor=…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/CENTRIA/            Centria-kirjasto                         991 ?lookfor=…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/deutschebibliothek/ Deutsche Bibliothek                    <span style="text-decoration: underline;">30</span>847 ?lookfor=…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/DIAK/               Diakonia-ammattikorkeakoulun kirjasto   <span style="text-decoration: underline;">2</span>726 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/EKK/                Eduskunnan kirjasto                   <span style="text-decoration: underline;">130</span>543 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/EKK/                Eduskunnan kirjasto                   <span style="text-decoration: underline;">130</span>542 ?lookfor=…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 66 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
@@ -191,7 +191,7 @@ from the Finna API with various queries and parameters.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">##   value   translated                                count href                  </span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 0/KAVI/ Kansallinen audiovisuaalinen instituutti <span style="text-decoration: underline;">135</span>955 ?lookfor=record_forma…</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> 0/KAVI/ Kansallinen audiovisuaalinen instituutti <span style="text-decoration: underline;">135</span>973 ?lookfor=record_forma…</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="example-6-fetching-qualified-dublin-coreqdc-records">Example 6: Fetching Qualified Dublin Core(qdc) Records<a class="anchor" aria-label="anchor" href="#example-6-fetching-qualified-dublin-coreqdc-records"></a>
@@ -209,16 +209,16 @@ from the Finna API with various queries and parameters.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 50 × 4</span></span></span>
 <span><span class="co">##    value          translated                             count href             </span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/AALTO/       Aalto-yliopisto                       <span style="text-decoration: underline;">124</span>619 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/AALTO/       Aalto-yliopisto                       <span style="text-decoration: underline;">124</span>653 ?lookfor=record_…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/lasipalatsi/ Albumit auki                            <span style="text-decoration: underline;">2</span>413 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/ARCADA/      Arcadan kirjasto                        <span style="text-decoration: underline;">5</span>625 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/CENTRIA/     Centria-kirjasto                        <span style="text-decoration: underline;">7</span>214 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/ARCADA/      Arcadan kirjasto                        <span style="text-decoration: underline;">5</span>627 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/CENTRIA/     Centria-kirjasto                        <span style="text-decoration: underline;">7</span>236 ?lookfor=record_…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/DIAK/        Diakonia-ammattikorkeakoulun kirjasto   <span style="text-decoration: underline;">7</span>056 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/ELY-keskus/  ELY-keskus                              <span style="text-decoration: underline;">2</span>462 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/ETK/         Eläketurvakeskus                        <span style="text-decoration: underline;">1</span>947 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/HAAGA-HELIA/ Haaga-Helia ammattikorkeakoulu         <span style="text-decoration: underline;">17</span>432 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/HAMK/        HAMK                                   <span style="text-decoration: underline;">11</span>202 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/HUMAK/       Humanistinen ammattikorkeakoulu         <span style="text-decoration: underline;">4</span>393 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/ELY-keskus/  ELY-keskus                              <span style="text-decoration: underline;">2</span>463 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/ETK/         Eläketurvakeskus                        <span style="text-decoration: underline;">1</span>948 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/HAAGA-HELIA/ Haaga-Helia ammattikorkeakoulu         <span style="text-decoration: underline;">17</span>438 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/HAMK/        HAMK                                   <span style="text-decoration: underline;">11</span>259 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/HUMAK/       Humanistinen ammattikorkeakoulu         <span style="text-decoration: underline;">4</span>406 ?lookfor=record_…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 40 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
@@ -233,20 +233,20 @@ from the Finna API with various queries and parameters.</p>
 <span>  prettyPrint <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 222 × 4</span></span></span>
-<span><span class="co">##    value                          translated                   count href       </span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/                        3AMK-kirjastot              <span style="text-decoration: underline;">127</span>234 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/AALTO/                       Aalto-yliopisto             <span style="text-decoration: underline;">238</span>505 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/AALTOARKISTO/                Aalto-yliopiston arkisto     <span style="text-decoration: underline;">64</span>408 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/Aipa/                        Aipa                           122 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/lasipalatsi/                 Albumit auki                  <span style="text-decoration: underline;">2</span>413 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/ALVARAALTO/                  Alvar Aalto -museo             329 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/Anders/                      Anders-kirjastot            <span style="text-decoration: underline;">268</span>298 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/ARCADA/                      Arcadan kirjasto             <span style="text-decoration: underline;">25</span>344 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/MFA/                         Arkkitehtuurimuseo           <span style="text-decoration: underline;">36</span>013 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/Asikkalan kulttuuripalvelut/ Asikkalan kulttuuripalvelut   <span style="text-decoration: underline;">2</span>716 ?lookfor=%…</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 212 more rows</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 223 × 4</span></span></span>
+<span><span class="co">##    value                     translated                count href               </span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/                   3AMK-kirjastot           <span style="text-decoration: underline;">127</span>221 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/A. Ahlström Osakeyhtiö/ A. Ahlström Osakeyhtiö        8 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/AALTO/                  Aalto-yliopisto          <span style="text-decoration: underline;">238</span>541 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/AALTOARKISTO/           Aalto-yliopiston arkisto  <span style="text-decoration: underline;">64</span>408 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/Aipa/                   Aipa                        122 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/lasipalatsi/            Albumit auki               <span style="text-decoration: underline;">2</span>413 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/ALVARAALTO/             Alvar Aalto -museo          329 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/Anders/                 Anders-kirjastot         <span style="text-decoration: underline;">268</span>206 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/ARCADA/                 Arcadan kirjasto          <span style="text-decoration: underline;">25</span>345 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/MFA/                    Arkkitehtuurimuseo        <span style="text-decoration: underline;">36</span>015 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 213 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
