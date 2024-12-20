@@ -1,76 +1,43 @@
-#' @title Create a Data Bibliography for Finna Records
+#' Cite a Finna collection
 #'
-#' @description
-#' Creates a bibliography from selected Finna dataset records.
+#' Automatically generates a citation for a Finna collection result.
 #'
-#' @param id Finna record ID.
-#' @param lang Language for the citation. Options are English (en), Finnish (fi), and Swedish (sv).
-#' @param format Default is "Biblatex", alternatives are "bibentry" or "Bibtex".
-#'
-#' @return A Biblatex, bibentry, or Bibtex object.
-#'
-#' @seealso [utils::bibentry()] [RefManageR::toBiblatex()]
-#'
-#' @references See citation("finna")
-#'
-#' @importFrom RefManageR toBiblatex
-#' @importFrom utils toBibtex person
-#' @importFrom lubridate ymd year
-#' @examples
-#' \dontrun{
-#' finna_cite("lapinkirjasto.1533951", lang = "en", format = "Biblatex")
-#' finna_cite("lapinkirjasto.1533951", lang = "fi", format = "bibentry")
-#' finna_cite("lapinkirjasto.1533951", lang = "en", format = "Bibtex")
-#' }
+#' @param result The Finna collection result as a tibble.
+#' @param index The index of the collection to cite (numeric).
+#' @param style The citation style to use (default: "citation"). See \code{\link[utils]{bibentry}}.
 #' @export
-finna_cite <- function(id,
-                       lang = "fi",
-                       format = "Biblatex") {
-
-  format <- tolower(as.character(format))
-
-  # Fetch metadata using the Finna API
-  metadata <- get_finna_records(id)
-  #print(metadata)
-
-  if(is.null(metadata)) {
-    stop("The ID does not match any records in the Finna database.")
+finna_cite <- function(result, index, style = "citation") {
+  # Validate the input structure
+  if (!"value" %in% names(result) || !"translated" %in% names(result) ||
+      !"count" %in% names(result) || !"href" %in% names(result)) {
+    stop("Invalid result format: expected a tibble with columns 'value', 'translated', 'count', and 'href'.")
   }
 
-  if(!any(lang %in% c("en", "fi", "sv"))){
-    stop("Supported languages are English (en), Finnish (fi), and Swedish (sv).")
+  if (index < 1 || index > nrow(result)) {
+    stop("Invalid index: out of bounds.")
   }
 
-  if(!format %in% c("bibentry", "bibtex", "biblatex")){
-    warning("The ", format, " is not recognized. Defaulting to Biblatex.")
-    format <- "biblatex"
-  }
+  # Extract the specific row corresponding to the index
+  collection <- result[index, ]
 
-  # Extract relevant details from the metadata
-  title <- metadata$Title %||% "Unknown Title"
-  author <- metadata$Author %||% "Unknown Author"
-  publisher <- metadata$Publisher %||% "Unknown Publisher"
-  publish_date <- metadata$Year %||% "Unknown Year"
-  access_date <- as.character(Sys.Date())
-
-  # Create BibEntry for citation
-  ref <- RefManageR::BibEntry(
+  # Generate citation using bibentry
+  citation <- utils::bibentry(
     bibtype = "Misc",
-    title = title,
-    author = utils::person(author),
-    year = publish_date,
-    url = paste0("https://www.finna.fi/Record/", id),
-    organization = publisher,
-    urldate = access_date,
-    note = paste0("Accessed on ", access_date, ".")
+    title = paste("Finna Collection -", collection$translated),
+    author = utils::person("Finna API"),
+    organization = collection$translated,
+    year = format(Sys.Date(), "%Y"),
+    url = paste0("https://finna.fi", collection$href),
+    note = sprintf(
+      "This citation was generated using the Finna R package on %s.",
+      Sys.Date()
+    )
   )
 
-  # Convert to the requested format
-  if(format == "bibtex") {
-    ref <- utils::toBibtex(ref)
-  } else if (format == "biblatex") {
-    ref <- RefManageR::toBiblatex(ref)
-  }
-
-  return(ref)
+  # Print citation in the specified style
+  print(citation, style = style)
 }
+
+# Example usage
+# finna_result <- fetch_finna_collection(query = "oai_dc", lng = "en")
+# finna_cite(finna_result, 4)  # Cite the Jyväskylän yliopisto collection

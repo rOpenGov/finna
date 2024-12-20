@@ -13,10 +13,6 @@
 #' fetch_finna_collection() # Fetches data with no specific query
 #' @export
 fetch_finna_collection <- function(query = NULL, limit = 0, facets = "building", lng = "fi", prettyPrint = TRUE) {
-  # Load required libraries
-  if (!requireNamespace("httr", quietly = TRUE)) install.packages("httr")
-  if (!requireNamespace("jsonlite", quietly = TRUE)) install.packages("jsonlite")
-  if (!requireNamespace("tibble", quietly = TRUE)) install.packages("tibble")
 
   # Start the timer
   start_time <- Sys.time()
@@ -47,6 +43,7 @@ fetch_finna_collection <- function(query = NULL, limit = 0, facets = "building",
 
   # Parse the response JSON
   json_data <- httr::content(response, as = "parsed")
+  #print(json_data)
 
   # Extract the result count
   result_count <- json_data$resultCount

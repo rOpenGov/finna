@@ -26,6 +26,7 @@ Imports:
     RefManageR,
     lubridate,
     purrr,
+    future,
     tm,
     stopwords,
     wordcloud2

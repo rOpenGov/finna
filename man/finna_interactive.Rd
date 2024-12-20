@@ -2,16 +2,16 @@
 % Please edit documentation in R/finna_interactive.R
 \name{finna_interactive}
 \alias{finna_interactive}
-\title{Interactive function for Finna Search}
+\title{Interactive Finna Search and Data Download}
 \usage{
-finna_interactive(query = NULL)
+finna_interactive()
 }
-\arguments{
-\item{query}{A search query string for finding the dataset of interest.}
+\value{
+A dataframe containing the selected dataset or downloaded data.
 }
 \description{
-A simple interactive function, that helps with searching and downloading Finna data.
+Provides an interactive interface to search, select, and download datasets from Finna API.
 }
 \seealso{
-\code{\link[=search_finna]{search_finna()}}
+\code{\link[=search_finna]{search_finna()}}, \code{\link[=fetch_finna_collection]{fetch_finna_collection()}}, \code{\link[=finna_cite]{finna_cite()}}
 }

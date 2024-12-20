@@ -49,7 +49,7 @@ visualize_year_distribution_line <- function(metadata) {
 
   # Plot the year distribution as a line plot
   ggplot(year_distribution, aes(x = Year, y = n)) +
-    geom_line(color = "steelblue", size = 1) +
+    geom_line(color = "steelblue", linewidth = 1) +
     theme_minimal() +
     labs(
       title = "Yearly Distribution of Records",
