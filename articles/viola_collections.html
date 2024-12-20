@@ -83,9 +83,11 @@ and handles records without date information.</p>
 <p>The following example fetches data from the Viola collection for the
 year ranges: 0–1699, 1700–1799, and 1800–1899.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Fetch records</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
+<span><span class="co">##   object 'type_sum.accel' not found</span></span></code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Fetch records</span></span>
 <span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_viola_records.html">fetch_viola_records</a></span><span class="op">(</span></span>
 <span>  base_query <span class="op">=</span> <span class="st">"*"</span>,</span>
 <span>  base_filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"VIO"'</span><span class="op">)</span>, <span class="co"># Filters for the Viola collection</span></span>
@@ -99,7 +101,7 @@ year ranges: 0–1699, 1700–1799, and 1800–1899.</p>
 <span><span class="co"># View the number of records fetched</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 2690</span></span></code></pre>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
 <span><span class="co">##   id    Title Author Year  Language Formats Subjects Library Series last_indexed</span></span>
@@ -116,7 +118,7 @@ year ranges: 0–1699, 1700–1799, and 1800–1899.</p>
 </h4>
 <p>You can also fetch records missing the <code>main_date_str</code>
 field:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fetch undated records</span></span>
 <span><span class="va">undated_records</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"*"</span>,</span>
@@ -153,7 +155,7 @@ and plotting functions.</p>
 <div class="section level4">
 <h4 id="author-distribution">Author Distribution<a class="anchor" aria-label="anchor" href="#author-distribution"></a>
 </h4>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Refine metadata and visualize author distribution</span></span>
@@ -164,7 +166,7 @@ and plotting functions.</p>
 <div class="section level4">
 <h4 id="word-cloud-for-titles">Word Cloud for Titles<a class="anchor" aria-label="anchor" href="#word-cloud-for-titles"></a>
 </h4>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a word cloud of titles</span></span>
 <span><span class="fu"><a href="../reference/visualize_word_cloud.html">visualize_word_cloud</a></span><span class="op">(</span><span class="va">refined_data</span>, <span class="st">"Title"</span><span class="op">)</span></span></code></pre></div>
 <div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
