@@ -74,22 +74,22 @@ the most relevant fields, simplifying the dataset.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Default limit of 100 records is being used. Specify 'limit' argument for more records.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 47526</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.50 seconds.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 47315</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.37 seconds.</span>
 <span class="r-in"><span><span class="fu">refine_metadata</span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Title                   Author Year  Language Formats Subjects Library Series</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Sibelius favourites : … Sibel… 2001  Unknown… Äänite… orkeste… Lapin … Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Sibelius                Tappe… 1967  Unknown… Taidet… Unknown… Jyväsk… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Sibelius                Favén… Unkn… Unknown… Taidet… kaljuus… Lahden… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Anders… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Sibelius                Ringb… 1948  fin      Kirja,… Sibeliu… Eepos-… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> SIBELIUS                TÖRNE… 1945  fin      Kirja,… SIBELIU… Helle-… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Sibelius                Lampi… 1995  fin      Kirja,… Sibeliu… Kansal… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Sibelius                Lampi… 2005  fin      Kirja,… Sibeliu… Kansal… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Kansal… Unkno…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> SIBELIUS                TAWAS… 1997  fin      Kirja,… SIBELIUS Anders… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Anders… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Helka-… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Kansal… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Heili-… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Heili-… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Sibelius                Ringb… 1948  fin      Kirja,… Sibeliu… Kirkes… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… OUTI-k… Unkno…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Sibelius                Tawas… 2015  fin      Kirja,… Sibeliu… Rutakk… Unkno…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 90 more rows</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
