@@ -27,15 +27,15 @@ refine_metadata <- function(data) {
 
   # Proceed with refining the metadata if all required columns are present
   refined <- data %>%
-    mutate(
-      Title = if_else(is.na(Title), "Unknown Title", Title),
-      Author = if_else(is.na(Author), "Unknown Author", Author),
-      Year = if_else(is.na(Year), "Unknown Year", Year),
-      Language = if_else(is.na(Language), "Unknown Language", Language),
-      Formats = if_else(is.na(Formats), "Unknown Format", Formats),
-      Subjects = if_else(is.na(Subjects), "Unknown Subjects", Subjects),
-      Library = if_else(is.na(Library), "Unknown Library", Library),
-      Series = if_else(is.na(Series), "Unknown Series", Series)
+    dplyr::mutate(
+      Title = if_else(is.na(.data$Title), "Unknown Title", Title),
+      Author = if_else(is.na(.data$Author), "Unknown Author", Author),
+      Year = if_else(is.na(.data$Year), "Unknown Year", Year),
+      Language = if_else(is.na(.data$Language), "Unknown Language", Language),
+      Formats = if_else(is.na(.data$Formats), "Unknown Format", Formats),
+      Subjects = if_else(is.na(.data$Subjects), "Unknown Subjects", Subjects),
+      Library = if_else(is.na(.data$Library), "Unknown Library", Library),
+      Series = if_else(is.na(.data$Series), "Unknown Series", Series)
     ) %>%
     select(Title, Author, Year, Language, Formats, Subjects, Library, Series)
 

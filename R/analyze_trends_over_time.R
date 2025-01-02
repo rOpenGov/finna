@@ -46,3 +46,4 @@ analyze_trends_over_time_binned <- function(data, query = "Records Over Time") {
     ) +
     ggplot2::theme_minimal()
 }
+

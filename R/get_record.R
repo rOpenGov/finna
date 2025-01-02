@@ -10,6 +10,7 @@
 #' @param page The page number to retrieve. Defaults to 1.
 #' @param limit The number of records to return per page. Defaults to 20.
 #' @return A tibble containing the retrieved records data with provenance information.
+#' @importFrom stats reorder setNames
 #' @examples
 #' records <- get_finna_records("fikka.3405646", field = "title", prettyPrint = TRUE, lng = "en-gb")
 #' print(records)

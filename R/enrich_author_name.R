@@ -7,6 +7,9 @@
 #' @param url A character string specifying the URL of the CSV file with Melinda IDs and author names.
 #' @param output_file A character string specifying the output CSV file name.
 #' @return A tibble of the updated data, and the file is saved to the `data` directory.
+#' @importFrom readr read_csv write_csv cols col_character
+#' @importFrom dplyr mutate if_else
+#' @importFrom purrr map_chr
 #' @export
 #' @examples
 #' \dontrun{
@@ -79,4 +82,3 @@ enrich_author_name <- function(url, output_file = "updated_na_author_rows.csv") 
 
   return(data)  # Return the updated tibble as well
 }
-

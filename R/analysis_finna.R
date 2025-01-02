@@ -30,3 +30,5 @@ analyze_metadata <- function(metadata) {
     author_distribution = author_distribution
   )
 }
+# Declare global variables to avoid warnings during checks
+utils::globalVariables(c("Formats", "Year", "Author"))

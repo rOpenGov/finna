@@ -11,9 +11,11 @@
 #' @param output_file output file to be saved as a csv file.
 #' @param user_agent A string. A custom User-Agent string to identify the service. Default is "FinnaHarvester/1.0".
 #' @return A tibble with the harvested records containing selected metadata fields.
-#' @import httr
-#' @import dplyr
-#' @import tibble
+#' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text xml_attr xml_name xml_ns_strip
+#' @importFrom httr GET content user_agent
+#' @importFrom dplyr bind_rows
+#' @importFrom tibble as_tibble tibble
+#' @importFrom readr write_csv
 #' @import progress
 #' @export
 #'
@@ -97,7 +99,7 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
   repeat {
     if (verbose) message("Fetching page ", page, "...")
     response <- tryCatch({
-      GET(url, query = params, user_agent(user_agent))
+      httr::GET(url, query = params, httr::user_agent(user_agent))
     }, error = function(e) {
       warning("Request failed: ", e$message)
       return(NULL)
@@ -108,7 +110,7 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
       break
     }
 
-    raw_content <- content(response, as = "text", encoding = "UTF-8")
+    raw_content <- httr::content(response, as = "text", encoding = "UTF-8")
     xml <- read_xml(raw_content)
     xml <- strip_namespaces(xml)
 
@@ -179,13 +181,13 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
 
   # Combine all records into a tibble
   if (length(all_records) > 0) {
-    df <- bind_rows(lapply(all_records, function(x) as_tibble(x, .name_repair = "unique")))
+    df <- dplyr::bind_rows(lapply(all_records, function(x) as_tibble(x, .name_repair = "unique")))
   } else {
-    df <- tibble()
+    df <- tibble::tibble()
   }
 
   if (!is.null(output_file)) {
-    write.csv(df, file = output_file, row.names = FALSE)
+    readr::write_csv(df, file = output_file, row.names = FALSE)
     if (verbose) message("Records saved to: ", output_file)
   }
 
@@ -195,7 +197,7 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
 fetch_oai_sets <- function(base_url, user_agent = "FinnaHarvester/1.0") {
   url <- paste0(base_url, "?verb=ListSets")
   response <- tryCatch({
-    GET(url, user_agent(user_agent))
+    httr::GET(url, httr::user_agent(user_agent))
   }, error = function(e) {
     warning("Failed to fetch sets: ", e$message)
     return(NULL)
@@ -205,17 +207,17 @@ fetch_oai_sets <- function(base_url, user_agent = "FinnaHarvester/1.0") {
     stop("Failed to fetch sets. HTTP status code: ", response$status_code)
   }
 
-  raw_content <- content(response, as = "text", encoding = "UTF-8")
+  raw_content <- httr::content(response, as = "text", encoding = "UTF-8")
   xml <- read_xml(raw_content)
   xml <- strip_namespaces(xml)
 
   sets <- xml_find_all(xml, "//set")
   if (length(sets) == 0) {
     warning("No sets found.")
-    return(tibble(setSpec = character(), setName = character()))
+    return(tibble::tibble(setSpec = character(), setName = character()))
   }
 
-  tibble(
+  tibble::tibble(
     setSpec = xml_text(xml_find_first(sets, "setSpec")),
     setName = xml_text(xml_find_first(sets, "setName"))
   )
