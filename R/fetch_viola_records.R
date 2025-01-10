@@ -12,12 +12,12 @@
 #' @return A tibble containing all fetched records.
 #' @export
 fetch_viola_records <- function(base_query = "*",
-                                          base_filters = c('collection:"VIO"'),
-                                          year_ranges = list(c(0, as.numeric(format(Sys.Date(), "%Y")))),
-                                          include_na = TRUE,
-                                          limit_per_query = 100000,
-                                          total_limit = Inf,
-                                          delay_after_query = 5) {
+                                base_filters = c('collection:"VIO"'),
+                                year_ranges = list(c(0, as.numeric(format(Sys.Date(), "%Y")))),
+                                include_na = TRUE,
+                                limit_per_query = 100000,
+                                total_limit = Inf,
+                                delay_after_query = 5) {
 
 
   # Input validation
@@ -62,7 +62,15 @@ fetch_viola_records <- function(base_query = "*",
     })
 
     # Append valid results
+    # if (!is.null(results) && nrow(results) > 0) {
+    #   all_results <- c(all_results, list(results))
+    #   total_fetched <- total_fetched + nrow(results)
+    # }
+    # Append valid results
     if (!is.null(results) && nrow(results) > 0) {
+      if (total_fetched + nrow(results) > total_limit) {
+        results <- results[1:(total_limit - total_fetched), ]
+      }
       all_results <- c(all_results, list(results))
       total_fetched <- total_fetched + nrow(results)
     }
