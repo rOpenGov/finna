@@ -4,12 +4,19 @@
 [![R-CMD-check](https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml)
 [![issues](https://img.shields.io/github/issues/rOpenGov/finna)](https://github.com/rOpenGov/finna/issues)
 [![pulls](https://img.shields.io/github/issues-pr/rOpenGov/finna)](https://github.com/rOpenGov/finna/pulls)
-[![codecov](https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/finna)
-[![codefactor](https://www.codefactor.io/repository/github/rOpenGov/finna/badge)](https://www.codefactor.io/repository/github/rOpenGov/finna)
 
-The goal of finna is to retrieve metadata from Finna API 
+
+The `finna` package provides tools to access and analyze metadata from the Finna API, which aggregates content from Finnish archives, libraries, and museums.
+
 
 ## Installation instructions
+
+Install the released version from CRAN:
+
+```r
+install.packages("finna")
+```
+
 The devel version of finna can be installed from GitHub as follows:
 
 ``` r
@@ -61,13 +68,14 @@ head(record)
 
 
 
-## Code of Conduct
-Please note that the finna project is released with a
-[Contributor Code of Conduct](Link).
-By contributing to this project, you agree to abide by its terms. Contributions
-are welcome in the form of feedback, issues and pull requests. You can find the
-contributor guidelines of the finna
-[here]().
+## Contribute
+
+Contributions are very welcome:
+
+- [Use issue tracker](https://github.com/ropengov/finna/issues) for
+  feedback and bug reports.
+- [Send pull requests](https://github.com/ropengov/finna/)
+- [Star us on the Github page](https://github.com/ropengov/finna/)
 
 ## Acknowledgements
 Please note that finna was only made possible thanks to many other R and
@@ -76,17 +84,11 @@ this package.
 
 This package was developed using the following resources:
 
-- [_usethis_](https://cran.r-project.org/web/packages/usethis/) to generate an
-  initial template.
-- Continuous code testing is performed on
-  [GitHub actions](https://github.com/features/actions) and include R CMD check,
-- Code coverage assessment is possible thanks to
-  [codecov](https://app.codecov.io/gh/).
-- The documentation website is automatically updated thanks to
-  [_pkgdown_](https://cran.r-project.org/web/packages/pkgdown/).
-- The documentation is formatted thanks to
-  [_devtools_](https://cran.r-project.org/web/packages/devtools/) and
-  [_roxygen2_](https://cran.r-project.org/web/packages/roxygen2/).
+- [_usethis_](https://CRAN.R-project.org/package=usethis)  
+- [_pkgdown_](https://CRAN.R-project.org/package=pkgdown)  
+- [_devtools_](https://CRAN.R-project.org/package=devtools)  
+- [_roxygen2_](https://CRAN.R-project.org/package=roxygen2)  
+
 
 ### Disclaimer
 

@@ -1,7 +1,7 @@
 Package: finna
-Title: R package for Finna API
+Title: Title: R Package for Finna API
 Version: 0.1.0
-Date: 2025-1-10
+Date: 2025-01-10
 Authors@R: c(
     person("Akewak", "Jeba", , "akjeba@utu.fi", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0007-1347-7552")),
@@ -9,7 +9,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5537-637X"))
   )
 Maintainer: Akewak Jeba <akjeba@utu.fi>  
-Description: R package to retrieve metadata from Finna API.
+Description: Provides functions to access and retrieve metadata from the Finna API, which aggregates content from Finnish archives, libraries, and museums.
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Imports: 
@@ -35,7 +35,7 @@ Suggests:
     testthat (>= 3.0.0),
     rmarkdown,
     knitr
-URL: https://ropengov.github.io/finna/
+URL: https://ropengov.github.io/finna/, https://CRAN.R-project.org/package=finna
 BugReports: https://github.com/rOpenGov/finna/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
