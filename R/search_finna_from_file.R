@@ -14,7 +14,9 @@ search_finna_from_file <- function(file_path, limit = 10, lng = "fi", query_limi
   file_content <- tryCatch({
     readLines(file_path, warn = FALSE)
   }, error = function(e) {
-    stop("Failed to read the file: ", e$message)
+    stop("Failed to read the file: ", e$message, call. = FALSE)
+  }, warning = function(w) {
+    stop("Failed to read the file: ", w$message, call. = FALSE)
   })
 
   # Concatenate the lines into a single string (in case it's multi-line)
@@ -36,21 +38,27 @@ search_finna_from_file <- function(file_path, limit = 10, lng = "fi", query_limi
     cat("Performing search with query:", query, "\n")  # For logging
 
     # Perform a search on Finna using the content from the chunk
-    results <- search_finna(query, limit = limit, lng = lng)
+    results <- tryCatch({
+      search_finna(query, limit = limit, lng = lng)
+    }, error = function(e) {
+      warning("Search failed for query: ", query, ". Error: ", e$message, call. = FALSE)
+      return(tibble::tibble())
+    })
 
-    # Check if results are available and append to all_results
+    # Append valid results to all_results
     if (nrow(results) > 0) {
       all_results <- dplyr::bind_rows(all_results, results)
     }
   }
 
-  # Return all combined results
-  if (nrow(all_results) > 0) {
-    return(all_results)
+  # Return all combined results or throw an error if no results found
+  if (nrow(all_results) == 0) {
+    stop("No results found for the given file content.", call. = FALSE)
   } else {
-    stop("No results found for the given file content.")
+    return(all_results)
   }
 }
+
 
 # Example usage:
 # Assuming the file contains the search query
