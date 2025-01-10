@@ -9,8 +9,10 @@
 #' @param prettyPrint Logical, whether to pretty-print JSON responses.
 #' @return A tibble containing the fetched data with relevant fields.
 #' @examples
-#' fetch_finna_collection(query = "record_format:ead", limit = 0)
-#' fetch_finna_collection() # Fetches data with no specific query
+#' \dontrun{
+#'   fetch_finna_collection(query = "record_format:ead", limit = 0)
+#'   fetch_finna_collection() # Fetches data with no specific query
+#' }
 #' @export
 fetch_finna_collection <- function(query = NULL, limit = 0, facets = "building", lng = "fi", prettyPrint = TRUE) {
 

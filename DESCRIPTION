@@ -27,7 +27,6 @@ Imports:
     tidyr,
     progress,
     purrr,
-    mockery,
     tm,
     stopwords,
     wordcloud2

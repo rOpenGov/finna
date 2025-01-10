@@ -30,6 +30,8 @@ A tibble containing the fetched data with relevant fields.
 This function retrieves data from the Finna API and formats it as a tidy tibble.
 }
 \examples{
-fetch_finna_collection(query = "record_format:ead", limit = 0)
-fetch_finna_collection() # Fetches data with no specific query
+\dontrun{
+  fetch_finna_collection(query = "record_format:ead", limit = 0)
+  fetch_finna_collection() # Fetches data with no specific query
+}
 }
