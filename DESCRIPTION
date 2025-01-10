@@ -24,10 +24,7 @@ Imports:
     stringr,
     tidyr,
     progress,
-    RefManageR,
-    lubridate,
     purrr,
-    future,
     tm,
     stopwords,
     wordcloud2
