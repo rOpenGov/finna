@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>R package for Finna API • finna</title>
+<title>Title: R Package for Finna API • finna</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="R package for Finna API">
-<meta name="description" content="R package to retrieve metadata from Finna API.">
-<meta property="og:description" content="R package to retrieve metadata from Finna API.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Title: R Package for Finna API">
+<meta name="description" content="Provides functions to access and retrieve metadata from the Finna API, which aggregates content from Finnish archives, libraries, and museums.">
+<meta property="og:description" content="Provides functions to access and retrieve metadata from the Finna API, which aggregates content from Finnish archives, libraries, and museums.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -54,18 +54,21 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="finna">finna<a class="anchor" aria-label="anchor" href="#finna"></a>
 </h1></div>
-<p><a href="https://ropengov.org/" class="external-link"><img src="https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg" alt="rOG-badge"></a> <a href="https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/rOpenGov/finna/issues" class="external-link"><img src="https://img.shields.io/github/issues/rOpenGov/finna" alt="issues"></a> <a href="https://github.com/rOpenGov/finna/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/rOpenGov/finna" alt="pulls"></a> <a href="https://app.codecov.io/gh/rOpenGov/finna" class="external-link"><img src="https://codecov.io/gh/rOpenGov/finna/branch/devel/graph/badge.svg" alt="codecov"></a> <a href="https://www.codefactor.io/repository/github/rOpenGov/finna" class="external-link"><img src="https://www.codefactor.io/repository/github/rOpenGov/finna/badge" alt="codefactor"></a></p>
-<p>The goal of finna is to retrieve metadata from Finna API</p>
+<p><a href="https://ropengov.org/" class="external-link"><img src="https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg" alt="rOG-badge"></a> <a href="https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/rOpenGov/finna/issues" class="external-link"><img src="https://img.shields.io/github/issues/rOpenGov/finna" alt="issues"></a> <a href="https://github.com/rOpenGov/finna/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/rOpenGov/finna" alt="pulls"></a></p>
+<p>The <code>finna</code> package provides tools to access and analyze metadata from the Finna API, which aggregates content from Finnish archives, libraries, and museums.</p>
 <div class="section level2">
 <h2 id="installation-instructions">Installation instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h2>
-<p>The devel version of finna can be installed from GitHub as follows:</p>
+<p>Install the released version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"finna"</span><span class="op">)</span></span></code></pre></div>
+<p>The devel version of finna can be installed from GitHub as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install finna if not already installed</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"finna"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rOpenGov/finna"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rOpenGov/finna"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -73,7 +76,7 @@
 </h2>
 <p>The basic functionality of finna can be explored as follows:</p>
 <p><strong>N.B</strong> In the search_finna() default limit of 100 records is being used. Specify ‘limit’ argument for more records.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="co"># Perform a simple search and print a table</span></span>
@@ -165,7 +168,7 @@
 </tbody>
 </table>
 <p>To search all related in descending order</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"main_date_str des"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
@@ -254,9 +257,15 @@
 </table>
 </div>
 <div class="section level2">
-<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+<h2 id="contribute">Contribute<a class="anchor" aria-label="anchor" href="#contribute"></a>
 </h2>
-<p>Please note that the finna project is released with a <a href="Link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms. Contributions are welcome in the form of feedback, issues and pull requests. You can find the contributor guidelines of the finna <a href="">here</a>.</p>
+<p>Contributions are very welcome:</p>
+<ul>
+<li>
+<a href="https://github.com/ropengov/finna/issues" class="external-link">Use issue tracker</a> for feedback and bug reports.</li>
+<li><a href="https://github.com/ropengov/finna/" class="external-link">Send pull requests</a></li>
+<li><a href="https://github.com/ropengov/finna/" class="external-link">Star us on the Github page</a></li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
@@ -265,11 +274,15 @@
 <p>This package was developed using the following resources:</p>
 <ul>
 <li>
-<a href="https://cran.r-project.org/web/packages/usethis/" class="external-link"><em>usethis</em></a> to generate an initial template.</li>
-<li>Continuous code testing is performed on <a href="https://github.com/features/actions" class="external-link">GitHub actions</a> and include R CMD check,</li>
-<li>Code coverage assessment is possible thanks to <a href="https://app.codecov.io/gh/" class="external-link">codecov</a>.</li>
-<li>The documentation website is automatically updated thanks to <a href="https://cran.r-project.org/web/packages/pkgdown/" class="external-link"><em>pkgdown</em></a>.</li>
-<li>The documentation is formatted thanks to <a href="https://cran.r-project.org/web/packages/devtools/" class="external-link"><em>devtools</em></a> and <a href="https://cran.r-project.org/web/packages/roxygen2/" class="external-link"><em>roxygen2</em></a>.</li>
+<a href="https://CRAN.R-project.org/package=usethis" class="external-link"><em>usethis</em></a><br>
+</li>
+<li>
+<a href="https://CRAN.R-project.org/package=pkgdown" class="external-link"><em>pkgdown</em></a><br>
+</li>
+<li>
+<a href="https://CRAN.R-project.org/package=devtools" class="external-link"><em>devtools</em></a><br>
+</li>
+<li><a href="https://CRAN.R-project.org/package=roxygen2" class="external-link"><em>roxygen2</em></a></li>
 </ul>
 <div class="section level3">
 <h3 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
