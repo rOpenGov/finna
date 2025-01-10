@@ -1,4 +1,4 @@
-#' Interactive Finna Search and Data Download
+#' @title Interactive Finna Search and Data Download
 #'
 #' @description
 #' Provides an interactive interface to search, select, and download datasets from Finna API.

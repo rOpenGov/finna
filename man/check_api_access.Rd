@@ -2,16 +2,21 @@
 % Please edit documentation in R/check_api_access.R
 \name{check_api_access}
 \alias{check_api_access}
-\title{Check access to https://api.finna.fi/api/v1/?openapi}
+\title{Check Access to the Finna API}
 \usage{
 check_api_access()
 }
 \value{
-a logical indicating if the API is accessible (\code{TRUE}) or not (\code{FALSE}).
+A logical value:
+\itemize{
+\item \code{TRUE}: The API is accessible.
+\item \code{FALSE}: The API is not accessible.
+}
 }
 \description{
-Check if R has access to resources at https://api.finna.fi/api/v1/?openapi.
-This function tests whether R can successfully connect to the Finna API by attempting to download from the API's OpenAPI specification.
+This function tests whether R can successfully connect to the Finna API by downloading
+the OpenAPI specification from \verb{https://api.finna.fi/api/v1/?openapi}. It returns
+a logical value indicating the accessibility of the API.
 }
 \examples{
 \dontrun{

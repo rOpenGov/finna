@@ -1,5 +1,6 @@
-#' Refine Finna Metadata
+#' @title Refine Finna Metadata
 #'
+#' @description
 #' Refines the Finna metadata tibble by keeping relevant fields and cleaning up missing values.
 #' The purpose of the refine_metadata function is to: Ensure completeness by filling in missing
 #' values with placeholder text, Standardize key metadata fields for easier analysis, Select only

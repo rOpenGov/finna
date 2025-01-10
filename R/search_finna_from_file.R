@@ -1,4 +1,4 @@
-#' Search Finna using text from a file (extended version)
+#' @title Search Finna using text from a file (extended version)
 #'
 #' @description
 #' Reads text from a file, processes it, and searches it in Finna using the `search_finna` function.

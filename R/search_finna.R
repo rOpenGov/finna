@@ -1,5 +1,6 @@
-#' Finna Index Search with Total Limit Option
+#' @title Finna Index Search with Total Limit Option
 #'
+#' @description
 #' This function retrieves records from the Finna index with an option to limit the total number of records returned.
 #' The function paginates through the results, fetching records until the specified total limit is reached.
 #'

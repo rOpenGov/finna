@@ -16,10 +16,11 @@ A ggplot2 plot showing the trend of records over time.
 }
 \description{
 This function analyzes how search results for a given query have trended over time, binned by decades.
-It plots the number of records found for each decade, allowing users to see trends over larger time intervals.
+It plots the number of records found for each decade, allowing users to observe long-term trends.
 }
 \examples{
 finna_data <- search_finna("Sibelius")
 trends <- analyze_trends_over_time(finna_data, "Sibelius")
 print(trends)
+
 }

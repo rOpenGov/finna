@@ -1,5 +1,6 @@
-#' Harvest Metadata from an OAI-PMH Server
+#' @title Harvest Metadata from an OAI-PMH Server
 #'
+#' @description
 #' This function harvests metadata records from an OAI-PMH-compliant server in batches,
 #' using a custom User-Agent string to identify the service and returns them in a tibble format.
 #'

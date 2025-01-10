@@ -1,5 +1,6 @@
-#' Finna Publisher Search
+#' @title Finna Publisher Search
 #'
+#' @description
 #' This function retrieves only the publisher information from the Finna index based on the search query.
 #'
 #' @name search_publisher

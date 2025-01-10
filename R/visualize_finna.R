@@ -1,5 +1,6 @@
-#' Visualize Year Distribution
+#' @title Visualize Year Distribution
 #'
+#' @description
 #' Creates a bar plot of the publication year distribution.
 #'
 #' @param year_data A tibble containing year distribution data (Year, count).

@@ -1,7 +1,9 @@
-#' Get Finna Records by IDs with Extended Options
+#' @title Get Finna Records by IDs with Extended Options
 #'
+#' @description
 #' This function retrieves multiple Finna records based on a vector of record IDs. You can specify
 #' which fields to return, the language, and the pagination options.
+#'
 #' @name get_finna_records
 #' @param ids A vector of record IDs to retrieve.
 #' @param field A vector of fields to return. Defaults to NULL, which returns all default fields.

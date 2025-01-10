@@ -1,7 +1,8 @@
-#' Analyze Trends Over Time with Binned Years (Decades)
+#' @title Analyze Trends Over Time with Binned Years (Decades)
 #'
+#' @description
 #' This function analyzes how search results for a given query have trended over time, binned by decades.
-#' It plots the number of records found for each decade, allowing users to see trends over larger time intervals.
+#' It plots the number of records found for each decade, allowing users to observe long-term trends.
 #'
 #' @param data A tibble containing Finna search results with a `Year` column (as character or numeric).
 #' @param query A search query string (optional) to label the plot.
@@ -13,6 +14,7 @@
 #' finna_data <- search_finna("Sibelius")
 #' trends <- analyze_trends_over_time(finna_data, "Sibelius")
 #' print(trends)
+#'
 analyze_trends_over_time <- function(data, query = "Records Over Time") {
   # Check if the Year column exists
   if (!"Year" %in% names(data)) {

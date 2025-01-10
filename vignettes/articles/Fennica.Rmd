@@ -47,14 +47,14 @@ print(result_count)
 ## Visualization for fennica
 
 We can use any of the functions provided to visualize the data 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, fig.alt = "visualize author distribution"}
 library(finna)
 fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
 refined_data <- refine_metadata(fennica)
 visualize_author_distribution(refined_data)
 ```
 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, fig.alt = "visualize word cloud"}
 fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
 refined_data <- refine_metadata(fennica)
 visualize_word_cloud(refined_data, "Title")

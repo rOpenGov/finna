@@ -1,5 +1,6 @@
-#' Enrich Author Name from Finna API and Save Results
+#' @title Enrich Author Name from Finna API and Save Results
 #'
+#' @description
 #' This function reads a CSV file from a URL containing Melinda IDs and author names.
 #' If the author name is missing (NA), it searches Finna for the corresponding Melinda ID
 #' to retrieve and update the author name. The updated data is saved in a CSV file.

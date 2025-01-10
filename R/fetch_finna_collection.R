@@ -1,5 +1,6 @@
-#' Fetch Finna Collection Data with Flexible Query
+#' @title Fetch Finna Collection Data with Flexible Query
 #'
+#' @description
 #' This function retrieves data from the Finna API and formats it as a tidy tibble.
 #'
 #' @param query The query string for filtering results. Defaults to NULL, which fetches data without a specific search term.

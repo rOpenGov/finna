@@ -1,5 +1,6 @@
-#' Cite a Finna collection
+#' @title Cite a Finna collection
 #'
+#' @description
 #' Automatically generates a citation for a Finna collection result.
 #'
 #' @param result The Finna collection result as a tibble.

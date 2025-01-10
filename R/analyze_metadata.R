@@ -1,5 +1,6 @@
-#' Analyze Refined Finna Metadata
+#' @title Analyze Refined Finna Metadata
 #'
+#' @description
 #' Performs basic analysis on Finna metadata, summarizing the distribution of formats, years, and authors.
 #'
 #' @param metadata A tibble containing refined Finna metadata.

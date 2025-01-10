@@ -61,7 +61,7 @@ The Viola collection data can be visualized using metadata refinement and plotti
 
 #### Author Distribution
 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, fig.alt = "viola author distribution"}
 library(finna)
 
 # Refine metadata and visualize author distribution

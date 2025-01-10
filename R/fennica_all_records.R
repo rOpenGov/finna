@@ -1,5 +1,6 @@
-#' Fetch All Records from Finna API
+#' @title Fetch All Records from Finna API
 #'
+#' @description
 #' This function fetches records from the Finna API in chunks of 100,000,
 #' automatically paginating through the results until the maximum number of
 #' records is reached.

@@ -1,5 +1,6 @@
-#' Fetch Records by Year Ranges from Finna API (Including NA Dates)
+#' @title Fetch Records by Year Ranges from Finna API (Including NA Dates)
 #'
+#' @description
 #' This function fetches records from the Finna API in chunks divided by year ranges, handling missing date values.
 #'
 #' @param base_query The base query string, defaults to "*".

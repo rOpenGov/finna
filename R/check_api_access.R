@@ -1,12 +1,19 @@
-#' @title Check access to https://api.finna.fi/api/v1/?openapi
-#' @description Check if R has access to resources at https://api.finna.fi/api/v1/?openapi.
-#' This function tests whether R can successfully connect to the Finna API by attempting to download from the API's OpenAPI specification.
-#' @export
-#' @return a logical indicating if the API is accessible (`TRUE`) or not (`FALSE`).
+#' @title Check Access to the Finna API
+#'
+#' @description
+#' This function tests whether R can successfully connect to the Finna API by downloading
+#' the OpenAPI specification from `https://api.finna.fi/api/v1/?openapi`. It returns
+#' a logical value indicating the accessibility of the API.
+#'
+#' @return
+#' A logical value:
+#' - `TRUE`: The API is accessible.
+#' - `FALSE`: The API is not accessible.
 #'
 #' @importFrom httr status_code
 #' @importFrom curl curl_download
-#'
+#' @export
+#' @md
 #' @examples
 #' \dontrun{
 #'   # Check if the API is accessible

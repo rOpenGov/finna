@@ -1,4 +1,4 @@
-#' Save Finna Search Results for Offline Access
+#' @title Save Finna Search Results for Offline Access
 #'
 #' @description
 #' This function saves Finna search results and metadata locally to a file in `.rds` format,
