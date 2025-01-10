@@ -11,9 +11,9 @@
 #' @export
 #' @examples
 #' finna_data <- search_finna("Sibelius")
-#' trends <- analyze_trends_over_time_binned(finna_data, "Sibelius")
+#' trends <- analyze_trends_over_time(finna_data, "Sibelius")
 #' print(trends)
-analyze_trends_over_time_binned <- function(data, query = "Records Over Time") {
+analyze_trends_over_time <- function(data, query = "Records Over Time") {
   if (!"Year" %in% names(data)) {
     stop("The data must contain a 'Year' column for time analysis.")
   }
