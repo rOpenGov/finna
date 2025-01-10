@@ -30,12 +30,15 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
 
   # Set query parameters with the provided IDs and options
   query_params <- list(
-    `id[]` = ids,
+    #`id[]` = ids,
     prettyPrint = prettyPrint,
     lng = lng,
     page = page,
     limit = limit
   )
+
+  # Add ID parameters
+  query_params <- c(query_params, setNames(as.list(ids), rep("id[]", length(ids))))
 
   # Add fields to query parameters if specified
   if (!is.null(field)) {
@@ -81,9 +84,9 @@ get_finna_records <- function(ids, field = NULL, prettyPrint = FALSE, lng = "fi"
           },
           Publisher = if(!is.null(record$publisher)) record$publisher else NA,
           Formats = if (!is.null(record$formats) && length(record$formats) > 0) {
-            paste(sapply(record$formats, function(format) {
+            paste(unlist(lapply(record$formats, function(format) {
               if (is.list(format) && !is.null(format$translated)) format$translated else NA
-            }), collapse = ", ")
+            })), collapse = ", ")
           } else {
             NA
           },

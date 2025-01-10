@@ -1,6 +1,6 @@
 
 test_that("get_finna_records function handles various cases correctly", {
-  skip_on_cran() # Skip on CRAN since it requires internet access
+  #skip_on_cran() # Skip on CRAN since it requires internet access
 
   # Test Case 1: Valid single ID with default options
   record_id <- "fikka.3405646"
@@ -10,11 +10,11 @@ test_that("get_finna_records function handles various cases correctly", {
   expect_true(!is.null(result$Author))
 
   # Test Case 2: Multiple IDs with default options
-  # record_ids <- c("fikka.3405646", "fikka.3405646")
-  # result <- get_finna_records(record_ids)
-  # expect_true(nrow(result) == 2)
-  # expect_true(!is.null(result$Title[1]))
-  # expect_true(!is.null(result$Title[2]))
+  record_ids <- c("fikka.3405646", "fikka.3405649")
+  result <- get_finna_records(record_ids)
+  expect_true(nrow(result) == 2)
+  expect_true(!is.null(result$Title[1]))
+  expect_true(!is.null(result$Title[2]))
 
   # Test Case 3: Non-existent ID should return an error
   invalid_id <- "fikka.invalid"

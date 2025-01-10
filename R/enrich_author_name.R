@@ -13,7 +13,8 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' enrich_author_name(url = "https://example/na_author_rows.csv",output_file = "updated_na_author_rows.csv")
+#' enrich_author_name(url = "https://example/na_author_rows.csv",
+#' output_file = "updated_na_author_rows.csv")
 #' }
 enrich_author_name <- function(url, output_file = "updated_na_author_rows.csv") {
 
