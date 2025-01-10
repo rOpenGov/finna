@@ -52,21 +52,23 @@
 
 
 <dl><dt id="arg-metadata">metadata<a class="anchor" aria-label="anchor" href="#arg-metadata"></a></dt>
-<dd><p>A tibble containing refined Finna metadata.</p></dd>
+<dd><p>A tibble containing refined Finna metadata. Must include 'Formats', 'Year', and 'Author' columns.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list of tibbles with summaries of formats, years, and authors.</p>
-    </div>
+    <p>A list of tibbles:</p><ul><li><p><strong>format_distribution</strong>: Counts of each format in the metadata.</p></li>
+<li><p><strong>year_distribution</strong>: Counts of records by year (excluding missing years).</p></li>
+<li><p><strong>author_distribution</strong>: Counts of records by author (excluding missing authors).</p></li>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Default limit of 100 records is being used. Specify 'limit' argument for more records.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44516</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.78 seconds.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44515</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 1.31 seconds.</span>
 <span class="r-in"><span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">analyze_metadata</span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $format_distribution</span>
@@ -117,7 +119,6 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Haapaniemi, Jaakko                            2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 47 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
