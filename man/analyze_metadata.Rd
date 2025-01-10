@@ -7,15 +7,10 @@
 analyze_metadata(metadata)
 }
 \arguments{
-\item{metadata}{A tibble containing refined Finna metadata. Must include 'Formats', 'Year', and 'Author' columns.}
+\item{metadata}{A tibble containing refined Finna metadata.}
 }
 \value{
-A list of tibbles:
-\itemize{
-\item \strong{format_distribution}: Counts of each format in the metadata.
-\item \strong{year_distribution}: Counts of records by year (excluding missing years).
-\item \strong{author_distribution}: Counts of records by author (excluding missing authors).
-}
+A list of tibbles with summaries of formats, years, and authors.
 }
 \description{
 Performs basic analysis on Finna metadata, summarizing the distribution of formats, years, and authors.
@@ -25,4 +20,5 @@ library(finna)
 sibelius_data <- search_finna("sibelius")
 refined_data <- refine_metadata(sibelius_data)
 analyze_metadata(refined_data)
+
 }
