@@ -14,6 +14,11 @@
 #' @export
 fetch_finna_collection <- function(query = NULL, limit = 0, facets = "building", lng = "fi", prettyPrint = TRUE) {
 
+
+  if (!is.null(query) && query == "") {
+    stop("Invalid query: Query string cannot be empty.")
+  }
+
   # Start the timer
   start_time <- Sys.time()
 
