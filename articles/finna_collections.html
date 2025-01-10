@@ -77,11 +77,8 @@ from the Finna API with various queries and parameters.</p>
 <h2 id="example-1-fetching-ead-records">Example 1: Fetching EAD Records<a class="anchor" aria-label="anchor" href="#example-1-fetching-ead-records"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
-<span><span class="co">##   object 'type_sum.accel' not found</span></span></code></pre>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"record_format:ead"</span>,</span>
 <span>  limit <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  facets <span class="op">=</span> <span class="st">"building"</span>,</span>
@@ -99,7 +96,7 @@ from the Finna API with various queries and parameters.</p>
 <div class="section level2">
 <h2 id="example-2-fetching-ead3-records">Example 2: Fetching EAD3 Records<a class="anchor" aria-label="anchor" href="#example-2-fetching-ead3-records"></a>
 </h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"record_format:ead3"</span>,</span>
@@ -112,20 +109,20 @@ from the Finna API with various queries and parameters.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 9 × 4</span></span></span>
 <span><span class="co">##   value              translated                              count href         </span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 0/hka/             Helsingin kaupunginarkisto             <span style="text-decoration: underline;">310</span>235 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> 0/NLF/             Kansalliskirjasto                       <span style="text-decoration: underline;">21</span>541 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> 0/hka/             Helsingin kaupunginarkisto             <span style="text-decoration: underline;">310</span>568 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> 0/NLF/             Kansalliskirjasto                       <span style="text-decoration: underline;">22</span>040 ?lookfor=rec…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">3</span> 0/merkki/          Median museo ja arkisto Merkki          <span style="text-decoration: underline;">10</span>774 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> 0/pta/             Porvarillisen Työn Arkisto              <span style="text-decoration: underline;">19</span>172 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> 0/pta/             Porvarillisen Työn Arkisto              <span style="text-decoration: underline;">19</span>448 ?lookfor=rec…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">5</span> 0/FINLIT/          Suomalaisen Kirjallisuuden Seura        <span style="text-decoration: underline;">12</span>240 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 0/elka/            Suomen Elinkeinoelämän Keskusarkisto   <span style="text-decoration: underline;">442</span>598 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">7</span> 0/SLS/             Svenska litteratursällskapet i Finland  <span style="text-decoration: underline;">65</span>655 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">8</span> 0/tyovaen_arkisto/ Työväen Arkisto                        <span style="text-decoration: underline;">254</span>394 ?lookfor=rec…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">9</span> 0/fsd/             Yhteiskuntatieteellinen tietoarkisto     <span style="text-decoration: underline;">2</span>197 ?lookfor=rec…</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 0/elka/            Suomen Elinkeinoelämän Keskusarkisto   <span style="text-decoration: underline;">442</span>900 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">7</span> 0/SLS/             Svenska litteratursällskapet i Finland  <span style="text-decoration: underline;">65</span>673 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">8</span> 0/tyovaen_arkisto/ Työväen Arkisto                        <span style="text-decoration: underline;">254</span>471 ?lookfor=rec…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">9</span> 0/fsd/             Yhteiskuntatieteellinen tietoarkisto     <span style="text-decoration: underline;">2</span>204 ?lookfor=rec…</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="example-3-fetching-lido-records">Example 3: Fetching LIDO Records<a class="anchor" aria-label="anchor" href="#example-3-fetching-lido-records"></a>
 </h2>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"record_format:lido"</span>,</span>
@@ -135,7 +132,7 @@ from the Finna API with various queries and parameters.</p>
 <span>  prettyPrint <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 122 × 4</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 123 × 4</span></span></span>
 <span><span class="co">##    value                          translated                         count href </span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/A. Ahlström Osakeyhtiö/      A. Ahlström Osakeyhtiö                 8 ?loo…</span></span>
@@ -148,12 +145,12 @@ from the Finna API with various queries and parameters.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/EMMA/                        EMMA – Espoon modernin taiteen mu…  <span style="text-decoration: underline;">1</span>879 ?loo…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/etthem/                      Ett Hem                              750 ?loo…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/FORSSANMUSEO/                Forssan museo                      <span style="text-decoration: underline;">29</span>577 ?loo…</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 112 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #949494;"># ℹ 113 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="example-4-fetching-marc-records">Example 4: Fetching MARC Records<a class="anchor" aria-label="anchor" href="#example-4-fetching-marc-records"></a>
 </h2>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"record_format:marc"</span>,</span>
@@ -166,22 +163,22 @@ from the Finna API with various queries and parameters.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 77 × 4</span></span></span>
 <span><span class="co">##    value                 translated                             count href      </span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/               3AMK-kirjastot                         <span style="text-decoration: underline;">43</span>873 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/AALTO/              Aalto-yliopisto                        <span style="text-decoration: underline;">29</span>625 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/Anders/             Anders-kirjastot                       <span style="text-decoration: underline;">33</span>221 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/ARCADA/             Arcadan kirjasto                        <span style="text-decoration: underline;">8</span>438 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/MFA/                Arkkitehtuurimuseo                     <span style="text-decoration: underline;">18</span>131 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/Blanka/             Blanka-kirjastot                       <span style="text-decoration: underline;">17</span>133 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/CENTRIA/            Centria-kirjasto                         993 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/deutschebibliothek/ Deutsche Bibliothek                    <span style="text-decoration: underline;">30</span>864 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/DIAK/               Diakonia-ammattikorkeakoulun kirjasto   <span style="text-decoration: underline;">2</span>727 ?lookfor=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/EKK/                Eduskunnan kirjasto                   <span style="text-decoration: underline;">130</span>585 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/               3AMK-kirjastot                         <span style="text-decoration: underline;">43</span>809 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/AALTO/              Aalto-yliopisto                        <span style="text-decoration: underline;">29</span>576 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/Anders/             Anders-kirjastot                       <span style="text-decoration: underline;">32</span>378 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/ARCADA/             Arcadan kirjasto                        <span style="text-decoration: underline;">8</span>420 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/MFA/                Arkkitehtuurimuseo                     <span style="text-decoration: underline;">18</span>108 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/Blanka/             Blanka-kirjastot                       <span style="text-decoration: underline;">17</span>081 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/CENTRIA/            Centria-kirjasto                        <span style="text-decoration: underline;">1</span>009 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/deutschebibliothek/ Deutsche Bibliothek                    <span style="text-decoration: underline;">30</span>851 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/DIAK/               Diakonia-ammattikorkeakoulun kirjasto   <span style="text-decoration: underline;">2</span>723 ?lookfor=…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/EKK/                Eduskunnan kirjasto                   <span style="text-decoration: underline;">130</span>567 ?lookfor=…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 67 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="example-5-fetching-forwards-records">Example 5: Fetching FORWARDS Records<a class="anchor" aria-label="anchor" href="#example-5-fetching-forwards-records"></a>
 </h2>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"record_format:forward"</span>,</span>
@@ -194,12 +191,12 @@ from the Finna API with various queries and parameters.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">##   value   translated                                count href                  </span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 0/KAVI/ Kansallinen audiovisuaalinen instituutti <span style="text-decoration: underline;">136</span>020 ?lookfor=record_forma…</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> 0/KAVI/ Kansallinen audiovisuaalinen instituutti <span style="text-decoration: underline;">136</span>079 ?lookfor=record_forma…</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="example-6-fetching-qualified-dublin-coreqdc-records">Example 6: Fetching Qualified Dublin Core(qdc) Records<a class="anchor" aria-label="anchor" href="#example-6-fetching-qualified-dublin-coreqdc-records"></a>
 </h2>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"record_format:qdc"</span>,</span>
@@ -209,25 +206,25 @@ from the Finna API with various queries and parameters.</p>
 <span>  prettyPrint <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 51 × 4</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 50 × 4</span></span></span>
 <span><span class="co">##    value          translated                             count href             </span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/AALTO/       Aalto-yliopisto                       <span style="text-decoration: underline;">124</span>975 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/lasipalatsi/ Albumit auki                            <span style="text-decoration: underline;">2</span>413 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/ARCADA/      Arcadan kirjasto                        <span style="text-decoration: underline;">5</span>713 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/CENTRIA/     Centria-kirjasto                        <span style="text-decoration: underline;">7</span>279 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/DIAK/        Diakonia-ammattikorkeakoulun kirjasto   <span style="text-decoration: underline;">7</span>056 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/ELY-keskus/  ELY-keskus                              <span style="text-decoration: underline;">2</span>467 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/ETK/         Eläketurvakeskus                        <span style="text-decoration: underline;">1</span>950 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/HAAGA-HELIA/ Haaga-Helia ammattikorkeakoulu         <span style="text-decoration: underline;">17</span>454 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/HAMK/        HAMK                                   <span style="text-decoration: underline;">11</span>303 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/HUMAK/       Humanistinen ammattikorkeakoulu         <span style="text-decoration: underline;">4</span>417 ?lookfor=record_…</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 41 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/AALTO/       Aalto-yliopisto                       <span style="text-decoration: underline;">125</span>031 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/ARCADA/      Arcadan kirjasto                        <span style="text-decoration: underline;">5</span>719 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/CENTRIA/     Centria-kirjasto                        <span style="text-decoration: underline;">7</span>292 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/DIAK/        Diakonia-ammattikorkeakoulun kirjasto   <span style="text-decoration: underline;">7</span>055 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/ELY-keskus/  ELY-keskus                              <span style="text-decoration: underline;">2</span>468 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/ETK/         Eläketurvakeskus                        <span style="text-decoration: underline;">1</span>954 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/HAAGA-HELIA/ Haaga-Helia ammattikorkeakoulu         <span style="text-decoration: underline;">17</span>466 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/HAMK/        HAMK                                   <span style="text-decoration: underline;">11</span>310 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/HUMAK/       Humanistinen ammattikorkeakoulu         <span style="text-decoration: underline;">4</span>417 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/UEF/         Itä-Suomen yliopisto                   <span style="text-decoration: underline;">22</span>998 ?lookfor=record_…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 40 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="example-7-fetching-all-records">Example 7: Fetching All Records<a class="anchor" aria-label="anchor" href="#example-7-fetching-all-records"></a>
 </h2>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_finna_collection.html">fetch_finna_collection</a></span><span class="op">(</span></span>
 <span>  query <span class="op">=</span> <span class="st">"*"</span>,</span>
 <span>  limit <span class="op">=</span> <span class="fl">0</span>,</span>
@@ -237,18 +234,18 @@ from the Finna API with various queries and parameters.</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 225 × 4</span></span></span>
-<span><span class="co">##    value                     translated                count href               </span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/                   3AMK-kirjastot           <span style="text-decoration: underline;">127</span>035 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/A. Ahlström Osakeyhtiö/ A. Ahlström Osakeyhtiö        8 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/AALTO/                  Aalto-yliopisto          <span style="text-decoration: underline;">238</span>892 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/AALTOARKISTO/           Aalto-yliopiston arkisto  <span style="text-decoration: underline;">64</span>408 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/Aipa/                   Aipa                        122 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/lasipalatsi/            Albumit auki               <span style="text-decoration: underline;">2</span>413 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/ALVARAALTO/             Alvar Aalto -museo          329 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/Anders/                 Anders-kirjastot         <span style="text-decoration: underline;">268</span>032 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/ARCADA/                 Arcadan kirjasto          <span style="text-decoration: underline;">25</span>433 ?lookfor=%2A&amp;type=…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/MFA/                    Arkkitehtuurimuseo        <span style="text-decoration: underline;">36</span>030 ?lookfor=%2A&amp;type=…</span></span>
+<span><span class="co">##    value                          translated                   count href       </span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0/3AMK/                        3AMK-kirjastot              <span style="text-decoration: underline;">126</span>768 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0/A. Ahlström Osakeyhtiö/      A. Ahlström Osakeyhtiö           8 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0/AALTO/                       Aalto-yliopisto             <span style="text-decoration: underline;">238</span>977 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0/AALTOARKISTO/                Aalto-yliopiston arkisto     <span style="text-decoration: underline;">64</span>408 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0/Aipa/                        Aipa                           122 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0/ALVARAALTO/                  Alvar Aalto -museo             329 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0/Anders/                      Anders-kirjastot            <span style="text-decoration: underline;">268</span>075 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0/ARCADA/                      Arcadan kirjasto             <span style="text-decoration: underline;">25</span>449 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0/MFA/                         Arkkitehtuurimuseo           <span style="text-decoration: underline;">36</span>036 ?lookfor=%…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0/Asikkalan kulttuuripalvelut/ Asikkalan kulttuuripalvelut   <span style="text-decoration: underline;">2</span>716 ?lookfor=%…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 215 more rows</span></span></span></code></pre>
 </div>
 <div class="section level2">
