@@ -1,6 +1,6 @@
 Package: finna
 Title: Title: R Package for Finna API
-Version: 0.1.0
+Version: 0.1.1
 Date: 2025-01-10
 Authors@R: c(
     person("Akewak", "Jeba", , "akjeba@utu.fi", role = c("aut", "cre"),

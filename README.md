@@ -78,17 +78,8 @@ Contributions are very welcome:
 - [Star us on the Github page](https://github.com/ropengov/finna/)
 
 ## Acknowledgements
-Please note that finna was only made possible thanks to many other R and
-rOpenGov software authors, which are cited in the vignettes describing
-this package.
 
-This package was developed using the following resources:
-
-- [_usethis_](https://CRAN.R-project.org/package=usethis)  
-- [_pkgdown_](https://CRAN.R-project.org/package=pkgdown)  
-- [_devtools_](https://CRAN.R-project.org/package=devtools)  
-- [_roxygen2_](https://CRAN.R-project.org/package=roxygen2)  
-
+This work has been supported by the Research Council of Finland (decisions 358720, 348946). The work is part of [FIN-CLARIAH](https://www.kielipankki.fi/organization/fin-clariah/) research infrastucture for digital humanities. This functionality related to music data has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 101095295 ([OpenMUSE](https://www.openmuse.eu/)).
 
 ### Disclaimer
 
