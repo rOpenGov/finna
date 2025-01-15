@@ -106,7 +106,7 @@ The function paginates through the results, fetching records until the specified
 
 
 <dt id="arg-lng">lng<a class="anchor" aria-label="anchor" href="#arg-lng"></a></dt>
-<dd><p>A string for the language of returned translated strings. Options are "fi", "en-gb", "sv", "se". Defaults to "fi".</p></dd>
+<dd><p>A string for the language of returned translated strings. Options are "fi" - Finnish, "en-gb" - English, "sv" - Swedish, "se" - Sami. Defaults to "fi" - Finnish.</p></dd>
 
 
 <dt id="arg-prettyprint">prettyPrint<a class="anchor" aria-label="anchor" href="#arg-prettyprint"></a></dt>
@@ -122,7 +122,7 @@ The function paginates through the results, fetching records until the specified
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">search_results</span> <span class="op">&lt;-</span> <span class="fu">search_finna</span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"main_date_str desc"</span>, limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Default limit of 100 records is being used. Specify 'limit' argument for more records.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44513</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44515</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.89 seconds.</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 10</span></span>

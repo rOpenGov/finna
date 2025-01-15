@@ -51,9 +51,8 @@
 
 
 
-<link href="refinemetadata_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="refinemetadata_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="refinemetadata_files/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="refinemetadata_files/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="refinemetadata_files/wordcloud2-0.0.1/hover.js"></script><script src="refinemetadata_files/wordcloud2-binding-0.2.1/wordcloud2.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Refine, integrate and analyse Finna metadata</h1>
@@ -85,6 +84,7 @@ user-friendly, reducing potential issues in subsequent analysis or
 reporting.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
@@ -203,124 +203,20 @@ Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visua
 <code class="sourceCode R"><span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
 <span><span class="va">analysis_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/analyze_metadata.html">analyze_metadata</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/visualize_year_distribution.html">visualize_year_distribution</a></span><span class="op">(</span><span class="va">analysis_results</span><span class="op">$</span><span class="va">year_distribution</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#visualize_year_distribution(analysis_results$year_distribution)</span></span>
+<span><span class="fu"><a href="../reference/top_plot.html">top_plot</a></span><span class="op">(</span><span class="va">analysis_results</span><span class="op">$</span><span class="va">author_distribution</span>, field <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-4-1.png" alt="year_distribution" width="700"></p>
 </div>
 <div class="section level4">
-<h4 id="line-plot-of-yearly-distribution">1.1 Line plot of yearly distribution<a class="anchor" aria-label="anchor" href="#line-plot-of-yearly-distribution"></a>
+<h4 id="yearly-distribution-using-top_plot">1. yearly distribution using top_plot()<a class="anchor" aria-label="anchor" href="#yearly-distribution-using-top_plot"></a>
 </h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/visualize_year_distribution_line.html">visualize_year_distribution_line</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#visualize_year_distribution_line(refined_data)</span></span>
+<span><span class="fu"><a href="../reference/top_plot.html">top_plot</a></span><span class="op">(</span><span class="va">refined_data</span>, field <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="refinemetadata_files/figure-html/unnamed-chunk-5-1.png" alt="year distribution line" width="700"></p>
-</div>
-<div class="section level4">
-<h4 id="applying-the-visualize_top_20_titles-function">2. <strong>Applying the <code>visualize_top_20_titles()</code>
-Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visualize_top_20_titles-function"></a>
-</h4>
-<p>This function will visualize the top 20 titles from your dataset.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Assuming you have a tibble with Finna metadata called `refined_data`</span></span>
-<span><span class="va">top_20_titles_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_top_20_titles.html">visualize_top_20_titles</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># To display the plot</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">top_20_titles_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-6-1.png" alt="top 20 titles plot" width="700"></p>
-</div>
-<div class="section level4">
-<h4 id="visualize-heatmap-of-titles-by-year">2.1 Visualize Heatmap of Titles by Year<a class="anchor" aria-label="anchor" href="#visualize-heatmap-of-titles-by-year"></a>
-</h4>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
-<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/visualize_title_year_heatmap.html">visualize_title_year_heatmap</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-7-1.png" alt="title year heatmap" width="700"></p>
-</div>
-<div class="section level4">
-<h4 id="applying-the-visualize_format_distribution-function">3. <strong>Applying the <code>visualize_format_distribution()</code>
-Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visualize_format_distribution-function"></a>
-</h4>
-<p>This function visualizes the distribution of the records by
-format.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Plot the format distribution</span></span>
-<span><span class="va">format_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_format_distribution.html">visualize_format_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># To display the plot</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">format_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-8-1.png" alt="format distribution plot" width="700"></p>
-</div>
-<div class="section level4">
-<h4 id="visualize-format-distribution-as-pie-chart">3.1 Visualize Format Distribution as Pie Chart<a class="anchor" aria-label="anchor" href="#visualize-format-distribution-as-pie-chart"></a>
-</h4>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
-<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/visualize_format_distribution_pie.html">visualize_format_distribution_pie</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-9-1.png" alt="format distribution pie" width="700"></p>
-</div>
-<div class="section level4">
-<h4 id="applying-the-visualize_library_distribution-function">4. <strong>Applying the
-<code>visualize_library_distribution()</code> Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visualize_library_distribution-function"></a>
-</h4>
-<p>This function shows the distribution of the records by library.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Plot the library distribution</span></span>
-<span><span class="va">library_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_library_distribution.html">visualize_library_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># To display the plot</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">library_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-10-1.png" alt="library distribution plot" width="700">
-### 4.1 <strong>Visualize Correlation Between Formats and
-Libraries</strong></p>
-<p>This function shows the distribution of the records by library.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="va">sibelius_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
-<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">sibelius_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/visualize_format_library_correlation.html">visualize_format_library_correlation</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-11-1.png" alt="correlation" width="700"></p>
-</div>
-<div class="section level4">
-<h4 id="applying-the-visualize_author_distribution-function">5. <strong>Applying the <code>visualize_author_distribution()</code>
-Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visualize_author_distribution-function"></a>
-</h4>
-<p>This function visualizes the distribution of the records by
-author.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Plot the author distribution</span></span>
-<span><span class="va">author_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_author_distribution.html">visualize_author_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># To display the plot</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">author_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-12-1.png" alt="author distribution plot" width="700"></p>
-</div>
-<div class="section level4">
-<h4 id="applying-the-visualize_subject_distribution-function">6. <strong>Applying the
-<code>visualize_subject_distribution()</code> Function</strong><a class="anchor" aria-label="anchor" href="#applying-the-visualize_subject_distribution-function"></a>
-</h4>
-<p>This function visualizes the distribution of the records by
-subject.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Plot the subject distribution</span></span>
-<span><span class="va">subject_distribution_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visualize_subject_distribution.html">visualize_subject_distribution</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># To display the plot</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">subject_distribution_plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="refinemetadata_files/figure-html/unnamed-chunk-13-1.png" alt="subject distribution plot" width="700">
-### 6.1 <strong>Visualize Word Cloud of Titles or Subjects</strong></p>
-<p>This function visualizes the distribution of the records by
-subject.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">music_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"music"</span><span class="op">)</span></span>
-<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">music_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/visualize_word_cloud.html">visualize_word_cloud</a></span><span class="op">(</span><span class="va">refined_data</span>, <span class="st">"Title"</span><span class="op">)</span></span></code></pre></div>
-<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"word":["music","roxy","sweden","pleasure","siren","avalon","best","country","life","stranded","world","folk","album","zoran","north","welcome","musicians","nine","swedish","viva","fifth","galerie","april","galerija","moderna","expressions","africa","contemporary","age","castratos","renaissance","nile","valley","alternative","instrumental","georgia","gruusia","motion","picture","titanic","young","voices","composers","guide","japan","rough","china","peoples","republic","folkmusik","förvandling","free","part","impossible","transmission","build","cost","international","mitigate","new","plant","power","projects","suppliers","volatility","bar","jolly","carrion","squared","champ","dear","blood","flesh","shaken","brazil","afrikan","west","live","greatest","hits","nuottijulkaisu","road","kellokortilla","michael","niiku","genève","jan","krugier","novembre","octobre","oeuvres","papier","peintures","sur","atlantic","years","modi","plumb","parts","tower","beating","heart","still","esperanto","blues","last","ekon","främmande","eastern","europe","scottish","manifesto","night","saturday","attachment","brain","childrens","development","emotional","natures","nurturing","sociocultural","art","collections","drawn","galerije","ljubljana","maj","may","modern","moderne","museum","works","zbirk","derniers","décembre","france","janvier","les","nous","paris","pas","sommes"],"freq":[74,16,9,9,7,6,5,4,4,4,4,3,3,3,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":2.432432432432432,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -29,16 +29,6 @@
 <url><loc>/reference/search_finna.html</loc></url>
 <url><loc>/reference/search_finna_from_file.html</loc></url>
 <url><loc>/reference/search_publisher.html</loc></url>
-<url><loc>/reference/visualize_author_distribution.html</loc></url>
-<url><loc>/reference/visualize_format_distribution.html</loc></url>
-<url><loc>/reference/visualize_format_distribution_pie.html</loc></url>
-<url><loc>/reference/visualize_format_library_correlation.html</loc></url>
-<url><loc>/reference/visualize_library_distribution.html</loc></url>
-<url><loc>/reference/visualize_subject_distribution.html</loc></url>
-<url><loc>/reference/visualize_title_year_heatmap.html</loc></url>
-<url><loc>/reference/visualize_top_20_titles.html</loc></url>
-<url><loc>/reference/visualize_word_cloud.html</loc></url>
-<url><loc>/reference/visualize_year_distribution.html</loc></url>
-<url><loc>/reference/visualize_year_distribution_line.html</loc></url>
+<url><loc>/reference/top_plot.html</loc></url>
 </urlset>
 
