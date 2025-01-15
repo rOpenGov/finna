@@ -6,6 +6,8 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+[Viola](https://kansalliskirjasto.finna.fi/Content/viola) is the Finnish national discography and the national bibliography of sheet music, maintained by the National Library of Finland. It contains information on Finnish music recordings and sheet music, as well as music archives included in the National Library's collections.
+
 This R Markdown document provides a comprehensive guide to querying and analyzing Viola collection data using the Finna API and the `fetch_viola_records` function.
 
 ## Viola Collection in Finna
@@ -25,7 +27,7 @@ library(finna)
 results <- fetch_viola_records(
   base_query = "*",
   base_filters = c('collection:"VIO"'), # Filters for the Viola collection
-  year_ranges = list(c(1700,1705)),           # Year ranges to query
+  year_ranges = list(c(0,1699),c(1700,1799),c(1800,1899)),           # Year ranges to query
   include_na = TRUE,                   # Include records with missing dates
   limit_per_query = 100000,              # Maximum records per query
   total_limit = Inf,                 # Overall record limit
@@ -63,18 +65,14 @@ The Viola collection data can be visualized using metadata refinement and plotti
 
 ```{r message = FALSE, warning = FALSE, fig.alt = "viola author distribution"}
 library(finna)
+library(ggplot2)
 
 # Refine metadata and visualize author distribution
 refined_data <- refine_metadata(results)
-visualize_author_distribution(refined_data)
+top_plot(refined_data, field = "Year")
 ```
 
-#### Word Cloud for Titles
 
-```{r message = FALSE, warning = FALSE}
-# Create a word cloud of titles
-visualize_word_cloud(refined_data, "Title")
-```
 
 
 

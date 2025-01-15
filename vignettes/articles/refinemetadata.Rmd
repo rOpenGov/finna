@@ -20,6 +20,7 @@ This refinement process makes the metadata more consistent and user-friendly, re
 
 ```{r message = FALSE, warning = FALSE}
 library(finna)
+library(ggplot2)
 sibelius_data <- search_finna("sibelius")
 refined_data <- refine_metadata(sibelius_data)
 print(refined_data)
@@ -64,110 +65,18 @@ print(analysis_results)
 sibelius_data <- search_finna("sibelius")
 refined_data <- refine_metadata(sibelius_data)
 analysis_results <- analyze_metadata(refined_data)
-visualize_year_distribution(analysis_results$year_distribution)
+#visualize_year_distribution(analysis_results$year_distribution)
+top_plot(analysis_results$author_distribution, field = "n")
 ```
 
-### 1.1 Line plot of yearly distribution
+### 1. yearly distribution using top_plot()
 ```{r message = FALSE, warning = FALSE, fig.alt = "year distribution line"}
 library(finna)
 sibelius_data <- search_finna("sibelius")
 refined_data <- refine_metadata(sibelius_data)
-visualize_year_distribution_line(refined_data)
-```
-
-### 2. **Applying the `visualize_top_20_titles()` Function**
-
-This function will visualize the top 20 titles from your dataset.
-
-```{r message = FALSE, warning = FALSE, fig.alt = "top 20 titles plot"}
-# Assuming you have a tibble with Finna metadata called `refined_data`
-top_20_titles_plot <- visualize_top_20_titles(refined_data)
-
-# To display the plot
-print(top_20_titles_plot)
-```
-
-### 2.1 Visualize Heatmap of Titles by Year
-```{r message = FALSE, warning = FALSE, fig.alt = "title year heatmap"}
-library(finna)
-sibelius_data <- search_finna("sibelius")
-refined_data <- refine_metadata(sibelius_data)
-visualize_title_year_heatmap(refined_data)
-```
-
-### 3. **Applying the `visualize_format_distribution()` Function**
-
-This function visualizes the distribution of the records by format.
-
-```{r message = FALSE, warning = FALSE, fig.alt = "format distribution plot"}
-# Plot the format distribution
-format_distribution_plot <- visualize_format_distribution(refined_data)
-
-# To display the plot
-print(format_distribution_plot)
-```
-
-### 3.1 Visualize Format Distribution as Pie Chart
-
-```{r message = FALSE, warning = FALSE, fig.alt = "format distribution pie"}
-library(finna)
-sibelius_data <- search_finna("sibelius")
-refined_data <- refine_metadata(sibelius_data)
-visualize_format_distribution_pie(refined_data)
-```
-
-### 4. **Applying the `visualize_library_distribution()` Function**
-
-This function shows the distribution of the records by library.
-
-```{r message = FALSE, warning = FALSE, fig.alt = "library distribution plot"}
-# Plot the library distribution
-library_distribution_plot <- visualize_library_distribution(refined_data)
-
-# To display the plot
-print(library_distribution_plot)
-```
-### 4.1 **Visualize Correlation Between Formats and Libraries**
-
-This function shows the distribution of the records by library.
-
-```{r message = FALSE, warning = FALSE, fig.alt = "correlation"}
-library(finna)
-sibelius_data <- search_finna("sibelius")
-refined_data <- refine_metadata(sibelius_data)
-visualize_format_library_correlation(refined_data)
+#visualize_year_distribution_line(refined_data)
+top_plot(refined_data, field = "Year")
 ```
 
 
-### 5. **Applying the `visualize_author_distribution()` Function**
 
-This function visualizes the distribution of the records by author.
-
-```{r message = FALSE, warning = FALSE, fig.alt = "author distribution plot"}
-# Plot the author distribution
-author_distribution_plot <- visualize_author_distribution(refined_data)
-
-# To display the plot
-print(author_distribution_plot)
-```
-
-### 6. **Applying the `visualize_subject_distribution()` Function**
-
-This function visualizes the distribution of the records by subject.
-
-```{r message = FALSE, warning = FALSE, fig.alt = "subject distribution plot"}
-# Plot the subject distribution
-subject_distribution_plot <- visualize_subject_distribution(refined_data)
-
-# To display the plot
-print(subject_distribution_plot)
-```
-### 6.1 **Visualize Word Cloud of Titles or Subjects**
-
-This function visualizes the distribution of the records by subject.
-
-```{r message = FALSE, warning = FALSE, fig.alt = "word cloud"}
-music_data <- search_finna("music")
-refined_data <- refine_metadata(music_data)
-visualize_word_cloud(refined_data, "Title")
-```

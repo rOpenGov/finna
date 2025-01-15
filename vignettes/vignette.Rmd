@@ -34,13 +34,6 @@ print(record)
  I we need a bulk download we use
 `search_finna("sibelius", limit = Inf)` where we add the term `limit = Inf`.
 
-## Free text search
-```{r message = FALSE, warning = FALSE}
-library(finna)
-result <- search_finna("Jansson Tove")
-print(result)
-```
-
 ## Search phrase examples
 ```{r message = FALSE, warning = FALSE}
 library(finna)
@@ -48,68 +41,15 @@ phrase <- search_finna("bicycle")
 print(phrase)
 ```
 
-## Combining search terms
-
-### AND
-Use the AND operator to yield search results which feature every term in the 
-search field. If you write several words into the search field and separate 
-them with a space, the space will function as the AND operator.
-
-Example 1
-```{r message = FALSE, warning = FALSE}
-library(finna)
-Combination <- search_finna("nutrition AND (diet OR lifestyle)")
-print(Combination)
-```
-
-Example 2
-For example, these two searches will yield the same results:
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-no_Combination <- search_finna("Karisto Seppälä")
-print(no_Combination)
-```
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-Combination_AND <- search_finna("Karisto AND Seppälä")
-print(Combination_AND)
-```
-
-### OR
-
-The OR operator expands your search results. The results will show material that
-feature at least one of the search terms you indicated. For example, if you are
-looking for information on the Eastern Orthodox Church:
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-Combination_OR <- search_finna("Eastern Orthodoxy” OR “Orthodox Church")
-print(Combination_OR)
-```
-
-Using the OR operator will return results that feature one or more of your 
-search terms.This example search will find results relating to farms or farming:
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-phrase <- search_finna("farm OR farming")
-print(phrase)
-```
-
-### NOT
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-Combination_OR <- search_finna("surrealism NOT (painting OR “visual arts”)")
-print(Combination_OR)
-```
 
 ### Search operators + and !-
 In addition to the most common Boolean operators (AND, OR, NOT), Finna uses the + and !- operators.
 
 ### +
+
+The + sign indicates that the search term must be found in every search result.
+
+For example, if you are looking for material that must feature economics and which may also feature Keynes:
 
 ```{r message = FALSE, warning = FALSE}
 library(finna)
@@ -118,6 +58,11 @@ print(search_oper)
 ```
 
 ### !-
+
+The symbols !- remove any search results which feature the search term following the operator !-.
+
+For example, if you want to find material that feature the term economics but not the term Keynes:
+
 
 ```{r message = FALSE, warning = FALSE}
 library(finna)
@@ -133,78 +78,6 @@ For example, the following search will yield no results:
 library(finna)
 search_oper <- search_finna("!-economics”)")
 print(search_oper)
-```
-### The use of wildcards in search terms
-
-### Use of wildcards
-
-NB! The wildcard symbols (* and ?) cannot be the first character of a search term
-
-### * (Asterisk)
-The search term may be truncated at the end with an asterisk. For example, to 
-find search results for the terms competition, competitions, competitor and 
-competitiveness, use the search term:
-
-Example 1
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-search_Asterisk <- search_finna("competit*”)")
-print(search_Asterisk)
-```
-
-The asterisk may also be used in the middle of a search term to replace one or 
-more characters. For example, to search for both the terms color and colour, 
-use the search term:
-
-Example 2
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-search_Asterisk <- search_finna("colo*r”)")
-print(search_Asterisk)
-```
-
-### ? (Question Mark)
-The question mark symbol replaces one character in the search term, enabling 
-the use of different word forms.
-For example, to find results for both the terms woman and women, use the search term:
-
-### ISBN/ISSN search
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-ISBN <- search_finna("978-951-31-6583-3")
-print(ISBN)
-```
-
-## Sorting 
-
-### To search all related in descending order
-
-```{r message = FALSE, warning = FALSE}
-record <- search_finna("sibelius", sort = "main_date_str des")
-print(record)
-```
-### To search all related in ascending order
-
-```{r message = FALSE, warning = FALSE}
-record <- search_finna("sibelius", sort = "main_date_str asc")
-print(record)
-```
-
-### To search Last modified
-
-```{r message = FALSE, warning = FALSE}
-record <- search_finna("sibelius", sort = "last_indexed desc")
-print(record)
-```
-
-### To search Last added
-
-```{r message = FALSE, warning = FALSE}
-record <- search_finna("sibelius", sort = "first_indexed desc")
-print(record)
 ```
 
 ### Fine-tuning your search

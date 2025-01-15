@@ -23,7 +23,7 @@
 #'     \item "title,id asc" (Title)
 #'   }
 #' @param limit An integer specifying the total number of records to return across multiple pages.
-#' @param lng A string for the language of returned translated strings. Options are "fi", "en-gb", "sv", "se". Defaults to "fi".
+#' @param lng A string for the language of returned translated strings. Options are "fi" - Finnish, "en-gb" - English, "sv" - Swedish, "se" - Sami. Defaults to "fi" - Finnish.
 #' @param prettyPrint A logical value indicating whether to pretty-print the JSON response. Useful for debugging. Defaults to FALSE.
 #' @return A tibble containing the search results with relevant fields extracted and provenance information.
 #' @examples

@@ -44,7 +44,7 @@ search_finna(
 
 \item{limit}{An integer specifying the total number of records to return across multiple pages.}
 
-\item{lng}{A string for the language of returned translated strings. Options are "fi", "en-gb", "sv", "se". Defaults to "fi".}
+\item{lng}{A string for the language of returned translated strings. Options are "fi" - Finnish, "en-gb" - English, "sv" - Swedish, "se" - Sami. Defaults to "fi" - Finnish.}
 
 \item{prettyPrint}{A logical value indicating whether to pretty-print the JSON response. Useful for debugging. Defaults to FALSE.}
 }
