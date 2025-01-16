@@ -9,6 +9,9 @@ vignette: >
 
 # Introduction
 
+
+[Finna](https://www.finna.fi/) is a Finnish national search service that provides access to the collections of Finnish museums, libraries, and archives. It is maintained by the National Library of Finland in collaboration with other cultural and scientific institutions. Finna allows users to search and explore a wide range of resources, including books, images, maps, artifacts, and digital content from various institutions across Finland.
+
 This vignette provides an overview of how to use the finna package.
 
 To make a simple search use the following code.

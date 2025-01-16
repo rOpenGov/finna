@@ -40,5 +40,5 @@ finna_cite <- function(result, index, style = "citation") {
 }
 
 # Example usage
-# finna_result <- fetch_finna_collection(query = "oai_dc", lng = "en")
+# finna_result <- fetch_finna(query = "oai_dc", lng = "en")
 # finna_cite(finna_result, 4)  # Cite the Jyväskylän yliopisto collection

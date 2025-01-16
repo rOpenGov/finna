@@ -10,15 +10,15 @@ vignette: >
 
 ## Introduction
 
-This section helps us to have a general overview of the general collection in Finna. For this purpose we use a separate function `fetch_finna_collection`.
-This document demonstrates the use of the `fetch_finna_collection` function to retrieve data from the Finna API with various queries and parameters.
+This section helps us to have a general overview of the general collection in Finna. For this purpose we use a separate function `fetch_finna`.
+This document demonstrates the use of the `fetch_finna` function to retrieve data from the Finna API with various queries and parameters.
 
 
 ## Example 1: Fetching EAD Records
 
 ```{r message = FALSE, warning = FALSE}
 library(finna)
-result <- fetch_finna_collection(
+result <- fetch_finna(
   query = "record_format:ead",
   limit = 0,
   facets = "building",
@@ -33,7 +33,7 @@ print(result)
 
 ```{r message = FALSE, warning = FALSE}
 library(finna)
-result <- fetch_finna_collection(
+result <- fetch_finna(
   query = "record_format:ead3",
   limit = 0,
   facets = "building",
@@ -44,82 +44,8 @@ print(result)
 ```
 
 
-
-## Example 3: Fetching LIDO Records
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-result <- fetch_finna_collection(
-  query = "record_format:lido",
-  limit = 0,
-  facets = "building",
-  lng = "fi",
-  prettyPrint = TRUE
-)
-print(result)
-```
-
-
-
-## Example 4: Fetching MARC Records
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-result <- fetch_finna_collection(
-  query = "record_format:marc",
-  limit = 0,
-  facets = "building",
-  lng = "fi",
-  prettyPrint = TRUE
-)
-print(result)
-```
-
-## Example 5: Fetching FORWARDS Records
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-result <- fetch_finna_collection(
-  query = "record_format:forward",
-  limit = 0,
-  facets = "building",
-  lng = "fi",
-  prettyPrint = TRUE
-)
-print(result)
-```
-
-## Example 6: Fetching Qualified Dublin Core(qdc) Records
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-result <- fetch_finna_collection(
-  query = "record_format:qdc",
-  limit = 0,
-  facets = "building",
-  lng = "fi",
-  prettyPrint = TRUE
-)
-print(result)
-```
-
-## Example 7: Fetching All Records
-
-```{r message = FALSE, warning = FALSE}
-result <- fetch_finna_collection(
-  query = "*",
-  limit = 0,
-  facets = "building",
-  lng = "fi",
-  prettyPrint = TRUE
-)
-print(result)
-```
-
-
-
 ## Conclusion
 
-This document provides examples of how to use the `fetch_finna_collection` function for retrieving various types of records from the Finna API. The tibbles contain structured data for further analysis.
+This document provides examples of how to use the `fetch_finna` function for retrieving various types of records from the Finna API. The tibbles contain structured data for further analysis.
 
 

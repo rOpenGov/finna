@@ -3,7 +3,7 @@
 #' @description
 #' Provides an interactive interface to search, select, and download datasets from Finna API.
 #'
-#' @seealso [search_finna()], [fetch_finna_collection()], [finna_cite()]
+#' @seealso [search_finna()], [fetch_finna()], [finna_cite()]
 #' @return A dataframe containing the selected dataset or downloaded data.
 #' @importFrom utils menu
 #' @importFrom dplyr select arrange desc
@@ -37,7 +37,7 @@ finna_interactive <- function() {
   query <- selected_collection
 
   results <- tryCatch({
-    fetch_finna_collection(query = query, lng = selected_collection)
+    fetch_finna(query = query, lng = selected_collection)
   }, error = function(e) {
     message("Error fetching data: ", e$message)
     return(NULL)

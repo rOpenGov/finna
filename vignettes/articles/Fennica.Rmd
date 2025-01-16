@@ -136,7 +136,7 @@ search_finna(
 ```
 
 ### Notes:
-- **Filters**: The filters need to match the exact field names used in Finna's API. You can find these field names in the API documentation or by looking at the response from the API.
+- **Filters**: The filters need to match the exact field names used in Finna's API. You can find these field names in the API documentation or by looking at the response from the API [here](https://www.kiwi.fi/display/Finna/Kenttien+mappaukset+eri+formaateista+Finnan+indeksiin).
 - **Call Number Search**: Ensure that the call numbers are correctly formatted according to the library's classification system (e.g., YKL in Finland).
   
 This way, you can extract specific metadata like authors, publication years, and call numbers using the `search_finna` function.

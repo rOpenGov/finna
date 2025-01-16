@@ -11,11 +11,11 @@
 #' @return A tibble containing the fetched data with relevant fields.
 #' @examples
 #' \dontrun{
-#'   fetch_finna_collection(query = "record_format:ead", limit = 0)
-#'   fetch_finna_collection() # Fetches data with no specific query
+#'   fetch_finna(query = "record_format:ead", limit = 0)
+#'   fetch_finna() # Fetches data with no specific query
 #' }
 #' @export
-fetch_finna_collection <- function(query = NULL, limit = 0, facets = "building", lng = "fi", prettyPrint = TRUE) {
+fetch_finna <- function(query = NULL, limit = 0, facets = "building", lng = "fi", prettyPrint = TRUE) {
 
 
   if (!is.null(query) && query == "") {

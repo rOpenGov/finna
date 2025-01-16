@@ -13,5 +13,5 @@ A dataframe containing the selected dataset or downloaded data.
 Provides an interactive interface to search, select, and download datasets from Finna API.
 }
 \seealso{
-\code{\link[=search_finna]{search_finna()}}, \code{\link[=fetch_finna_collection]{fetch_finna_collection()}}, \code{\link[=finna_cite]{finna_cite()}}
+\code{\link[=search_finna]{search_finna()}}, \code{\link[=fetch_finna]{fetch_finna()}}, \code{\link[=finna_cite]{finna_cite()}}
 }
