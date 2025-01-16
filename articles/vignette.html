@@ -67,6 +67,13 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
+<p><a href="https://www.finna.fi/" class="external-link">Finna</a> is a Finnish national
+search service that provides access to the collections of Finnish
+museums, libraries, and archives. It is maintained by the National
+Library of Finland in collaboration with other cultural and scientific
+institutions. Finna allows users to search and explore a wide range of
+resources, including books, images, maps, artifacts, and digital content
+from various institutions across Finland.</p>
 <p>This vignette provides an overview of how to use the finna
 package.</p>
 <p>To make a simple search use the following code.</p>
@@ -109,8 +116,8 @@ records is being used. Specify ‘limit’ argument for more records.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 6</span> fikka.1505990 Konsertt… Helsi… 1914  fin      Book m… 1910-lu… The Na… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 7</span> fikka.1506022 Konsertt… Helsi… 1916  fin      Book m… 1910-lu… The Na… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fikka.1506026 Konsertt… <span style="color: #BB0000;">NA</span>     1904  fin      Book m… 1900-19… The Na… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fikka.1505976 Konsertt… Helsi… 1913  fin      Book m… 1910-lu… The Na… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> fikka.1505977 Konsertt… Helsi… 1914  fin      Book m… 1910-lu… The Na… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fikka.1505975 Konsertt… Helsi… 1912  fin      Book m… 1910-lu… The Na… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> fikka.1505980 Konsertt… Helsi… 1912  fin      Book m… 1910-lu… The Na… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
 </div>
@@ -167,12 +174,12 @@ economics and which may also feature Keynes:</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span> abo.991952734059… Keyn… Lawso… 1989  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> hanna.29001       The … Harri… 1947  eng      Kirja,… Keynes.… Svensk… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 4</span> vaari.337847      The … Harri… 1950  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> fikka.567288      The … Harri… 1948  eng      Kirja,… Keynes,… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> utu.991459665540… The … Harri… 1968  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Turun … <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> vaari.1080451     The … Harri… 1965  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> tuni.99329737420… The … Harri… 1950  eng      Kirja,… Keynes,… Tamper… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> ekk.991689954006… The … Harri… 1949  eng      Kirja,… keynesi… Edusku… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> vaari.113512      The … Harri… 1949  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> tuni.99329737420… The … Harri… 1950  eng      Kirja,… Keynes,… Tamper… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> ekk.991689954006… The … Harri… 1949  eng      Kirja,… keynesi… Edusku… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> vaari.113512      The … Harri… 1949  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fikka.567288      The … Harri… 1948  eng      Kirja,… Keynes,… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> utu.991459665540… The … Harri… 1968  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Turun … <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> vaari.1080451     The … Harri… 1965  eng      Kirja,… <span style="color: #BB0000;">NA</span>       Varast… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
 </div>
@@ -284,12 +291,12 @@ other.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span> lahdenmuseo.lkm-… Sibe… Favén… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… kaljuus… Lahden… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> sibelius.DF70D25… Evel… <span style="color: #BB0000;">NA</span>     1875  <span style="color: #BB0000;">NA</span>       Kuva, … <span style="color: #BB0000;">NA</span>       Sibeli… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 4</span> kansallisgalleri… Aino… Järne… 1895  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> helka.9913244350… Jean… Johns… 1959  eng      Kirja,… Compose… Helka-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> jarvenpaantaidem… Jean… Eero … <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… maalaus… Järven… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> jarvenpaantaidem… Jean… Eero … 1908  <span style="color: #BB0000;">NA</span>       Taidet… maalaus… Järven… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> kansallisgalleri… Aino… Järne… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> visavuori.pju-49… SIBE… <span style="color: #BB0000;">NA</span>     1961  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Valkea… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> aboakademi_taide… Jean… Kakko… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Åbo Ak… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> jarvenpaantaidem… Jean… Eero … 1908  <span style="color: #BB0000;">NA</span>       Taidet… maalaus… Järven… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> kansallisgalleri… Aino… Järne… <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> visavuori.pju-49… SIBE… <span style="color: #BB0000;">NA</span>     1961  <span style="color: #BB0000;">NA</span>       Taidet… <span style="color: #BB0000;">NA</span>       Valkea… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> loviisakm.63ef0c… Jean… <span style="color: #BB0000;">NA</span>     1904  <span style="color: #BB0000;">NA</span>       Kuva, … postiko… Loviis… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> loviisakm.a12544… Jean… Linsé… 1880  <span style="color: #BB0000;">NA</span>       Kuva, … henkilö… Loviis… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> loviisakm.d2d3cc… Pehr… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       Kuva, … muotoku… Loviis… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
 <div class="section level4">
@@ -443,11 +450,11 @@ follows</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 3amk.137098 Finns abro… Heikk… 2011  eng      Kirja,… 2000-20… 3AMK-k… Migra…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 3amk.293263 Sukupolvie… Hämäl… 2021  fin      Kirja,… 2010-lu… 3AMK-k… Väest…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 3amk.85597  Hyvinvoint… Taimi… 2015  fin      Kirja,… 2010-lu… 3AMK-k… Rapor…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 3amk.134144 Tervetuloa… Sjöbl… 2013  fin      Kirja,… opiskel… 3AMK-k… Siirt…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 3amk.131653 Erilaisuuk… Saukk… 2013  fin      Kirja,… 2010-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 3amk.132507 Toimeentul… Kuiva… 2013  fin      Kirja,… 2010-lu… 3AMK-k… Rapor…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 3amk.305929 Talouskuri… Autto… 2023  fin      Kirja,… 2010-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 3amk.88454  Yksinäiste… Saari… 2016  fin      Kirja,… 2010-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 3amk.132507 Toimeentul… Kuiva… 2013  fin      Kirja,… 2010-lu… 3AMK-k… Rapor…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 3amk.305929 Talouskuri… Autto… 2023  fin      Kirja,… 2010-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 3amk.88454  Yksinäiste… Saari… 2016  fin      Kirja,… 2010-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 3amk.134144 Tervetuloa… Sjöbl… 2013  fin      Kirja,… opiskel… 3AMK-k… Siirt…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 3amk.131653 Erilaisuuk… Saukk… 2013  fin      Kirja,… 2010-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
 <p>We can confirm this as follows by checking the count</p>
@@ -470,8 +477,8 @@ follows</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 3amk.291790 Medioitunu… Reuna… 2021  fin      Kirja,… 2010-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 3amk.292443 Muuttoliik… Bäckm… 2020  fin      Kirja,… 1800-lu… 3AMK-k… Julka…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 3amk.288732 Muuttoliik… Marti… 2020  fin      Kirja,… 1800-lu… 3AMK-k… Julka…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 3amk.298602 Hidasta ka… Kivij… 2022  fin      Kirja,… 2000-lu… 3AMK-k… Julka…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 3amk.284506 Virkamiesv… Murto… 2014  fin      Kirja,… 1980-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 3amk.284506 Virkamiesv… Murto… 2014  fin      Kirja,… 1980-lu… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 3amk.298602 Hidasta ka… Kivij… 2022  fin      Kirja,… 2000-lu… 3AMK-k… Julka…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> 3amk.267454 Nuorten pä… Raita… 2016  fin      Kirja,… 1995-20… 3AMK-k… Rapor…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>

@@ -15,7 +15,7 @@
 <url><loc>/reference/check_api_access.html</loc></url>
 <url><loc>/reference/enrich_author_name.html</loc></url>
 <url><loc>/reference/fetch_all_records.html</loc></url>
-<url><loc>/reference/fetch_finna_collection.html</loc></url>
+<url><loc>/reference/fetch_finna.html</loc></url>
 <url><loc>/reference/fetch_viola_records.html</loc></url>
 <url><loc>/reference/finna_as_json.html</loc></url>
 <url><loc>/reference/finna_cite.html</loc></url>
@@ -29,6 +29,7 @@
 <url><loc>/reference/search_finna.html</loc></url>
 <url><loc>/reference/search_finna_from_file.html</loc></url>
 <url><loc>/reference/search_publisher.html</loc></url>
+<url><loc>/reference/timeline_relative.html</loc></url>
 <url><loc>/reference/top_plot.html</loc></url>
 </urlset>
 
