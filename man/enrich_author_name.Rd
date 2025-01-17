@@ -2,7 +2,7 @@
 % Please edit documentation in R/enrich_author_name.R
 \name{enrich_author_name}
 \alias{enrich_author_name}
-\title{Enrich Author Name from Finna API and Save Results}
+\title{Enrich Author Name from 'Finna' API and Save Results}
 \usage{
 enrich_author_name(url, output_file = "updated_na_author_rows.csv")
 }
@@ -12,16 +12,16 @@ enrich_author_name(url, output_file = "updated_na_author_rows.csv")
 \item{output_file}{A character string specifying the output CSV file name.}
 }
 \value{
-A tibble of the updated data, and the file is saved to the \code{data} directory.
+A tibble with updated author names. The file is saved to a temporary directory using \code{tempdir()}.
 }
 \description{
 This function reads a CSV file from a URL containing Melinda IDs and author names.
-If the author name is missing (NA), it searches Finna for the corresponding Melinda ID
+If the author name is missing (NA), it searches the 'Finna' API for the corresponding Melinda ID
 to retrieve and update the author name. The updated data is saved in a CSV file.
 }
 \examples{
 \dontrun{
 enrich_author_name(url = "https://example/na_author_rows.csv",
-output_file = "updated_na_author_rows.csv")
+                   output_file = "updated_na_author_rows.csv")
 }
 }

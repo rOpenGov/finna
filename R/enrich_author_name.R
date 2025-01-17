@@ -1,13 +1,13 @@
-#' @title Enrich Author Name from Finna API and Save Results
+#' @title Enrich Author Name from 'Finna' API and Save Results
 #'
 #' @description
 #' This function reads a CSV file from a URL containing Melinda IDs and author names.
-#' If the author name is missing (NA), it searches Finna for the corresponding Melinda ID
+#' If the author name is missing (NA), it searches the 'Finna' API for the corresponding Melinda ID
 #' to retrieve and update the author name. The updated data is saved in a CSV file.
 #'
 #' @param url A character string specifying the URL of the CSV file with Melinda IDs and author names.
 #' @param output_file A character string specifying the output CSV file name.
-#' @return A tibble of the updated data, and the file is saved to the `data` directory.
+#' @return A tibble with updated author names. The file is saved to a temporary directory using \code{tempdir()}.
 #' @importFrom readr read_csv write_csv cols col_character
 #' @importFrom dplyr mutate if_else
 #' @importFrom purrr map_chr
@@ -15,7 +15,7 @@
 #' @examples
 #' \dontrun{
 #' enrich_author_name(url = "https://example/na_author_rows.csv",
-#' output_file = "updated_na_author_rows.csv")
+#'                    output_file = "updated_na_author_rows.csv")
 #' }
 enrich_author_name <- function(url, output_file = "updated_na_author_rows.csv") {
 
@@ -38,10 +38,6 @@ enrich_author_name <- function(url, output_file = "updated_na_author_rows.csv") 
       if (!is.null(results) && nrow(results) > 0) {
         authors <- results$Author[1]
         return(authors)
-      } else if (httr::status_code(response) == 429) {
-        message("Rate limit reached. Waiting for ", wait_time, " seconds before retrying.")
-        Sys.sleep(wait_time)
-        attempt <- attempt + 1
       } else {
         return(NA)
       }
@@ -55,7 +51,7 @@ enrich_author_name <- function(url, output_file = "updated_na_author_rows.csv") 
     author_name = readr::col_character()
   ))
 
-  # Step 2: Update `author_name` if it is 'NA' by fetching from Finna
+  # Step 2: Update `author_name` if it is 'NA' by fetching from 'Finna'
   data <- data %>%
     dplyr::mutate(
       updated_author_name = dplyr::if_else(
@@ -70,17 +66,10 @@ enrich_author_name <- function(url, output_file = "updated_na_author_rows.csv") 
       )
     )
 
-  # Ensure the 'data' directory exists
-  if (!dir.exists("data")) {
-    dir.create("data")
-  }
-
-  # Define output file path
-  output_csv_path <- file.path("data", output_file)
-
-  # Step 3: Save the updated data as CSV
+  # Step 3: Save the updated data as CSV in a temporary directory
+  output_csv_path <- file.path(tempdir(), output_file)
   readr::write_csv(data, output_csv_path)
   message("CSV file with updated author names saved to ", output_csv_path)
 
-  return(data)  # Return the updated tibble as well
+  return(data)  # Return the updated tibble
 }

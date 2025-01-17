@@ -2,7 +2,7 @@
 % Please edit documentation in R/save_for_offline.R
 \name{load_offline_data}
 \alias{load_offline_data}
-\title{Load Finna Search Results from Offline File}
+\title{Load 'Finna' Search Results from Offline File}
 \usage{
 load_offline_data(file_name = "offline_search_results")
 }
@@ -11,13 +11,15 @@ load_offline_data(file_name = "offline_search_results")
 The function automatically appends ".rds" if not already included.}
 }
 \value{
-The loaded search results in tibble format.
+A tibble or data frame containing the loaded search results.
 }
 \description{
-This function loads previously saved Finna search results from a local \code{.rds} file for offline access.
+This function loads previously saved 'Finna' search results from a local \code{.rds} file for offline access.
 }
 \examples{
 \dontrun{
+search_results <- search_finna("sibelius")
+save_for_offline(search_results, "sibelius_search_results")
 offline_data <- load_offline_data("sibelius_search_results")
 print(offline_data)
 }

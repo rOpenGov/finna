@@ -10,6 +10,7 @@
 #' @param show.percentage Show the proportion of each category with respect to the total sample count.
 #' @param log10 Show the counts on log10 scale (default FALSE)
 #' @return ggplot object
+#' @importFrom ggplot2 geom_bar coord_flip xlab ylab geom_text scale_y_log10
 #' @export
 #' @author Leo Lahti \email{leo.lahti@@iki.fi}
 #' @references See citation("bibliographica")

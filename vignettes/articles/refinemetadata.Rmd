@@ -1,8 +1,8 @@
 ---
-title: "Refine, integrate and analyse Finna metadata"
+title: "Refine finna metadata"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Refine, integrate and analyse Finna metadata}
+  %\VignetteIndexEntry{Refine finna metadata}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,30 +26,6 @@ refined_data <- refine_metadata(sibelius_data)
 print(refined_data)
 ```
 
-### **integrate to other metadata **
-To integrate two datasets using full_join() from dplyr, you can write the code directly like this:
-
-```{r message = FALSE, warning = FALSE}
-library(dplyr)
-
-# Example Finna metadata (metadata1)
-finna_data <- search_finna("sibelius",limit = 4)
-
-# Example other dataset to merge with (metadata2)
-other_data <- tibble::tibble(
-  Title = c("Sibelius Symphony No. 5", "Finlandia", "Valse Triste"),
-  Rating = c(5, 4, 3)
-)
-
-# Integrate the two datasets using full_join by the "Title" column
-integrated_data <- full_join(finna_data, other_data, by = "Title")
-
-# Print the integrated dataset
-print(integrated_data)
-
-```
-
-
 ### **Analyze using ` analyze_metadata()` Function**
 
 ```{r message = FALSE, warning = FALSE}
@@ -66,7 +42,9 @@ sibelius_data <- search_finna("sibelius")
 refined_data <- refine_metadata(sibelius_data)
 analysis_results <- analyze_metadata(refined_data)
 #visualize_year_distribution(analysis_results$year_distribution)
-top_plot(analysis_results$author_distribution, field = "n")
+top_plot(analysis_results$author_distribution, field = "n") +
+    xlab("Frequency") +  # Custom X-axis label
+    ylab("Number of Authors")  # Custom Y-axis label
 ```
 
 ### 1. yearly distribution using top_plot()
@@ -75,7 +53,10 @@ library(finna)
 sibelius_data <- search_finna("sibelius")
 refined_data <- refine_metadata(sibelius_data)
 #visualize_year_distribution_line(refined_data)
-top_plot(refined_data, field = "Year")
+top_plot(refined_data, field = "Year") +
+  xlab("Publication Year") +  # Custom X-axis label
+  ylab("Number of Publications")  # Custom Y-axis label
+
 ```
 
 

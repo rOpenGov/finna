@@ -13,10 +13,22 @@ refine_metadata(data)
 A tibble with selected, cleaned metadata fields, or NULL if required fields are missing.
 }
 \description{
-Refines the Finna metadata tibble by keeping relevant fields and cleaning up missing values.
-The purpose of the refine_metadata function is to: Ensure completeness by filling in missing
-values with placeholder text, Standardize key metadata fields for easier analysis, Select only
-the most relevant fields, simplifying the dataset.
+The \code{refine_metadata} function cleans and standardizes Finna metadata by:
+\itemize{
+\item \strong{Validating Required Fields:} Checks for the presence of key metadata fields and returns \code{NULL} if any are missing.
+\item \strong{Handling Missing Values:} Replaces \code{NA} values in critical fields with descriptive placeholder text (e.g., "Unknown Title").
+\item \strong{Selecting Relevant Fields:} Keeps only the following fields for streamlined analysis:
+\itemize{
+\item \code{Title}: The title of the resource.
+\item \code{Author}: The creator or author of the resource.
+\item \code{Year}: The publication or release year.
+\item \code{Language}: The language of the resource.
+\item \code{Formats}: The format(s) of the resource (e.g., Book, Audio).
+\item \code{Subjects}: The subject keywords or classifications.
+\item \code{Library}: The owning library or institution.
+\item \code{Series}: The series or collection the resource belongs to.
+}
+}
 }
 \examples{
 library(finna)

@@ -6,6 +6,7 @@
 #' @param result The Finna collection result as a tibble.
 #' @param index The index of the collection to cite (numeric).
 #' @param style The citation style to use (default: "citation"). See \code{\link[utils]{bibentry}}.
+#' @return A bibliographic entry (\code{bibentry}) printed in the specified style.
 #' @export
 finna_cite <- function(result, index, style = "citation") {
   # Validate the input structure

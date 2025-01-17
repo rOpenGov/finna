@@ -1,10 +1,18 @@
 #' @title Refine Finna Metadata
 #'
 #' @description
-#' Refines the Finna metadata tibble by keeping relevant fields and cleaning up missing values.
-#' The purpose of the refine_metadata function is to: Ensure completeness by filling in missing
-#' values with placeholder text, Standardize key metadata fields for easier analysis, Select only
-#' the most relevant fields, simplifying the dataset.
+#' The `refine_metadata` function cleans and standardizes Finna metadata by:
+#' - **Validating Required Fields:** Checks for the presence of key metadata fields and returns `NULL` if any are missing.
+#' - **Handling Missing Values:** Replaces `NA` values in critical fields with descriptive placeholder text (e.g., "Unknown Title").
+#' - **Selecting Relevant Fields:** Keeps only the following fields for streamlined analysis:
+#'   - `Title`: The title of the resource.
+#'   - `Author`: The creator or author of the resource.
+#'   - `Year`: The publication or release year.
+#'   - `Language`: The language of the resource.
+#'   - `Formats`: The format(s) of the resource (e.g., Book, Audio).
+#'   - `Subjects`: The subject keywords or classifications.
+#'   - `Library`: The owning library or institution.
+#'   - `Series`: The series or collection the resource belongs to.
 #'
 #' @param data A tibble containing raw Finna metadata.
 #' @return A tibble with selected, cleaned metadata fields, or NULL if required fields are missing.

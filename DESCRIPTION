@@ -1,5 +1,5 @@
 Package: finna
-Title: Title: R Package for Finna API
+Title: Title: Access the 'Finna' API
 Version: 0.1.1
 Date: 2025-01-10
 Authors@R: c(
@@ -9,7 +9,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5537-637X"))
   )
 Maintainer: Akewak Jeba <akjeba@utu.fi>  
-Description: Provides functions to access and retrieve metadata from the Finna API, which aggregates content from Finnish archives, libraries, and museums.
+Description: Provides functions to access and retrieve metadata from the 'Finna' API <https://api.finna.fi/>, which aggregates content from Finnish archives, libraries, and museums.
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Imports: 
@@ -22,14 +22,8 @@ Imports:
     readr,
     tibble,
     curl,
-    rlang,
-    stringr,
-    tidyr,
     progress,
-    purrr,
-    tm,
-    stopwords,
-    wordcloud2
+    purrr
 Suggests: 
     testthat (>= 3.0.0),
     rmarkdown,

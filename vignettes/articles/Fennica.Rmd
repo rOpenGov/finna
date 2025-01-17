@@ -54,89 +54,19 @@ refined_data <- refine_metadata(fennica)
 ```
 
 ```{r message = FALSE, warning = FALSE, fig.alt = "visualize word cloud"}
+library(finna)
+library(ggplot2)
 fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv:"[1809 TO 1918]"'))
 refined_data <- refine_metadata(fennica)
+top_plot(refined_data, field = "Year") +
+  xlab("Publication Year") +  # Custom X-axis label
+  ylab("Number of Publications")  # Custom Y-axis label
+
 ```
 
-To search for specific fields like author information, publication details, and call numbers 
-using `search_finna`, you can use Finna's **field-specific search filters**. Finna allows 
-you to search in different fields by specifying the `type` parameter or adding filters. 
-Here's how you can modify the `search_finna` function to query these fields:
-
-### 1. **Search for Author Information:**
-
-   - You can use the `type = "Author"` option to specifically search for records by author.
-
-```{r message = FALSE, warning = FALSE}
-library(finna)
-record <-search_finna(query = "Jean Sibelius", type = "Author")
-record
-```
-
-Alternatively, you can apply filters to search for authors using the `filters` parameter:
-
-```{r message = FALSE, warning = FALSE}
-record <- search_finna(query = "Jean Sibelius", filters = c('author:"Jean Sibelius"'))
-record
-```
-
-### 2. **Search for Publication Information:**
-
-   If you want to search for publication information such as the publication date or publisher, you can use `type = "Title"` or `type = "AllFields"` and then apply filters:
-
-   - For specific years, you can use the `search_daterange_mv` filter:
-
-     ```r
-     search_finna(query = "Sibelius", filters = c('search_daterange_mv:"[2000 TO 2020]"'))
-     ```
-
-   - To search by publisher, you can add a filter for the publisher name:
-
-     ```r
-     search_finna(query = "Sibelius", filters = c('publisher:"Ondine"'))
-     ```
-
-### 3. **Search by Call Numbers:**
-
-   Call numbers are used to classify items in libraries. To search by call number, you can add a filter for `callnumber-search` or `callnumber`:
-
-   ```r
-   search_finna(query = "Sibelius", filters = c('callnumber-search:"78.54"'))
-   ```
-
-   This will return results where the call number is `78.54` (which is typically used for orchestral music).
-
-### Example Using Multiple Filters:
-You can combine these search types and filters to make more complex queries. For instance, to search for works by **Jean Sibelius** published between **2000 and 2020** with the call number **78.54**:
-
-```r
-search_finna(
-  query = "Sibelius",
-  filters = c('author:"Jean Sibelius"', 'search_daterange_mv:"[2000 TO 2020]"', 'callnumber-search:"78.54"')
-)
-```
-
-### Code Overview:
-
-```r
-# Author search example
-search_finna(query = "Jean Sibelius", type = "Author")
-
-# Search for works by author with publication date range
-search_finna(query = "Jean Sibelius", filters = c('search_daterange_mv:"[2000 TO 2020]"'))
-
-# Search for works by call number
-search_finna(query = "Sibelius", filters = c('callnumber-search:"78.54"'))
-
-# Combine author, publication date, and call number filters
-search_finna(
-  query = "Sibelius",
-  filters = c('author:"Jean Sibelius"', 'search_daterange_mv:"[2000 TO 2020]"', 'callnumber-search:"78.54"')
-)
-```
 
 ### Notes:
 - **Filters**: The filters need to match the exact field names used in Finna's API. You can find these field names in the API documentation or by looking at the response from the API [here](https://www.kiwi.fi/display/Finna/Kenttien+mappaukset+eri+formaateista+Finnan+indeksiin).
-- **Call Number Search**: Ensure that the call numbers are correctly formatted according to the library's classification system (e.g., YKL in Finland).
+- **Call Number Search**: Ensure that the call numbers are correctly formatted according to the library's classification system (e.g., [YKL in Finland](https://finto.fi/ykl/fi/?clang=en)).
   
 This way, you can extract specific metadata like authors, publication years, and call numbers using the `search_finna` function.

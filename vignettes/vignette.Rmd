@@ -172,7 +172,7 @@ record <- search_finna("era:'2010-luku'", filters = c('building:"0/3AMK/"'))
 ### search without removing duplication
 
 In order to search data without removing duplication
-[example](https://www.finna.fi/Search/Results?dfApplied=1&lookfor=era%3A%222010-luku%22&type=AllFields&filter[]=~building%3A%220%2F3AMK%2F%22&filter[]=finna.deduplication:%220%22)
+example.
 
 ```{r message = FALSE, warning = FALSE}
 record <- search_finna('era:"2010-luku"', filters = c('~building:"0/3AMK/"', 'finna.deduplication:"1"'))

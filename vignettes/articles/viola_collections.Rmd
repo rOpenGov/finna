@@ -69,7 +69,9 @@ library(ggplot2)
 
 # Refine metadata and visualize author distribution
 refined_data <- refine_metadata(results)
-top_plot(refined_data, field = "Year")
+top_plot(refined_data, field = "Year") +
+  xlab("Frequency") +  # Custom X-axis label
+  ylab("Year")  # Custom Y-axis label
 ```
 
 

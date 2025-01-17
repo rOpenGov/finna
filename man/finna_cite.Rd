@@ -13,6 +13,9 @@ finna_cite(result, index, style = "citation")
 
 \item{style}{The citation style to use (default: "citation"). See \code{\link[utils]{bibentry}}.}
 }
+\value{
+A bibliographic entry (\code{bibentry}) printed in the specified style.
+}
 \description{
 Automatically generates a citation for a Finna collection result.
 }
