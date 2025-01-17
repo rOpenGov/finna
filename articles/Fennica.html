@@ -35,7 +35,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/Fennica.html">Fennica in Finna</a></li>
     <li><a class="dropdown-item" href="../articles/finna_collections.html">Overview of Finna Collection</a></li>
-    <li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine, integrate and analyse Finna metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine finna metadata</a></li>
     <li><a class="dropdown-item" href="../articles/vignette.html">Introduction to finna</a></li>
     <li><a class="dropdown-item" href="../articles/viola_collections.html">Viola in Finna</a></li>
   </ul>
@@ -128,7 +128,7 @@ follows:</p>
 <span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">result_count</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">fennica</span>, <span class="st">"result_count"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result_count</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 56325</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 56324</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="visualization-for-fennica">Visualization for fennica<a class="anchor" aria-label="anchor" href="#visualization-for-fennica"></a>
@@ -139,125 +139,14 @@ follows:</p>
 <span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">fennica</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">fennica</span><span class="op">)</span></span></code></pre></div>
-<p>To search for specific fields like author information, publication
-details, and call numbers using <code>search_finna</code>, you can use
-Finna’s <strong>field-specific search filters</strong>. Finna allows you
-to search in different fields by specifying the <code>type</code>
-parameter or adding filters. Here’s how you can modify the
-<code>search_finna</code> function to query these fields:</p>
-<div class="section level3">
-<h3 id="search-for-author-information">1. <strong>Search for Author Information:</strong><a class="anchor" aria-label="anchor" href="#search-for-author-information"></a>
-</h3>
-<ul>
-<li>You can use the <code>type = "Author"</code> option to specifically
-search for records by author.</li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="va">record</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, type <span class="op">=</span> <span class="st">"Author"</span><span class="op">)</span></span>
-<span><span class="va">record</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 100 × 10</span></span></span>
-<span><span class="co">##    id                Title Author Year  Language Formats Subjects Library Series</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> kainet.265818     Viol… JEAN … 1983  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kainet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> jykdok.1840263    Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> fikka.5193247     Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> vaarakirjastot.1… Stri… Jean … 1985  <span style="color: #BB0000;">NA</span>       Äänite… kvartet… Vaara-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> eepos.135507      Humo… Sibel… 1981  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> eepos.100775      Stri… Sibel… 1985  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> eepos.133968      Musi… Sibel… 1989  mul      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> anders.107493     PENS… SIBEL… 1989  zxx      Nuotti  <span style="color: #BB0000;">NA</span>       Anders… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> anders.144771     WATE… SIBEL… 1997  <span style="color: #BB0000;">NA</span>       Nuotti  1870-LU… Anders… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> kirkes.84410      Pens… Sibel… 1985  <span style="color: #BB0000;">NA</span>       Nuotti  <span style="color: #BB0000;">NA</span>       Kirkes… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
-<p>Alternatively, you can apply filters to search for authors using the
-<code>filters</code> parameter:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'author:"Jean Sibelius"'</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">record</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 11 × 10</span></span></span>
-<span><span class="co">##    id                Title Author Year  Language Formats Subjects Library Series</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fikka.5193247     Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> jykdok.1840263    Jean… <span style="color: #BB0000;">NA</span>     1984  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Jyväsk… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> kainet.265818     Viol… JEAN … 1983  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kainet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> tmk.161015782984… koko… Londo… 1977  <span style="color: #BB0000;">NA</span>       Esine   musiikk… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> vaarakirjastot.1… Stri… Jean … 1985  <span style="color: #BB0000;">NA</span>       Äänite… kvartet… Vaara-… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> tmk.161006463105… Finl… Elect… 1931  <span style="color: #BB0000;">NA</span>       Esine   klassin… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> kavi.elonet_elok… Luon… Marik… 2011  <span style="color: #BB0000;">NA</span>       Video,… mediata… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> tmk.161006468816… ääni… Odeon… 1935  <span style="color: #BB0000;">NA</span>       Esine   klassin… Turun … <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> lapinkirjasto.15… Stri… Bergm… 1985  fin      Äänite… kvartet… Lapin … <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> tiekko.902020     Stri… Rauta… 1998  zxx      Kirja,… <span style="color: #BB0000;">NA</span>       Joki-k… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">11</span> helmet.2175636    Musi… Turun… 1941  fin      Kirja,… Kuula, … Helmet… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
-</div>
-<div class="section level3">
-<h3 id="search-for-publication-information">2. <strong>Search for Publication Information:</strong><a class="anchor" aria-label="anchor" href="#search-for-publication-information"></a>
-</h3>
-<p>If you want to search for publication information such as the
-publication date or publisher, you can use <code>type = "Title"</code>
-or <code>type = "AllFields"</code> and then apply filters:</p>
-<ul>
-<li>
-<p>For specific years, you can use the
-<code>search_daterange_mv</code> filter:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</li>
-<li>
-<p>To search by publisher, you can add a filter for the publisher
-name:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'publisher:"Ondine"'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="search-by-call-numbers">3. <strong>Search by Call Numbers:</strong><a class="anchor" aria-label="anchor" href="#search-by-call-numbers"></a>
-</h3>
-<p>Call numbers are used to classify items in libraries. To search by
-call number, you can add a filter for <code>callnumber-search</code> or
-<code>callnumber</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>This will return results where the call number is <code>78.54</code>
-(which is typically used for orchestral music).</p>
-</div>
-<div class="section level3">
-<h3 id="example-using-multiple-filters">Example Using Multiple Filters:<a class="anchor" aria-label="anchor" href="#example-using-multiple-filters"></a>
-</h3>
-<p>You can combine these search types and filters to make more complex
-queries. For instance, to search for works by <strong>Jean
-Sibelius</strong> published between <strong>2000 and 2020</strong> with
-the call number <strong>78.54</strong>:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span></span>
-<span>  query <span class="op">=</span> <span class="st">"Sibelius"</span>,</span>
-<span>  filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'author:"Jean Sibelius"'</span>, <span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span>, <span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="code-overview">Code Overview:<a class="anchor" aria-label="anchor" href="#code-overview"></a>
-</h3>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Author search example</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, type <span class="op">=</span> <span class="st">"Author"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Search for works by author with publication date range</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Jean Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Search for works by call number</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Sibelius"</span>, filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Combine author, publication date, and call number filters</span></span>
-<span><span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span></span>
-<span>  query <span class="op">=</span> <span class="st">"Sibelius"</span>,</span>
-<span>  filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'author:"Jean Sibelius"'</span>, <span class="st">'search_daterange_mv:"[2000 TO 2020]"'</span>, <span class="st">'callnumber-search:"78.54"'</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">fennica</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/top_plot.html">top_plot</a></span><span class="op">(</span><span class="va">refined_data</span>, field <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">"Publication Year"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Custom X-axis label</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"Number of Publications"</span><span class="op">)</span>  <span class="co"># Custom Y-axis label</span></span></code></pre></div>
+<p><img src="Fennica_files/figure-html/unnamed-chunk-5-1.png" alt="visualize word cloud" width="700"></p>
 <div class="section level3">
 <h3 id="notes">Notes:<a class="anchor" aria-label="anchor" href="#notes"></a>
 </h3>
@@ -269,7 +158,8 @@ documentation or by looking at the response from the API <a href="https://www.ki
 <li>
 <strong>Call Number Search</strong>: Ensure that the call numbers
 are correctly formatted according to the library’s classification system
-(e.g., YKL in Finland).</li>
+(e.g., <a href="https://finto.fi/ykl/fi/?clang=en" class="external-link">YKL in
+Finland</a>).</li>
 </ul>
 <p>This way, you can extract specific metadata like authors, publication
 years, and call numbers using the <code>search_finna</code>
