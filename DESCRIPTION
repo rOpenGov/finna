@@ -1,5 +1,5 @@
 Package: finna
-Title: Title: Access the 'Finna' API
+Title: Access the 'Finna' API
 Version: 0.1.1
 Date: 2025-01-10
 Authors@R: c(
@@ -14,6 +14,8 @@ License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Imports: 
     dplyr,
+    tidyr,
+    reshape2,
     glue,
     httr,
     xml2,
