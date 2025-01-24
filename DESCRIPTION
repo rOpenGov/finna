@@ -1,6 +1,6 @@
 Package: finna
 Title: Access the 'Finna' API
-Version: 0.1.1
+Version: 0.1.2
 Date: 2025-01-10
 Authors@R: c(
     person("Akewak", "Jeba", , "akjeba@utu.fi", role = c("aut", "cre"),
@@ -12,6 +12,7 @@ Maintainer: Akewak Jeba <akjeba@utu.fi>
 Description: Provides functions to access and retrieve metadata from the 'Finna' API <https://api.finna.fi/>, which aggregates content from Finnish archives, libraries, and museums.
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
+LazyData: true
 Imports: 
     dplyr,
     tidyr,
@@ -36,3 +37,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
