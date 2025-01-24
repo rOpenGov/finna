@@ -51,7 +51,8 @@
 <span>  nmin <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  mode <span class="op">=</span> <span class="st">"absolute"</span>,</span>
 <span>  time.window <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>  time.field <span class="op">=</span> <span class="st">"Year"</span></span>
+<span>  time.field <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span>  plot.type <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -86,6 +87,10 @@
 <dt id="arg-time-field">time.field<a class="anchor" aria-label="anchor" href="#arg-time-field"></a></dt>
 <dd><p>Specify the field to be used for time. By default: "Year", or if time.window is 10, then "publication_decade"</p></dd>
 
+
+<dt id="arg-plot-type">plot.type<a class="anchor" aria-label="anchor" href="#arg-plot-type"></a></dt>
+<dd><p>generates a plot with options like "lineplot" or "barplot".</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -102,7 +107,7 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="fu">timeline</span><span class="op">(</span><span class="va">df</span>, <span class="st">"gatherings"</span><span class="op">)</span> <span class="co"># \dontrun{}</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="fu">timeline</span><span class="op">(</span><span class="va">df</span>, <span class="st">"gatherings"</span>, plot.type <span class="op">=</span> <span class="st">"lineplot"</span><span class="op">)</span> <span class="co"># \dontrun{}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
