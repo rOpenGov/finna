@@ -11,7 +11,8 @@ timeline(
   nmin = 0,
   mode = "absolute",
   time.window = 10,
-  time.field = "Year"
+  time.field = "Year",
+  plot.type = NULL
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ timeline(
 \item{time.window}{Time window for the timeline in years. Default: 10 (publication decade).}
 
 \item{time.field}{Specify the field to be used for time. By default: "Year", or if time.window is 10, then "publication_decade"}
+
+\item{plot.type}{generates a plot with options like "lineplot" or "barplot".}
 }
 \value{
 data.frame
@@ -36,7 +39,7 @@ data.frame
 Timeline data for selected variable (possibly across various groups).
 }
 \examples{
-\dontrun{timeline(df, "gatherings")}
+\dontrun{timeline(df, "gatherings", plot.type = "lineplot")}
 }
 \references{
 See citation("bibliographica")

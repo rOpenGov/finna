@@ -7,15 +7,17 @@
 #' @param mode "absolute" or "relative"
 #' @param time.window Time window for the timeline in years. Default: 10 (publication decade).
 #' @param time.field Specify the field to be used for time. By default: "Year", or if time.window is 10, then "publication_decade"
+#' @param plot.type generates a plot with options like "lineplot" or "barplot".
 #' @return data.frame
 #' @importFrom tidyr pivot_wider
 #' @importFrom reshape2 melt
+#' @importFrom ggplot2 ggplot aes geom_line geom_bar theme_minimal labs
 #' @export
 #' @author Leo Lahti \email{leo.lahti@@iki.fi}
 #' @references See citation("bibliographica")
-#' @examples \dontrun{timeline(df, "gatherings")}
+#' @examples \dontrun{timeline(df, "gatherings", plot.type = "lineplot")}
 #' @keywords utilities
-timeline <- function (x, field = "titlecount", group = NULL, nmin = 0, mode = "absolute", time.window = 10, time.field = "Year") {
+timeline <- function (x, field = "titlecount", group = NULL, nmin = 0, mode = "absolute", time.window = 10, time.field = "Year", plot.type = NULL) {
 
   publication_decade <- publication_time <- NULL
 
@@ -45,7 +47,6 @@ timeline <- function (x, field = "titlecount", group = NULL, nmin = 0, mode = "a
   }
 
   x$field <- x[[field]]
-  #print(x)
 
   df2 <- x %>% filter(!is.na(group)) %>%
     group_by(publication_time, group) %>%
@@ -69,6 +70,21 @@ timeline <- function (x, field = "titlecount", group = NULL, nmin = 0, mode = "a
   # Combine counts and relatives
   dfs <- dplyr::full_join(df2, df3)
   dfs$mode <- dfs[[mode]]
+  if (!is.null(plot.type)) {
+    p <- ggplot(dfs, aes(x = publication_time, y = mode, color = group)) +
+      labs(title = "Timeline Analysis", x = "Time", y = mode) +
+      theme_minimal()
+
+    if (plot.type == "lineplot") {
+      p <- p + geom_line()
+    } else if (plot.type == "barplot") {
+      p <- p + geom_bar(stat = "identity", position = "dodge")
+    } else {
+      warning("Invalid plot type. Choose either 'lineplot' or 'barplot'.")
+    }
+
+    print(p)
+  }
 
   return(dfs)
 
