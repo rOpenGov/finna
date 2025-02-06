@@ -4,6 +4,7 @@ inst/doc
 /Meta/
 docs
 .DS_Store
+data/
 .Rhistory
 docs
 inst/doc
@@ -11,5 +12,6 @@ doc
 docs/
 Meta
 Meta/
-
+data/
+data
 
