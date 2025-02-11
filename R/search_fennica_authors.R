@@ -6,14 +6,16 @@
 #' @param authors_df A tibble with an `Author` column containing names.
 #' @return A tibble with `id`, `Title`, `Author`, and `Kanto_ID` columns matching authors to their Kanto URIs.
 #' @examples
-#' authors <- tibble::tibble(
-#'   id = c("helka.9912014063506253", "fikka.4030053", "jykdok.803124"),
-#'   Title = c("Lauseita Jak. Juteinin kirjoista",
-#'             "Försök till utredande af finska kieliopista",
-#'             "Suomen maanopas"),
-#'   Author = c("Jaakko Juteini", "Jaakko Juteini", "August Finelius")
-#' )
-#' search_fennica_authors(authors)
+#' \dontrun{
+#'   authors <- tibble::tibble(
+#'     id = c("helka.9912014063506253", "fikka.4030053", "jykdok.803124"),
+#'     Title = c("Lauseita Jak. Juteinin kirjoista",
+#'               "Försök till utredande af finska kieliopista",
+#'               "Suomen maanopas"),
+#'     Author = c("Jaakko Juteini", "Jaakko Juteini", "August Finelius")
+#'   )
+#'   search_fennica_authors(authors)
+#' }
 #' @importFrom dplyr mutate left_join distinct bind_rows filter select
 #' @importFrom tibble tibble as_tibble
 #' @export
@@ -29,7 +31,7 @@ search_fennica_authors <- function(authors_df) {
   # Function to clean and simplify names
   clean_name <- function(name) {
     name <- gsub("[,()]", "", name)  # Remove commas and parentheses
-    name <- gsub("\\byhtiö\\b|\\borganization\\b|\\bmedia\\b", "", name, ignore.case = TRUE)  # Remove unwanted words
+    name <- gsub("\\byhti\u00F6\\b|\\borganization\\b|\\bmedia\\b", "", name, ignore.case = TRUE)  # Remove unwanted words
     name <- trimws(name)  # Trim spaces
     return(name)
   }

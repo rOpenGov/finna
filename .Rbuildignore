@@ -6,7 +6,6 @@
 ^docs$
 ^pkgdown$
 ^LICENSE\.md$
-^data$
 .github
 ^.*\.tex$
 ^.*\.log$

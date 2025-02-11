@@ -5,7 +5,7 @@
 \alias{fennica_subset}
 \title{Fennica Subset Data}
 \format{
-A data frame with X rows and Y variables:
+A data frame with 54749 rows and 10 variables:
 \describe{
 \item{id}{Unique identifier}
 \item{Title}{Title of the work}
@@ -20,7 +20,7 @@ A data frame with X rows and Y variables:
 }
 }
 \source{
-\url{https://example.com/fennica}
+\url{https://www.finna.fi/}
 }
 \usage{
 fennica_subset

@@ -2,7 +2,7 @@
 #'
 #' A subset of the Fennica dataset for demonstration purposes.
 #'
-#' @format A data frame with X rows and Y variables:
+#' @format A data frame with 54749 rows and 10 variables:
 #' \describe{
 #'   \item{id}{Unique identifier}
 #'   \item{Title}{Title of the work}
@@ -15,5 +15,5 @@
 #'   \item{Series}{Series information}
 #'   \item{last_indexed}{Date of last indexing}
 #' }
-#' @source \url{https://example.com/fennica}
+#' @source \url{https://www.finna.fi/}
 "fennica_subset"

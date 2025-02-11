@@ -17,12 +17,14 @@ This function searches for Fennica authors in the Kanto (Finto) vocabulary,
 using optimized API calls and better handling for organization names.
 }
 \examples{
-authors <- tibble::tibble(
-  id = c("helka.9912014063506253", "fikka.4030053", "jykdok.803124"),
-  Title = c("Lauseita Jak. Juteinin kirjoista",
-            "Försök till utredande af finska kieliopista",
-            "Suomen maanopas"),
-  Author = c("Jaakko Juteini", "Jaakko Juteini", "August Finelius")
-)
-search_fennica_authors(authors)
+\dontrun{
+  authors <- tibble::tibble(
+    id = c("helka.9912014063506253", "fikka.4030053", "jykdok.803124"),
+    Title = c("Lauseita Jak. Juteinin kirjoista",
+              "Försök till utredande af finska kieliopista",
+              "Suomen maanopas"),
+    Author = c("Jaakko Juteini", "Jaakko Juteini", "August Finelius")
+  )
+  search_fennica_authors(authors)
+}
 }
