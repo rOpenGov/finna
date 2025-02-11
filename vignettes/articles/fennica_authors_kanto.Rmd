@@ -1,0 +1,41 @@
+---
+title: "Fennica Authors in Kanto"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Fennica Authors in Kanto}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Introduction
+
+This document provides an example usage of the search_fennica_authors() function, which links authors from the Fennica catalog to their respective Kanto IDs in Finto's 'Finaf' vocabulary. The function helps enrich metadata for bibliographic records.
+```{r message = FALSE, warning = FALSE}
+remotes::install_github("ake123/finto")
+
+```
+
+```{r message = FALSE, warning = FALSE}
+library(finna)
+library(finto)
+library(dplyr)
+
+data("fennica_subset",package = "finna")
+fennica_subset <- fennica_subset
+authors_df <- fennica_subset %>%
+  select(id, Title, Author) %>%
+  filter(!is.na(Author))
+head(authors_df)
+```
+
+
+
+```{r message = FALSE, warning = FALSE}
+head_author_df <- head(authors_df)
+fennica_authors <- search_fennica_authors(head_author_df)
+print(fennica_authors)
+```
+
+
+
+

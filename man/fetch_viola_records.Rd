@@ -6,7 +6,7 @@
 \usage{
 fetch_viola_records(
   base_query = "*",
-  base_filters = c("collection:\\"VIO\\""),
+  base_filters = c("collection:\\"VIO\\"", "finna.include_hidden_parts:1"),
   year_ranges = list(c(0, as.numeric(format(Sys.Date(), "\%Y")))),
   include_na = TRUE,
   limit_per_query = 1e+05,
