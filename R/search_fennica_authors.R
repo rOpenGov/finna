@@ -14,13 +14,13 @@
 #'               "Suomen maanopas"),
 #'     Author = c("Jaakko Juteini", "Jaakko Juteini", "August Finelius")
 #'   )
-#'   search_fennica_authors(authors)
+#'   add_kanto_id(authors)
 #' }
 #' @importFrom dplyr mutate left_join distinct bind_rows filter select
 #' @importFrom tibble tibble as_tibble
 #' @export
 
-search_fennica_authors <- function(authors_df) {
+add_kanto_id <- function(authors_df) {
 
   # Extract unique author names
   unique_authors <- unique(authors_df$Author)
