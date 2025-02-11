@@ -11,6 +11,7 @@
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
+<url><loc>/reference/add_kanto_id.html</loc></url>
 <url><loc>/reference/analyze_metadata.html</loc></url>
 <url><loc>/reference/analyze_trends_over_time.html</loc></url>
 <url><loc>/reference/check_api_access.html</loc></url>
@@ -29,7 +30,6 @@
 <url><loc>/reference/load_offline_data.html</loc></url>
 <url><loc>/reference/refine_metadata.html</loc></url>
 <url><loc>/reference/save_for_offline.html</loc></url>
-<url><loc>/reference/search_fennica_authors.html</loc></url>
 <url><loc>/reference/search_finna.html</loc></url>
 <url><loc>/reference/search_finna_with_annif.html</loc></url>
 <url><loc>/reference/search_publisher.html</loc></url>

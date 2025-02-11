@@ -99,12 +99,12 @@ function helps enrich metadata for bibliographic records.</p>
 <span><span class="co">## <span style="color: #BCBCBC;">4</span> jykdok.803124          Suomen maanopas : ynnä johdatuksen kanssa yhtei… Finel…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">5</span> fikka.4105004          Wiisauden waellus maan päällä                    Jutei…</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">6</span> helka.9914220973506253 Erhetyksen waikutus, elli Lapsen murha           Jutei…</span></span></code></pre>
-<p>After selection we use the <code><a href="../reference/search_fennica_authors.html">search_fennica_authors()</a></code> to
-search using the Author names of the from the fennica collection from
+<p>After selection we use the <code><a href="../reference/add_kanto_id.html">add_kanto_id()</a></code> to search
+using the Author names of the from the fennica collection from
 finto.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">head_author_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">authors_df</span><span class="op">)</span></span>
-<span><span class="va">fennica_authors</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_fennica_authors.html">search_fennica_authors</a></span><span class="op">(</span><span class="va">head_author_df</span><span class="op">)</span></span>
+<span><span class="va">fennica_authors</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/add_kanto_id.html">add_kanto_id</a></span><span class="op">(</span><span class="va">head_author_df</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">fennica_authors</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 4</span></span></span>
 <span><span class="co">##   id                     Title                                   Author Kanto_ID</span></span>
