@@ -20,7 +20,8 @@ It plots the number of records found for each decade, allowing users to observe 
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/Fennica.html">Fennica in Finna</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/fennica_authors_kanto.html">Fennica Authors in Kanto</a></li>
+    <li><a class="dropdown-item" href="../articles/Fennica.html">Fennica in Finna</a></li>
     <li><a class="dropdown-item" href="../articles/finna_collections.html">Overview of Finna Collection</a></li>
     <li><a class="dropdown-item" href="../articles/refinemetadata.html">Refine finna metadata</a></li>
     <li><a class="dropdown-item" href="../articles/vignette.html">Introduction to finna</a></li>
@@ -71,8 +72,8 @@ It plots the number of records found for each decade, allowing users to observe 
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">finna_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"Sibelius"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Default limit of 100 records is being used. Specify 'limit' argument for more records.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44515</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.64 seconds.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44529</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.72 seconds.</span>
 <span class="r-in"><span><span class="va">trends</span> <span class="op">&lt;-</span> <span class="fu">analyze_trends_over_time</span><span class="op">(</span><span class="va">finna_data</span>, <span class="st">"Sibelius"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">trends</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="analyze_trends_over_time-1.png" alt="" width="700" height="433"></span>
