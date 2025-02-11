@@ -10,13 +10,14 @@ vignette: >
 Introduction
 
 This document provides an example usage of the search_fennica_authors() function, which links authors from the Fennica catalog to their respective Kanto IDs in Finto's 'Finaf' vocabulary. The function helps enrich metadata for bibliographic records.
+
 ```{r message = FALSE, warning = FALSE}
-if (!requireNamespace("devtools", quietly = TRUE)) {
-  install.packages("devtools")
-}
-devtools::install_github("ake123/finto")
-
-
+suppressMessages(suppressWarnings({
+  if (!requireNamespace("devtools", quietly = TRUE)) {
+    install.packages("devtools", quiet = TRUE)
+  }
+  devtools::install_github("ake123/finto", quiet = TRUE)
+}))
 ```
 
 After downloading the package  we select the columns `id`, `Title` and `Author`
