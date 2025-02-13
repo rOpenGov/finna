@@ -29,12 +29,17 @@ library(dplyr)
 
 data("fennica_subset",package = "finna")
 fennica_subset <- tail(fennica_subset)
+print(fennica_subset)
+```
 
+
+```{r message = FALSE, warning = FALSE}
+library(finna)
+library(finto)
 authors_df <- finto::process_and_fetch_kanto_info(fennica_subset)
 head(authors_df)
 ```
 
-After selection we use the `add_kanto_id()` to search  using the Author names of the from the fennica collection from finto. 
 
 
 
