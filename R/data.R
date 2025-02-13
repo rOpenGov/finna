@@ -2,7 +2,7 @@
 #'
 #' A subset of the Fennica dataset for demonstration purposes.
 #'
-#' @format A data frame with 54749 rows and 6 variables:
+#' @format A data frame with 312 rows and 6 variables:
 #' \describe{
 #'   \item{ID}{Unique identifier}
 #'   \item{Author}{Author(s) of the work, including MARC encoding}

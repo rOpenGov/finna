@@ -5,7 +5,7 @@
 \alias{fennica_subset}
 \title{Fennica Subset Data}
 \format{
-A data frame with 54749 rows and 6 variables:
+A data frame with 312 rows and 6 variables:
 \describe{
 \item{ID}{Unique identifier}
 \item{Author}{Author(s) of the work, including MARC encoding}

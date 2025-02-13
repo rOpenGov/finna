@@ -34,8 +34,6 @@ print(fennica_subset)
 
 
 ```{r message = FALSE, warning = FALSE}
-library(finna)
-library(finto)
 authors_df <- finto::process_and_fetch_kanto_info(fennica_subset)
 head(authors_df)
 ```
