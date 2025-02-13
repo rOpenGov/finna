@@ -2,18 +2,14 @@
 #'
 #' A subset of the Fennica dataset for demonstration purposes.
 #'
-#' @format A data frame with 54749 rows and 10 variables:
+#' @format A data frame with 54749 rows and 6 variables:
 #' \describe{
-#'   \item{id}{Unique identifier}
-#'   \item{Title}{Title of the work}
-#'   \item{Author}{Author(s) of the work}
-#'   \item{Year}{Publication year}
-#'   \item{Language}{Language of the work}
-#'   \item{Formats}{Available formats}
-#'   \item{Subjects}{Subject categories}
-#'   \item{Library}{Holding library}
-#'   \item{Series}{Series information}
-#'   \item{last_indexed}{Date of last indexing}
+#'   \item{ID}{Unique identifier}
+#'   \item{Author}{Author(s) of the work, including MARC encoding}
+#'   \item{Name_100a}{Primary name entry for the author}
+#'   \item{Code_1000}{Authority control code for the author}
+#'   \item{Code_7000}{Additional linked authors or contributors}
+#'   \item{Code_7001}{Authority control code for secondary contributors}
 #' }
 #' @source \url{https://www.finna.fi/}
 "fennica_subset"
