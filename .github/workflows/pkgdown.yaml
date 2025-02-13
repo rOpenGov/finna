@@ -1,6 +1,3 @@
-# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-
 on:
   push:
     branches: [main]
@@ -17,7 +14,6 @@ permissions: read-all
 jobs:
   pkgdown:
     runs-on: ubuntu-latest
-    # Only restrict concurrency for non-PR jobs
     concurrency:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
@@ -33,9 +29,18 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: Clean up old R packages
+        run: rm -rf /home/runner/work/_temp/Library/*
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::pkgdown, local::.
+          needs: recompute
+
+      - name: Force reinstall cli
+        run: |
+          Rscript -e 'remove.packages("cli")'
+          Rscript -e 'install.packages("cli", dependencies = TRUE)'
 
       - uses: r-lib/actions/setup-tinytex@v2
 
@@ -54,8 +59,10 @@ jobs:
           echo "      href: 'reference/index.html'" >> ./_pkgdown.yml
           echo "template:" >> ./_pkgdown.yml
           echo "  bootstrap: 5" >> ./_pkgdown.yml
+
+          rm -rf docs/
+
           Rscript -e 'pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)'
-        shell: bash
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
