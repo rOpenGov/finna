@@ -93,15 +93,15 @@ reporting.</p>
 <span><span class="co">##    Title                   Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Sibelius favourites : … Sibel… 2001  Unknown… Äänite… orkeste… Lapin … Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Eepos-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… Heili-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… OUTI-k… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Sibelius                Tawas… 1968  swe      Kirja,… Sibeliu… Anders… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> SIBELIUS                RINGB… 1948  swe      Kirja,… SIBELIU… Helle-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> SIBELIUS                TAWAS… 1968  swe      Kirja,… SIBELIU… Helle-… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Sibelius                Gray,… 1945  eng      Kirja,… Sibeliu… Vanamo… Unkno…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius                Picke… 1960  spa      Kirja,… Sibeliu… Jyväsk… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius                Gray,… 1931  eng      Kirja,… henkilö… Helka-… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Sibelius                Lampi… 1995  fin      Kirja,… Sibeliu… Anders… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Sibelius                Tawas… 2015  fin      Kirja,… Sibeliu… Anders… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Sibelius                Lampi… 2005  fin      Kirja,… säveltä… Helka-… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… Eepos-… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Anders… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Rutakk… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Sibelius                Ringb… 1948  swe      Kirja,… Sibeliu… Anders… Unkno…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Sibelius                Ringb… 1948  swe      Kirja,… Sibeliu… Kansal… Unkno…</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 <div class="section level4">
 <h4 id="analyze-using-analyze_metadata-function">
@@ -114,52 +114,49 @@ Function</strong><a class="anchor" aria-label="anchor" href="#analyze-using-anal
 <span><span class="va">analysis_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/analyze_metadata.html">analyze_metadata</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">analysis_results</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $format_distribution</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 11 × 2</span></span></span>
-<span><span class="co">##    Formats                            n</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Kirja, Kirja                      59</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Lehti/Artikkeli, Artikkeli        15</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Äänite, CD                        10</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Video, DVD                         5</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Äänite, Äänilevy                   4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Video, Elokuva, lyhyt              2</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Arkisto/Kokoelma, Arkistosarja     1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Taideteos, Taideteos               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Taideteos, Veistos                 1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Video, Elokuva, pitkä              1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">11</span> Äänite, Äänikasetti                1</span></span>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 8 × 2</span></span></span>
+<span><span class="co">##   Formats                            n</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> Kirja, Kirja                      52</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> Lehti/Artikkeli, Artikkeli        20</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> Äänite, CD                        12</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> Video, DVD                         6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> Äänite, Äänilevy                   6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> Video, Elokuva, lyhyt              2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">7</span> Arkisto/Kokoelma, Arkistosarja     1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">8</span> Äänite, Äänikasetti                1</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $year_distribution</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 37 × 2</span></span></span>
-<span><span class="co">##    Year             n</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 1948            10</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 1997             9</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 1945             7</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 1999             7</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 2003             7</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 1968             6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 1984             4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 1998             4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Unknown Year     4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 1949             3</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 27 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 36 × 2</span></span></span>
+<span><span class="co">##    Year      n</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 1997      9</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 1948      8</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 1999      8</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 1945      6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 1968      6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 2003      6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 1998      5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 1949      4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 1996      4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 1931      3</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 26 more rows</span></span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $author_distribution</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 54 × 2</span></span></span>
-<span><span class="co">##    Author                                        n</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Häyrynen, Antti                               9</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius, Jean                                8</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Ringbom, Nils-Eric                            5</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Lampila, Hannu-Ilari                          4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Layton, Robert                                4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Downes, Olin, Sjöblom, Paul, Jalas, Jussi     3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Gray, Cecil                                   3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Schouwman, Hans                               3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Tawaststjerna, Erik                           3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Valsta, Heikki                                3</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 44 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 50 × 2</span></span></span>
+<span><span class="co">##    Author                   n</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Häyrynen, Antti         13</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Sibelius, Jean          10</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Layton, Robert           6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Ringbom, Nils-Eric       5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Gray, Cecil              4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Lampila, Hannu-Ilari     4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Haapaniemi, Jaakko       3</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Schouwman, Hans          3</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Tawaststjerna, Erik      3</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Valsta, Heikki           3</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 40 more rows</span></span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="applying-the-visualize_year_distribution-function">1. <strong>Applying the <code>visualize_year_distribution()</code>

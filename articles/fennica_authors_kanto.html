@@ -86,31 +86,343 @@ function helps enrich metadata for bibliographic records.</p>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"fennica_subset"</span>,package <span class="op">=</span> <span class="st">"finna"</span><span class="op">)</span></span>
 <span><span class="va">fennica_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 6</span></span></span>
-<span><span class="co">##   ID        Author                   Name_100a     Code_1000 Code_7000 Code_7001</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 000864524 00000cam a2200445 i 4500 Reuter, Enzi… (FIN11)0… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> 000864525 00000cam a2200445 i 4500 Wendt, Georg… (FIN11)0… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 000864526 00000cam a2200421 i 4500 Linnaniemi, … <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> 000864528 00000cam a2200925 i 4500 <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>        Cronvall… <span style="color: #BB0000;">NA</span>       </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> 000864529 00000cam a2201177 i 4500 Mechelin, L., (FIN11)0… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 000864530 00000cam a2200769 i 4500 <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>        Kuronen,… (FIN11)0…</span></span></code></pre>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">fennica_subset</span>,caption <span class="op">=</span> <span class="st">"fennica data"</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<caption>fennica data</caption>
+<colgroup>
+<col width="7%">
+<col width="18%">
+<col width="16%">
+<col width="12%">
+<col width="31%">
+<col width="12%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">ID</th>
+<th align="left">Author</th>
+<th align="left">Name_100a</th>
+<th align="left">Code_1000</th>
+<th align="left">Code_7000</th>
+<th align="left">Code_7001</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">000864524</td>
+<td align="left">00000cam a2200445 i 4500</td>
+<td align="left">Reuter, Enzio,</td>
+<td align="left">(FIN11)000080453</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864525</td>
+<td align="left">00000cam a2200445 i 4500</td>
+<td align="left">Wendt, Georg von,</td>
+<td align="left">(FIN11)000084103</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864526</td>
+<td align="left">00000cam a2200421 i 4500</td>
+<td align="left">Linnaniemi, Walter L.</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864528</td>
+<td align="left">00000cam a2200925 i 4500</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Cronvall, Timo.</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864529</td>
+<td align="left">00000cam a2201177 i 4500</td>
+<td align="left">Mechelin, L.,</td>
+<td align="left">(FIN11)000090610</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864530</td>
+<td align="left">00000cam a2200769 i 4500</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Kuronen, Soili.|Kainulainen, Juhana,</td>
+<td align="left">(FIN11)000091625</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/finto/man/process_and_fetch_kanto_info.html" class="external-link">process_and_fetch_kanto_info</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">authors_df</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
-<span><span class="co">##   ID        Author  Name_100a Code_1000 Code_7000 Code_7001 asteriID uri   type </span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 000864524 00000c… Reuter, … (FIN11)0… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        0000804… http… http…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> 000864525 00000c… Wendt, G… (FIN11)0… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        0000841… http… http…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 000864526 00000c… Linnanie… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> 000864528 00000c… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        Cronvall… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> 000864529 00000c… Mechelin… (FIN11)0… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        0000906… http… skos…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 000864530 00000c… <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>        Kuronen,… (FIN11)0… 0000916… http… http…</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 4 more variables: prefLabel &lt;chr&gt;, description &lt;lgl&gt;, publisher &lt;lgl&gt;,</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   contributor &lt;lgl&gt;</span></span></span></code></pre>
-  </main>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">authors_df</span>, caption <span class="op">=</span> <span class="st">"Authors Data Frame"</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<caption>Authors Data Frame</caption>
+<colgroup>
+<col width="1%">
+<col width="4%">
+<col width="4%">
+<col width="3%">
+<col width="7%">
+<col width="3%">
+<col width="1%">
+<col width="8%">
+<col width="10%">
+<col width="5%">
+<col width="1%">
+<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="0%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="7%">
+<col width="6%">
+<col width="2%">
+<col width="3%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">ID</th>
+<th align="left">Author</th>
+<th align="left">Name_100a</th>
+<th align="left">Code_1000</th>
+<th align="left">Code_7000</th>
+<th align="left">Code_7001</th>
+<th align="left">asteriID</th>
+<th align="left">uri</th>
+<th align="left">type</th>
+<th align="left">prefLabel</th>
+<th align="left">altLabel</th>
+<th align="left">hiddenLabel</th>
+<th align="left">broader</th>
+<th align="left">narrower</th>
+<th align="left">related</th>
+<th align="left">definition</th>
+<th align="left">scopeNote</th>
+<th align="left">example</th>
+<th align="left">historyNote</th>
+<th align="left">editorialNote</th>
+<th align="left">changeNote</th>
+<th align="left">note</th>
+<th align="left">birthDate</th>
+<th align="left">deathDate</th>
+<th align="left">exactMatch</th>
+<th align="left">closeMatch</th>
+<th align="left">inScheme</th>
+<th align="left">created</th>
+<th align="left">modified</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">000864524</td>
+<td align="left">00000cam a2200445 i 4500</td>
+<td align="left">Reuter, Enzio,</td>
+<td align="left">(FIN11)000080453</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">000080453</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000080453" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000080453</a></td>
+<td align="left">
+<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
+skos:Concept</td>
+<td align="left">Reuter, Enzio, 1867-1951</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">1867</td>
+<td align="left">1951</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006353" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006353</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1997-12-17</td>
+<td align="left">2023-04-20T12:31:37</td>
+</tr>
+<tr class="even">
+<td align="left">000864525</td>
+<td align="left">00000cam a2200445 i 4500</td>
+<td align="left">Wendt, Georg von,</td>
+<td align="left">(FIN11)000084103</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">000084103</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084103" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084103</a></td>
+<td align="left">
+<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
+skos:Concept</td>
+<td align="left">Wendt, Georg von, 1876-1954</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">1876</td>
+<td align="left">1954</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006521" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006521</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1998-05-15</td>
+<td align="left">2023-04-20T12:31:45</td>
+</tr>
+<tr class="odd">
+<td align="left">000864526</td>
+<td align="left">00000cam a2200421 i 4500</td>
+<td align="left">Linnaniemi, Walter L.</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864528</td>
+<td align="left">00000cam a2200925 i 4500</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Cronvall, Timo.</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864529</td>
+<td align="left">00000cam a2201177 i 4500</td>
+<td align="left">Mechelin, L.,</td>
+<td align="left">(FIN11)000090610</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">000090610</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Mechelin, L., 1839-1914</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">1839</td>
+<td align="left">1914</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003553" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003553</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1998-07-22</td>
+<td align="left">2023-04-20T12:29:54</td>
+</tr>
+<tr class="even">
+<td align="left">000864530</td>
+<td align="left">00000cam a2200769 i 4500</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Kuronen, Soili.|Kainulainen, Juhana,</td>
+<td align="left">(FIN11)000091625</td>
+<td align="left">000091625</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000091625" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000091625</a></td>
+<td align="left">
+<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
+skos:Concept</td>
+<td align="left">Kainulainen, Juhana, 1788-1847</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">1788</td>
+<td align="left">1847</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1997-10-21</td>
+<td align="left">2022-09-02T19:14:58</td>
+</tr>
+</tbody>
+</table></main>
 </div>
 
 
