@@ -29,13 +29,13 @@ library(dplyr)
 
 data("fennica_subset",package = "finna")
 fennica_subset <- tail(fennica_subset)
-knitr::kable(fennica_subset,caption = "fennica data")
+knitr::kable(fennica_subset,caption = "few selected fennica data")
 ```
 
 
 ```{r message = FALSE, warning = FALSE}
 authors_df <- finto::process_and_fetch_kanto_info(fennica_subset)
-knitr::kable(authors_df, caption = "Authors Data Frame")
+knitr::kable(authors_df, caption = "Authors Data Frame from kanto")
 ```
 
 
