@@ -156,49 +156,39 @@ function helps enrich metadata for bibliographic records.</p>
 </tr>
 </tbody>
 </table>
+<p>So the processed output of the retrieved finto/kanto data can be
+found here.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/finto/man/process_and_fetch_kanto_info.html" class="external-link">process_and_fetch_kanto_info</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">authors_df</span>, caption <span class="op">=</span> <span class="st">"Authors Data Frame from kanto"</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <caption>Authors Data Frame from kanto</caption>
 <colgroup>
-<col width="1%">
-<col width="4%">
-<col width="3%">
 <col width="2%">
-<col width="7%">
-<col width="2%">
-<col width="1%">
-<col width="7%">
 <col width="9%">
-<col width="5%">
-<col width="1%">
-<col width="2%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="2%">
-<col width="2%">
-<col width="1%">
-<col width="12%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
+<col width="11%">
 <col width="6%">
-<col width="5%">
 <col width="1%">
-<col width="3%">
+<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="16%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="8%">
+<col width="7%">
+<col width="2%">
+<col width="4%">
 </colgroup>
 <thead><tr class="header">
-<th align="left">ID</th>
-<th align="left">Author</th>
-<th align="left">Name_100a</th>
-<th align="left">Code_1000</th>
-<th align="left">Code_7000</th>
-<th align="left">Code_7001</th>
 <th align="left">asteriID</th>
 <th align="left">uri</th>
 <th align="left">type</th>
@@ -225,12 +215,6 @@ function helps enrich metadata for bibliographic records.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">000864524</td>
-<td align="left">00000cam a2200445 i 4500</td>
-<td align="left">Reuter, Enzio,</td>
-<td align="left">(FIN11)000080453</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
 <td align="left">000080453</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000080453" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000080453</a></td>
 <td align="left">
@@ -259,12 +243,6 @@ skos:Concept</td>
 <td align="left">2023-04-20T12:31:37</td>
 </tr>
 <tr class="even">
-<td align="left">000864525</td>
-<td align="left">00000cam a2200445 i 4500</td>
-<td align="left">Wendt, Georg von,</td>
-<td align="left">(FIN11)000084103</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
 <td align="left">000084103</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084103" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084103</a></td>
 <td align="left">
@@ -293,12 +271,6 @@ skos:Concept</td>
 <td align="left">2023-04-20T12:31:45</td>
 </tr>
 <tr class="odd">
-<td align="left">000864526</td>
-<td align="left">00000cam a2200421 i 4500</td>
-<td align="left">Linnaniemi, Walter L.</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -324,12 +296,6 @@ skos:Concept</td>
 <td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">000864528</td>
-<td align="left">00000cam a2200925 i 4500</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Cronvall, Timo.</td>
-<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -355,12 +321,6 @@ skos:Concept</td>
 <td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">000864529</td>
-<td align="left">00000cam a2201177 i 4500</td>
-<td align="left">Mechelin, L.,</td>
-<td align="left">(FIN11)000090610</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
 <td align="left">000090610</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
@@ -390,12 +350,6 @@ skos:Concept</td>
 <td align="left">2023-04-20T12:29:54</td>
 </tr>
 <tr class="even">
-<td align="left">000864530</td>
-<td align="left">00000cam a2200769 i 4500</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Kuronen, Soili.|Kainulainen, Juhana,</td>
-<td align="left">(FIN11)000091625</td>
 <td align="left">000091625</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000091625" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000091625</a></td>
 <td align="left">
