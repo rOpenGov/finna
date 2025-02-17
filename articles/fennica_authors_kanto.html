@@ -157,34 +157,34 @@ function helps enrich metadata for bibliographic records.</p>
 </tbody>
 </table>
 <p>So the processed output of the retrieved finto/kanto data can be
-found here.</p>
+found using the provided code below.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/finto/man/process_and_fetch_kanto_info.html" class="external-link">process_and_fetch_kanto_info</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">authors_df</span>, caption <span class="op">=</span> <span class="st">"Authors Data Frame from kanto"</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
+<table style="width:100%;" class="table">
 <caption>Authors Data Frame from kanto</caption>
 <colgroup>
 <col width="2%">
-<col width="9%">
-<col width="11%">
-<col width="6%">
-<col width="1%">
-<col width="2%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="2%">
-<col width="2%">
-<col width="1%">
-<col width="2%">
-<col width="2%">
-<col width="2%">
-<col width="16%">
-<col width="2%">
-<col width="2%">
-<col width="2%">
-<col width="8%">
+<col width="10%">
+<col width="13%">
 <col width="7%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="2%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="2%">
+<col width="3%">
+<col width="2%">
+<col width="6%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="9%">
+<col width="8%">
 <col width="2%">
 <col width="4%">
 </colgroup>
@@ -232,7 +232,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
+<td align="left">biologist</td>
 <td align="left">1867</td>
 <td align="left">1951</td>
 <td align="left">NA</td>
@@ -260,7 +260,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
+<td align="left">physiologist</td>
 <td align="left">1876</td>
 <td align="left">1954</td>
 <td align="left">NA</td>
@@ -296,31 +296,6 @@ skos:Concept</td>
 <td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
 <td align="left">000090610</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
@@ -337,9 +312,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
-</td>
+<td align="left">social politician, lawyer</td>
 <td align="left">1839</td>
 <td align="left">1914</td>
 <td align="left">NA</td>
@@ -349,7 +322,7 @@ skos:Concept</td>
 <td align="left">1998-07-22</td>
 <td align="left">2023-04-20T12:29:54</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">000091625</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000091625" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000091625</a></td>
 <td align="left">
@@ -367,7 +340,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
+<td align="left">rune singer</td>
 <td align="left">1788</td>
 <td align="left">1847</td>
 <td align="left">NA</td>
