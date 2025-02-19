@@ -1,6 +1,0 @@
-url: https://ropengov.github.io/finna/
-
-template:
-  # Use Bootstrap 5 for the site styling
-  bootstrap: 5
-output_dir: docs
